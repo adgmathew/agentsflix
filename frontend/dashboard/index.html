@@ -6,6 +6,8 @@
     <title>AgentsFlix Dashboard</title>
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jsPDF CDN for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -131,12 +133,11 @@
                 </div>
             </div>
             
-            <!-- Latency p95 (gauge) - we'll use a simple number and a progress bar -->
+            <!-- Latency p95 (gauge) -->
             <div class="metric-card">
                 <h3>Latency P95</h3>
-                <div style="text-align: center;">
-                    <div id="latencyValue" style="font-size: 2rem; font-weight: bold; color: #007bff;">--</div>
-                    <div>ms</div>
+                <div class="chart-container">
+                    <canvas id="latencyGaugeChart"></canvas>
                 </div>
             </div>
         </div>
@@ -181,6 +182,7 @@
     <script>
         // Mock data for demonstration
         const companyId = 'mock-company-id';
+        const maxLatency = 200; // ms for gauge max
         
         // Initialize charts
         const costCtx = document.getElementById('costChart').getContext('2d');
@@ -255,7 +257,7 @@
                         'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)'
                     ],
-                    borderWidth: 1
+                    borderWeight: 1
                 }]
             },
             options: {
@@ -283,20 +285,55 @@
             }
         });
 
+        // Latency gauge chart
+        const latencyGaugeCtx = document.getElementById('latencyGaugeChart').getContext('2d');
+        const latencyGaugeChart = new Chart(latencyGaugeCtx, {
+            type: 'doughnut',
+            data: {
+                datasets: [{
+                    data: [50, 150], // [latency, remaining]
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(200, 200, 200, 0.5)'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '80%',
+                rotation: -90,
+                circumference: 180,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                }
+            }
+        });
+
         // Update latency gauge (simulated)
         function updateLatency() {
             const latency = Math.floor(Math.random() * 100) + 50; // 50-150 ms
-            document.getElementById('latencyValue').textContent = latency;
+            const remaining = maxLatency - latency;
+            
+            latencyGaugeChart.data.datasets[0].data = [latency, remaining];
+            latencyGaugeChart.update();
             
             // Change color based on latency
-            const latencyValue = document.getElementById('latencyValue');
+            const meta = latencyGaugeChart.getDatasetMeta(0);
             if (latency > 120) {
-                latencyValue.style.color = '#dc3545'; // red
+                meta.data[0].backgroundColor = 'rgba(255, 99, 132, 0.8)'; // red
             } else if (latency > 80) {
-                latencyValue.style.color = '#ffc107'; // yellow
+                meta.data[0].backgroundColor = 'rgba(255, 193, 7, 0.8)'; // yellow
             } else {
-                latencyValue.style.color = '#28a745'; // green
+                meta.data[0].backgroundColor = 'rgba(40, 167, 69, 0.8)'; // green
             }
+            latencyGaugeChart.update();
         }
         updateLatency();
         setInterval(updateLatency, 5000); // update every 5 seconds
@@ -331,33 +368,177 @@
             // In a real app, we would fetch new data based on the date range
         });
 
-        // Export buttons (mock)
+        // Export buttons
         document.getElementById('exportCsv').addEventListener('click', function() {
-            alert('Exporting to CSV...');
-            // Implement CSV export here
+            exportToCsv();
         });
         
         document.getElementById('exportPdf').addEventListener('click', function() {
-            alert('Exporting to PDF...');
-            // Implement PDF export here
+            exportToPdf();
         });
 
-        // Budget alert (mock)
-        function checkBudget() {
-            // Simulate budget check
-            const budgetExceeded = Math.random() > 0.7; // 30% chance of exceeding
-            const alert = document.getElementById('budgetAlert');
-            if (budgetExceeded) {
-                alert.style.display = 'block';
-            } else {
-                alert.style.display = 'none';
+        // CSV export function
+        function exportToCsv() {
+            const rows = [];
+            // header
+            rows.push(['Rank', 'Prompt', 'Model', 'Tokens', 'Cost']);
+            // data
+            const table = document.getElementById('topPromptsTable');
+            for (let i = 1; i < table.rows.length; i++) {
+                const row = table.rows[i];
+                const cells = [];
+                for (let j = 0; j < row.cells.length; j++) {
+                    cells.push(row.cells[j].innerText);
+                }
+                rows.push(cells);
+            }
+            
+            let csvContent = '';
+            rows.forEach(function(rowArray) {
+                let row = rowArray.join(',');
+                csvContent += row + '\n';
+            });
+            
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'top_prompts.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // PDF export function
+        function exportToPdf() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Add a title
+            doc.setFontSize(20);
+            doc.text('Top 10 Most Expensive Prompts', 10, 10);
+            
+            // Add table data
+            const table = document.getElementById('topPromptsTable');
+            const headers = [['Rank', 'Prompt', 'Model', 'Tokens', 'Cost']];
+            const data = [];
+            for (let i = 1; i < table.rows.length; i++) {
+                const row = table.rows[i];
+                const rowData = [];
+                for (let j = 0; j < row.cells.length; j++) {
+                    rowData.push(row.cells[j].innerText);
+                }
+                data.push(rowData);
+            }
+            
+            // Using jsPDF's autoTable plugin would be better, but for simplicity we'll draw manually
+            // We'll just put the data as text for now
+            let y = 20;
+            doc.setFontSize(12);
+            data.forEach(function(row) {
+                const text = row.join(' | ');
+                doc.text(10, y, text);
+                y += 10;
+                if (y > 280) { // new page if needed
+                    doc.addPage();
+                    y = 20;
+                }
+            });
+            
+            doc.save('top_prompts.pdf');
+        }
+
+        // Budget alert function
+        async function checkBudget() {
+            try {
+                // In a real app, we would fetch from the backend
+                // For now, we'll mock the response
+                const response = await fetch('/api/budget', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const data = await response.json();
+                const { companyId, monthlyBudget, currentUsage } = data;
+                const budgetExceeded = currentUsage > monthlyBudget;
+                
+                const alert = document.getElementById('budgetAlert');
+                if (budgetExceeded) {
+                    alert.textContent = `Alert: Budget threshold exceeded! Used $${currentUsage} of $${monthlyBudget} budget.`;
+                    alert.style.display = 'block';
+                } else {
+                    alert.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Failed to check budget:', error);
+                // Fallback to mock in case of error
+                const budgetExceeded = Math.random() > 0.7; // 30% chance of exceeding
+                const alert = document.getElementById('budgetAlert');
+                if (budgetExceeded) {
+                    alert.style.display = 'block';
+                } else {
+                    alert.style.display = 'none';
+                }
             }
         }
+        
+        // Initial budget check
         checkBudget();
         setInterval(checkBudget, 10000); // check every 10 seconds
 
         // WebSocket for real-time updates (mock)
         // In a real app, we would connect to a WebSocket endpoint
+        // For now, we'll simulate updates with setInterval
+        function simulateRealTimeUpdates() {
+            // Update cost chart with random data
+            if (costChart) {
+                costChart.data.datasets[0].data = costChart.data.datasets[0].data.map(value => {
+                    // Small random change
+                    const change = (Math.random() - 0.5) * 10;
+                    return Math.max(0, value + change);
+                });
+                costChart.update();
+            }
+            
+            // Update token usage chart
+            if (tokenUsageChart) {
+                tokenUsageChart.data.datasets[0].data = tokenUsageChart.data.datasets[0].data.map(value => {
+                    const change = (Math.random() - 0.5) * 200;
+                    return Math.max(0, value + change);
+                });
+                tokenUsageChart.update();
+            }
+            
+            // Update model distribution chart
+            if (modelDistChart) {
+                modelDistChart.data.datasets[0].data = modelDistChart.data.datasets[0].data.map(value => {
+                    const change = (Math.random() - 0.5) * 10;
+                    return Math.max(0, value + change);
+                });
+                modelDistChart.update();
+            }
+            
+            // Update violations chart
+            if (violationsChart) {
+                violationsChart.data.datasets[0].data = violationsChart.data.datasets[0].data.map(value => {
+                    const change = Math.round((Math.random() - 0.5) * 3);
+                    return Math.max(0, value + change);
+                });
+                violationsChart.update();
+            }
+        }
+        
+        // Set interval for real-time updates (every 3 seconds)
+        setInterval(simulateRealTimeUpdates, 3000);
+        
+        // Mock WebSocket connection message
         console.log('WebSocket connection would be established here for real-time updates.');
     </script>
 </body>

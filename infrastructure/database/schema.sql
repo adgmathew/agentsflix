@@ -86,3 +86,7 @@ CREATE INDEX IF NOT EXISTS idx_request_logs_timestamp ON request_logs (timestamp
 CREATE INDEX IF NOT EXISTS idx_violations_api_key_id ON violations (api_key_id);
 CREATE INDEX IF NOT EXISTS idx_invoices_company_id ON invoices (company_id);
 CREATE INDEX IF NOT EXISTS idx_invoices_status ON invoices (status);
+-- Additional indexes for dashboard query performance
+CREATE INDEX IF NOT EXISTS idx_request_logs_model ON request_logs (model);
+CREATE INDEX IF NOT EXISTS idx_request_logs_tokens ON request_logs (tokens);
+CREATE INDEX IF NOT EXISTS idx_request_logs_cost ON request_logs (cost);
