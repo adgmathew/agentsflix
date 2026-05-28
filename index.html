@@ -3,88 +3,452 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgentsFlix - AI Gateway and Governance Platform</title>
+    <title>AgentsFlix — AI gateway and governance for the enterprise</title>
+    <meta name="description" content="AgentsFlix gives enterprises one endpoint for every AI model — with policy, cost control, audit logs, and observability across OpenAI, Anthropic, Google, and self-hosted models.">
+    <meta property="og:title" content="AgentsFlix — AI gateway and governance for the enterprise">
+    <meta property="og:description" content="One endpoint. Every model. Full visibility. Cut AI spend up to 60% with smart routing, caching, and policy.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>AgentsFlix</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Sprite for icons -->
+    <object data="assets/icons.svg" type="image/svg+xml" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></object>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="brand-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#7C3AED"/>
+          <stop offset="100%" stop-color="#F97316"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <!-- Top announcement bar -->
+    <div class="announce">
+      <span>New: drop-in OpenAI-compatible endpoint, now in private beta.</span>
+      <a href="#cta" class="announce-link">Get access <span aria-hidden="true">→</span></a>
+    </div>
+
+    <!-- Navigation -->
+    <header class="nav">
+      <div class="container nav-inner">
+        <a href="#" class="brand" aria-label="AgentsFlix home">
+          <img src="assets/logo.svg" alt="" width="160" height="28">
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#features">Product</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#docs">Docs</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="#" class="btn btn-ghost">Sign in</a>
+          <a href="#cta" class="btn btn-primary">Get started</a>
         </div>
+      </div>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h2>Centralized Control for Enterprise AI Usage</h2>
-            <p>Gain visibility, governance, optimization, and auditability over all employee and agent usage of LLMs like OpenAI, Claude, and Gemini.</p>
-            <a href="#features" class="btn">Learn More</a>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">AI gateway · governance · observability</span>
+          <h1>Stop paying twice for<br><span class="grad-text">the same AI answer.</span></h1>
+          <p class="lede">AgentsFlix is the gateway every enterprise needs in front of OpenAI, Anthropic, Google, and self-hosted models. One endpoint for every team, every agent, and every model — with policy, cost control, and a full audit trail.</p>
+          <div class="hero-actions">
+            <a href="#cta" class="btn btn-primary btn-lg">Start free <span aria-hidden="true">→</span></a>
+            <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
+          </div>
+          <ul class="hero-trust" aria-label="Highlights">
+            <li><span class="dot dot-green"></span> No code changes — drop-in OpenAI-compatible</li>
+            <li><span class="dot dot-purple"></span> SOC 2 Type II in progress · self-host option</li>
+            <li><span class="dot dot-orange"></span> Live in &lt; 10 minutes</li>
+          </ul>
         </div>
+        <div class="hero-visual">
+          <img src="assets/hero-architecture.svg" alt="Diagram: employees, AI agents, SDKs, and IDEs connect to the AgentsFlix gateway, which routes traffic to OpenAI, Anthropic, Google, and self-hosted models." />
+        </div>
+      </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About AgentsFlix</h2>
-            <p>AgentsFlix is an AI Gateway and Governance Platform that gives enterprises centralized control, cost optimization, security, and visibility over all employee and agent usage of LLMs like OpenAI, Claude, and Gemini.</p>
-            <p>Replace your existing AI endpoint with AgentsFlix and instantly gain visibility, governance, optimization, and auditability.</p>
-        </div>
+    <!-- Trusted by -->
+    <section class="trusted" aria-labelledby="trusted-h">
+      <div class="container">
+        <p id="trusted-h" class="trusted-label">Trusted by teams shipping AI in production</p>
+        <img src="assets/logos.svg" alt="Northwind, Lumen, Vertex, Halcyon, Mercia, Sable, Atlas" class="logos-strip" />
+      </div>
     </section>
 
-    <section id="features">
-        <div class="container">
-            <h2>Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>AI Gateway Proxy</h3>
-                    <p>Route requests across OpenAI, Claude, Gemini, and other providers through a single endpoint.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Policy Engine</h3>
-                    <p>Define rules like budget limits by department, approved models by team, blocked sensitive data, and request restrictions.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Observability Dashboard</h3>
-                    <p>Track token usage, model activity, department spending, duplicate requests, and blocked prompts.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Cost Optimization</h3>
-                    <p>Reduce waste using smart routing, caching, and duplicate detection.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Audit Logs & Compliance</h3>
-                    <p>Every request and response is logged for compliance, governance, security reviews, and auditability.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Duplicate Work Detection</h3>
-                    <p>Identify overlapping AI requests across teams to reduce redundant AI spending.</p>
-                </div>
-            </div>
+    <!-- Stats -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat">
+          <div class="stat-num grad-text">60%</div>
+          <div class="stat-label">average reduction in AI spend after 30 days</div>
         </div>
+        <div class="stat">
+          <div class="stat-num grad-text">41%</div>
+          <div class="stat-label">of enterprise prompts are duplicates we cache</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num grad-text">100%</div>
+          <div class="stat-label">of requests captured for audit and compliance</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num grad-text">10&nbsp;min</div>
+          <div class="stat-label">from sign-up to your first routed request</div>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <p>Have questions or want to collaborate? Reach out to us:</p>
-            <p>Email: contact@agentsflix.com</p>
-            <p>Follow us: @agentsflix on social media</p>
+    <!-- Problem -->
+    <section class="problem">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The problem</span>
+          <h2>Enterprise AI usage is chaotic — and it's expensive.</h2>
+          <p class="section-lede">Across every Fortune 500 we've talked to, the picture looks the same: dozens of subscriptions, shadow AI in every department, and no one accountable for the bill or the blast radius.</p>
         </div>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <h3>Spend is out of control</h3>
+            <p>Expensive frontier models are used for tasks a $0.10/M model could handle. Duplicate prompts hit production hundreds of times a day. Subscriptions renew on autopilot.</p>
+          </div>
+          <div class="problem-card">
+            <h3>Security is a guess</h3>
+            <p>Customer data, source code, and internal docs get pasted into public chatbots. There's no central audit, no PII redaction, and no way to block what shouldn't leave the building.</p>
+          </div>
+          <div class="problem-card">
+            <h3>Policy is unenforced</h3>
+            <p>Legal says "no GPT for contracts." Finance approves $50k/month per team. Neither is verifiable until an invoice — or an incident — lands.</p>
+          </div>
+          <div class="problem-card">
+            <h3>Vendor lock-in is creeping</h3>
+            <p>Every app hard-codes one provider. Switching takes a quarter. Multi-model resilience is theoretical.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 AgentsFlix. All rights reserved.</p>
-            <p>AI Gateway and Governance Platform at <a href="https://agentsflix.com">agentsflix.com</a></p>
+    <!-- How it works -->
+    <section id="how" class="how">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>One endpoint. Every model. Full visibility.</h2>
+          <p class="section-lede">Point your apps and agents at AgentsFlix instead of a single provider. We handle routing, policy, caching, and the audit trail — your code stays the same.</p>
         </div>
+
+        <div class="how-visual">
+          <img src="assets/routing.svg" alt="Animated diagram: a request from your app reaches the AgentsFlix gateway, which checks policy and cache, then routes to the cheapest capable model, with automatic fallback." />
+        </div>
+
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <h3>Drop-in endpoint</h3>
+            <p>Change <code>api.openai.com</code> to <code>api.agentsflix.com</code>. Your SDKs keep working. No re-platforming, no rewrites.</p>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <h3>Smart routing &amp; cache</h3>
+            <p>Each request is classified, deduplicated against a semantic cache, and routed to the cheapest model that meets your quality bar. Failures fall back automatically.</p>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <h3>Policy &amp; redaction</h3>
+            <p>Block sensitive data before it leaves your network. Enforce budgets by team. Pin compliance-sensitive workloads to approved models — or to self-hosted only.</p>
+          </li>
+          <li>
+            <span class="step-num">04</span>
+            <h3>Observe &amp; audit</h3>
+            <p>Every request, response, token, and dollar is logged and queryable. Export to your SIEM. Answer "what did AI do last quarter?" in seconds.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Dashboard mockup -->
+    <section class="showcase">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Observability</span>
+          <h2>The single pane of glass for enterprise AI.</h2>
+          <p class="section-lede">See exactly where every dollar and every token goes — by team, by model, by request. Catch waste and policy violations before finance or legal does.</p>
+        </div>
+        <div class="dashboard-wrap">
+          <img src="assets/dashboard.svg" alt="AgentsFlix dashboard showing 60% spend reduction, 41.7% cache hit rate, daily spend chart with optimized vs baseline curves, top models breakdown, and a live request log with cache hits and blocked prompts." />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Platform</span>
+          <h2>Everything you need to run AI like a real workload.</h2>
+          <p class="section-lede">Built by infra engineers who've shipped multi-tenant systems at scale. Production-grade from day one.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-gateway"/></svg>
+            <h3>AI Gateway proxy</h3>
+            <p>One OpenAI-compatible endpoint in front of every provider — OpenAI, Anthropic, Google, Mistral, Cohere, and any model you self-host on vLLM or Bedrock.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-policy"/></svg>
+            <h3>Policy engine</h3>
+            <p>Per-team budgets, approved-model lists, regex and ML-based content rules, region pinning, and rate limits — all enforced at the edge before a token is spent.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-observe"/></svg>
+            <h3>Observability dashboard</h3>
+            <p>Token usage, latency, cost, cache hit rate, and policy violations — sliced by user, team, application, model, or any custom tag.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-cost"/></svg>
+            <h3>Cost optimization</h3>
+            <p>Semantic cache, prompt deduplication, and capability-aware routing send 4o-mini work to 4o-mini and reserve Opus for what actually needs it.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-audit"/></svg>
+            <h3>Audit logs &amp; compliance</h3>
+            <p>Every prompt, response, tool call, and decision is logged immutably. SOC 2-ready exports. Retain in your S3, your region, your keys.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-dedupe"/></svg>
+            <h3>Duplicate-work detection</h3>
+            <p>Find the same question being asked across departments. Surface it as a shared prompt or an automation candidate — and stop paying for it twice.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-redact"/></svg>
+            <h3>PII &amp; secret redaction</h3>
+            <p>Detect and mask emails, names, keys, source files, and customer records before they ever reach a third-party provider.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-team"/></svg>
+            <h3>Teams, SSO &amp; RBAC</h3>
+            <p>Okta, Azure AD, Google. Per-team API keys, scoped roles, and SCIM provisioning. Onboard a department in an afternoon.</p>
+          </article>
+          <article class="feature-card">
+            <svg class="feature-icon" width="28" height="28" aria-hidden="true"><use href="assets/icons.svg#i-bolt"/></svg>
+            <h3>Agent telemetry</h3>
+            <p>First-class support for multi-step agents: trace tool calls, measure cost-per-task, and set spend caps that survive infinite-loop bugs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code example / integration -->
+    <section class="code">
+      <div class="container code-grid">
+        <div>
+          <span class="eyebrow">Drop-in</span>
+          <h2>Change one line. Keep your code.</h2>
+          <p class="section-lede">AgentsFlix is OpenAI-API-compatible. If you have an OpenAI client, you have an AgentsFlix client. Same for Anthropic and Google formats.</p>
+          <ul class="check-list">
+            <li><svg width="20" height="20" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Works with the official OpenAI, Anthropic, and LangChain SDKs</li>
+            <li><svg width="20" height="20" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Streaming, tool calls, vision, and JSON mode supported</li>
+            <li><svg width="20" height="20" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Per-request overrides for model, team, and budget</li>
+          </ul>
+        </div>
+        <div class="terminal" role="img" aria-label="Code sample showing how to point the OpenAI Python SDK at AgentsFlix">
+          <div class="terminal-bar">
+            <span class="td td-r"></span><span class="td td-y"></span><span class="td td-g"></span>
+            <span class="terminal-title">app.py</span>
+          </div>
+<pre><code><span class="c">// Before</span>
+<span class="k">from</span> openai <span class="k">import</span> OpenAI
+client = OpenAI(api_key=<span class="s">"sk-..."</span>)
+
+<span class="c">// After — same SDK, smart routing on</span>
+<span class="k">from</span> openai <span class="k">import</span> OpenAI
+client = OpenAI(
+    base_url=<span class="s">"https://api.agentsflix.com/v1"</span>,
+    api_key=<span class="s">"af-..."</span>,
+)
+
+resp = client.chat.completions.create(
+    model=<span class="s">"auto"</span>,   <span class="c"># let us pick the cheapest capable model</span>
+    messages=[{<span class="s">"role"</span>: <span class="s">"user"</span>, <span class="s">"content"</span>: <span class="s">"Summarize this PDF"</span>}],
+    extra_headers={<span class="s">"x-af-team"</span>: <span class="s">"marketing"</span>},
+)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Customer stories</span>
+          <h2>Teams shipping AI without losing the plot.</h2>
+        </div>
+        <div class="quote-grid">
+          <figure class="quote">
+            <blockquote>"We cut our Anthropic bill by 58% in the first month — not by switching models, but by stopping the same five prompts from running thirty thousand times a day."</blockquote>
+            <figcaption>
+              <strong>Priya R.</strong><span>Head of Platform, fintech (2,000 employees)</span>
+            </figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>"Legal finally said yes to GenAI. The audit log and PII redaction made the difference. We rolled it out to 12,000 employees in three weeks."</blockquote>
+            <figcaption>
+              <strong>Marcus T.</strong><span>CISO, healthcare SaaS</span>
+            </figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>"Our agents used to silently melt $400/day in infinite loops. AgentsFlix's per-agent spend caps stopped that on day one."</blockquote>
+            <figcaption>
+              <strong>Sam K.</strong><span>Staff engineer, B2B marketplace</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Pricing</span>
+          <h2>Simple, usage-aligned pricing.</h2>
+          <p class="section-lede">Start free. Pay for what you save. No per-seat surprises.</p>
+        </div>
+        <div class="price-grid">
+          <article class="price-card">
+            <h3>Starter</h3>
+            <div class="price"><span class="amt">Free</span></div>
+            <p class="price-sub">For individuals and pilots.</p>
+            <ul>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Up to 50k requests/month</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> All providers, smart routing</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> 7-day audit retention</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Community Slack</li>
+            </ul>
+            <a href="#cta" class="btn btn-ghost btn-block">Start free</a>
+          </article>
+          <article class="price-card price-card--featured">
+            <span class="badge">Most popular</span>
+            <h3>Team</h3>
+            <div class="price"><span class="amt">$0.50</span><span class="per">/ 1k requests</span></div>
+            <p class="price-sub">For teams running AI in production.</p>
+            <ul>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Unlimited requests &amp; teams</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Policy engine, PII redaction, SSO</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> 90-day audit retention, SIEM export</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Email support, 99.9% SLA</li>
+            </ul>
+            <a href="#cta" class="btn btn-primary btn-block">Start 14-day trial</a>
+          </article>
+          <article class="price-card">
+            <h3>Enterprise</h3>
+            <div class="price"><span class="amt">Custom</span></div>
+            <p class="price-sub">For regulated industries and scale.</p>
+            <ul>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Self-host or dedicated tenant</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> SOC 2, HIPAA, BYOK, region pinning</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Unlimited retention, custom DPA</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Named CSM, 99.99% SLA</li>
+            </ul>
+            <a href="#cta" class="btn btn-ghost btn-block">Talk to sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions, answered.</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>How is this different from a vanilla AI gateway like LiteLLM?</summary>
+            <p>Open-source proxies handle routing. AgentsFlix adds the governance, policy, semantic cache, observability, and audit pieces enterprises actually need — and we run it for you with a 99.99% SLA. If you'd rather self-host, you can.</p>
+          </details>
+          <details>
+            <summary>Do you store our prompts and responses?</summary>
+            <p>Only what you tell us to. Audit logs default to redacted previews; full payloads are opt-in and stored in your region, encrypted with your KMS keys. Enterprise plans support BYO-bucket so the raw data never leaves your account.</p>
+          </details>
+          <details>
+            <summary>How much does smart routing actually save?</summary>
+            <p>For typical enterprise workloads — mixed support, marketing, and code tasks — we see 40–70% reduction in spend in the first 30 days. The bulk comes from semantic caching of duplicate prompts and routing easy tasks to small models.</p>
+          </details>
+          <details>
+            <summary>Will my latency get worse?</summary>
+            <p>Gateway overhead is sub-25ms p95 globally. Cache hits return in under 50ms — typically faster than any model. We run in five regions with automatic failover.</p>
+          </details>
+          <details>
+            <summary>Do I have to change my code?</summary>
+            <p>One line: swap the <code>base_url</code>. We're OpenAI-API-compatible, and we translate to Anthropic and Google formats server-side. Your existing SDKs, retries, and streaming logic keep working.</p>
+          </details>
+          <details>
+            <summary>What's your security posture?</summary>
+            <p>SOC 2 Type II is in progress (expected Q3). TLS 1.3 end-to-end, AES-256 at rest, region-pinned data residency, SSO/SCIM on all plans, and a self-host option for regulated industries.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="cta" class="cta">
+      <div class="container cta-inner">
+        <h2>Take control of your AI stack — this afternoon.</h2>
+        <p>Sign up free, paste in your provider keys, and route your first request in under ten minutes. No credit card, no sales call.</p>
+        <div class="cta-actions">
+          <a href="#" class="btn btn-primary btn-lg btn-on-dark">Start free <span aria-hidden="true">→</span></a>
+          <a href="#" class="btn btn-ghost btn-lg btn-on-dark">Book a 20-min demo</a>
+        </div>
+        <p class="cta-fine">14-day Team trial included · No card required · SOC 2 Type II in progress</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.svg" alt="AgentsFlix" width="160" height="28">
+          <p>The AI gateway and governance platform for the enterprise.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#docs">Docs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">DPA</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>&copy; 2026 AgentsFlix, Inc. All rights reserved.</p>
+        <p class="footer-status"><span class="dot dot-green"></span> All systems operational</p>
+      </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

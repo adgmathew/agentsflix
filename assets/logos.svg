@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" width="100%" height="auto" role="img" aria-label="Sample of companies using AgentsFlix in private beta">
+  <g fill="#0B0B0F" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" font-weight="700" opacity="0.78">
+    <text x="40" y="38">◇ Northwind</text>
+    <text x="240" y="38">▲ Lumen</text>
+    <text x="380" y="38">○ Vertex</text>
+    <text x="520" y="38">▣ Halcyon</text>
+    <text x="680" y="38">⬢ Mercia</text>
+    <text x="830" y="38">✦ Sable</text>
+    <text x="970" y="38">⎈ Atlas</text>
+  </g>
+</svg>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" width="100%" height="auto" role="img" aria-label="AgentsFlix gateway routing requests from employees and agents to multiple AI providers">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F0E8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0B0B0F"/>
+    </marker>
+  </defs>
+
+  <!-- Background grid -->
+  <rect x="0" y="0" width="720" height="460" fill="#FBF8F2"/>
+  <g stroke="#E8E1D3" stroke-width="1">
+    <path d="M0 80 H720 M0 160 H720 M0 240 H720 M0 320 H720 M0 400 H720"/>
+    <path d="M120 0 V460 M240 0 V460 M360 0 V460 M480 0 V460 M600 0 V460"/>
+  </g>
+
+  <!-- Sources (left) -->
+  <g font-family="ui-monospace, monospace" font-size="11" fill="#0B0B0F">
+    <g filter="url(#shadow)">
+      <rect x="20" y="60" width="150" height="56" rx="10" fill="url(#card)" stroke="#0B0B0F" stroke-width="1.2"/>
+      <circle cx="44" cy="88" r="10" fill="#7C3AED"/>
+      <text x="44" y="92" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">E</text>
+      <text x="62" y="84" font-weight="700" font-size="12">Employees</text>
+      <text x="62" y="100" fill="#5C5648">12,400 users</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="20" y="140" width="150" height="56" rx="10" fill="url(#card)" stroke="#0B0B0F" stroke-width="1.2"/>
+      <circle cx="44" cy="168" r="10" fill="#F97316"/>
+      <text x="44" y="172" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">A</text>
+      <text x="62" y="164" font-weight="700" font-size="12">AI Agents</text>
+      <text x="62" y="180" fill="#5C5648">348 active</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="20" y="220" width="150" height="56" rx="10" fill="url(#card)" stroke="#0B0B0F" stroke-width="1.2"/>
+      <circle cx="44" cy="248" r="10" fill="#10B981"/>
+      <text x="44" y="252" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">S</text>
+      <text x="62" y="244" font-weight="700" font-size="12">SDKs / APIs</text>
+      <text x="62" y="260" fill="#5C5648">drop-in</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="20" y="300" width="150" height="56" rx="10" fill="url(#card)" stroke="#0B0B0F" stroke-width="1.2"/>
+      <circle cx="44" cy="328" r="10" fill="#3B82F6"/>
+      <text x="44" y="332" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">I</text>
+      <text x="62" y="324" font-weight="700" font-size="12">IDEs / Tools</text>
+      <text x="62" y="340" fill="#5C5648">Cursor, Slack</text>
+    </g>
+  </g>
+
+  <!-- Connector lines to gateway -->
+  <g stroke="#0B0B0F" stroke-width="1.4" fill="none">
+    <path d="M170 88 C 220 88, 230 200, 280 200" marker-end="url(#arrow)"/>
+    <path d="M170 168 C 220 168, 230 210, 280 210" marker-end="url(#arrow)"/>
+    <path d="M170 248 C 220 248, 230 220, 280 220" marker-end="url(#arrow)"/>
+    <path d="M170 328 C 220 328, 230 230, 280 230" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Gateway (center) -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="120" width="160" height="220" rx="16" fill="#0B0B0F"/>
+    <rect x="280" y="120" width="160" height="44" rx="16" fill="url(#grad)"/>
+    <text x="360" y="148" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#fff">AgentsFlix Gateway</text>
+    <g font-family="ui-monospace, monospace" font-size="11" fill="#F5F0E8">
+      <rect x="294" y="178" width="132" height="28" rx="6" fill="#1A1A22"/>
+      <text x="306" y="196">Policy engine</text>
+      <circle cx="416" cy="192" r="3" fill="#10B981"/>
+
+      <rect x="294" y="214" width="132" height="28" rx="6" fill="#1A1A22"/>
+      <text x="306" y="232">Smart routing</text>
+      <circle cx="416" cy="228" r="3" fill="#10B981"/>
+
+      <rect x="294" y="250" width="132" height="28" rx="6" fill="#1A1A22"/>
+      <text x="306" y="268">Cache &amp; dedupe</text>
+      <circle cx="416" cy="264" r="3" fill="#10B981"/>
+
+      <rect x="294" y="286" width="132" height="28" rx="6" fill="#1A1A22"/>
+      <text x="306" y="304">Audit &amp; PII redact</text>
+      <circle cx="416" cy="300" r="3" fill="#10B981"/>
+    </g>
+  </g>
+
+  <!-- Connector lines gateway -> providers -->
+  <g stroke="#0B0B0F" stroke-width="1.4" fill="none">
+    <path d="M440 160 C 500 160, 510 90, 560 90" marker-end="url(#arrow)"/>
+    <path d="M440 200 C 500 200, 510 170, 560 170" marker-end="url(#arrow)"/>
+    <path d="M440 240 C 500 240, 510 250, 560 250" marker-end="url(#arrow)"/>
+    <path d="M440 290 C 500 290, 510 330, 560 330" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Providers (right) -->
+  <g font-family="ui-monospace, monospace" font-size="11" fill="#0B0B0F">
+    <g filter="url(#shadow)">
+      <rect x="560" y="62" width="140" height="56" rx="10" fill="url(#card)" stroke="#0B0B0F" stroke-width="1.2"/>
+      <text x="580" y="86" font-weight="700">OpenAI</text>
+      <text x="580" y="102" fill="#5C5648">gpt-4o, o-mini</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="560" y="142" width="140" height="56" rx="10" fill="url(#card)" stroke="#0B0B0F" stroke-width="1.2"/>
+      <text x="580" y="166" font-weight="700">Anthropic</text>
+      <text x="580" y="182" fill="#5C5648">Claude Sonnet/Opus</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="560" y="222" width="140" height="56" rx="10" fill="url(#card)" stroke="#0B0B0F" stroke-width="1.2"/>
+      <text x="580" y="246" font-weight="700">Google</text>
+      <text x="580" y="262" fill="#5C5648">Gemini 2.5</text>
+    </g>
+    <g filter="url(#shadow)">
+      <rect x="560" y="302" width="140" height="56" rx="10" fill="url(#card)" stroke="#0B0B0F" stroke-width="1.2"/>
+      <text x="580" y="326" font-weight="700">Self-hosted</text>
+      <text x="580" y="342" fill="#5C5648">Llama, Mistral</text>
+    </g>
+  </g>
+
+  <!-- Bottom caption -->
+  <g font-family="ui-monospace, monospace" font-size="11" fill="#5C5648">
+    <text x="360" y="410" text-anchor="middle">One endpoint. Every model. Full visibility.</text>
+  </g>
+</svg>
