@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 32" width="180" height="32" role="img" aria-label="AgentsFlix logo">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <!-- Mark -->
+    <rect x="0" y="2" width="28" height="28" rx="7" fill="url(#lg)"/>
+    <path d="M8 22 L14 9 L20 22 M10.5 17 H17.5" stroke="#0B0B0F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Wordmark -->
+    <text x="38" y="22" font-family="ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace" font-size="16" font-weight="700" letter-spacing="-0.3" fill="#0B0B0F">AgentsFlix</text>
+  </g>
+</svg>
