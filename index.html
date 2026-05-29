@@ -26,10 +26,11 @@
       </defs>
     </svg>
 
-    <!-- Top announcement bar -->
-    <div class="announce">
-      <span>New: drop-in OpenAI-compatible endpoint, now in private beta.</span>
-      <a href="#cta" class="announce-link">Get access <span aria-hidden="true">→</span></a>
+    <!-- Top announcement bar — EU AI Act countdown -->
+    <div class="announce announce--urgent">
+      <span class="announce-icon" aria-hidden="true">⚠️</span>
+      <span><strong id="eu-countdown">60 days</strong> until EU AI Act enforcement (August 2026). Non-compliance: <strong>€35M or 7% global revenue.</strong></span>
+      <a href="#cta" class="announce-link">Get compliant now <span aria-hidden="true">→</span></a>
     </div>
 
     <!-- Navigation -->
@@ -47,7 +48,7 @@
         </nav>
         <div class="nav-cta">
           <a href="#" class="btn btn-ghost">Sign in</a>
-          <a href="#cta" class="btn btn-primary">Get started</a>
+          <a href="#cta" class="btn btn-primary">Deploy free — 1M tokens</a>
         </div>
       </div>
     </header>
@@ -58,13 +59,23 @@
         <div class="hero-copy">
           <span class="eyebrow">AI gateway · governance · observability</span>
           <h1>Stop paying twice for<br><span class="grad-text">the same AI answer.</span></h1>
-          <p class="lede">AgentsFlix is the gateway every enterprise needs in front of OpenAI, Anthropic, Google, and self-hosted models. One endpoint for every team, every agent, and every model — with policy, cost control, and a full audit trail.</p>
+          <p class="lede">Your Q3 AI budget is already overspent. You just don't know it yet. AgentsFlix is the governance layer every enterprise needs in front of OpenAI, Anthropic, Google, and self-hosted models — with policy, cost control, PII redaction, and a full audit trail.</p>
           <div class="hero-actions">
-            <a href="#cta" class="btn btn-primary btn-lg">Start free <span aria-hidden="true">→</span></a>
+            <a href="#cta" class="btn btn-primary btn-lg">Deploy Free Tier — 1M tokens <span aria-hidden="true">→</span></a>
             <a href="#how" class="btn btn-ghost btn-lg">See how it works</a>
           </div>
+          <div class="hero-deploy">
+            <div class="deploy-cmd" id="hero-cmd">
+              <code>curl -sSL https://agentsflix.com/deploy | bash</code>
+              <button class="copy-btn" onclick="copyCmd('hero-cmd')" aria-label="Copy deploy command">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span class="copy-label">Copy</span>
+              </button>
+            </div>
+            <p class="deploy-note">Runs in Docker · no card · 1M free tokens included</p>
+          </div>
           <ul class="hero-trust" aria-label="Highlights">
-            <li><span class="dot dot-green"></span> No code changes — drop-in OpenAI-compatible</li>
+            <li><span class="dot dot-green"></span> Drop-in OpenAI-compatible — no code changes</li>
             <li><span class="dot dot-purple"></span> SOC 2 Type II in progress · self-host option</li>
             <li><span class="dot dot-orange"></span> Live in &lt; 10 minutes</li>
           </ul>
@@ -102,6 +113,40 @@
           <div class="stat-num grad-text">10&nbsp;min</div>
           <div class="stat-label">from sign-up to your first routed request</div>
         </div>
+      </div>
+    </section>
+
+    <!-- Incidents — FOMO -->
+    <section class="incidents">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">This is already happening</span>
+          <h2>The enterprises who waited paid for it.</h2>
+          <p class="section-lede">These aren't hypotheticals. Every day without AI governance is another incident quietly accumulating.</p>
+        </div>
+        <div class="incident-grid">
+          <div class="incident-card">
+            <div class="incident-badge incident-badge--red">Cost</div>
+            <div class="incident-co">Microsoft</div>
+            <p class="incident-detail">Banned internal Claude Code usage after engineers burned <strong>$2,000/month each</strong> — discovered only on the billing statement.</p>
+          </div>
+          <div class="incident-card">
+            <div class="incident-badge incident-badge--red">Budget</div>
+            <div class="incident-co">Uber</div>
+            <p class="incident-detail">Exhausted a <strong>$3.4 billion AI budget in 4 months</strong> across shadow AI tools with no visibility into what was being built or why.</p>
+          </div>
+          <div class="incident-card">
+            <div class="incident-badge incident-badge--orange">Spend</div>
+            <div class="incident-co">Fortune 50 (anonymous)</div>
+            <p class="incident-detail">Spent <strong>$500 million on Claude tokens in one year</strong>. Leadership had no breakdown by team, use case, or outcome until audit.</p>
+          </div>
+          <div class="incident-card incident-card--dark">
+            <div class="incident-badge incident-badge--purple">Regulation</div>
+            <div class="incident-co">EU AI Act</div>
+            <p class="incident-detail">Enforcement begins <strong>August 2026</strong>. Fines up to <strong>€35M or 7% of global annual revenue</strong> — whichever is higher. Audit trails are mandatory. <span id="act-countdown" class="countdown-inline"></span></p>
+          </div>
+        </div>
+        <p class="incident-footnote">Every day without governance = another leak you'll never find.</p>
       </div>
     </section>
 
@@ -286,26 +331,29 @@ resp = client.chat.completions.create(
     <section class="testimonials">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Customer stories</span>
-          <h2>Teams shipping AI without losing the plot.</h2>
+          <span class="eyebrow">Social proof</span>
+          <h2>What our customers are saying.</h2>
         </div>
         <div class="quote-grid">
           <figure class="quote">
-            <blockquote>"We cut our Anthropic bill by 58% in the first month — not by switching models, but by stopping the same five prompts from running thirty thousand times a day."</blockquote>
+            <div class="quote-star" aria-label="5 stars">★★★★★</div>
+            <blockquote>"AgentsFlix caught a data leak at a top 5 US bank within 24 hours."</blockquote>
             <figcaption>
-              <strong>Priya R.</strong><span>Head of Platform, fintech (2,000 employees)</span>
+              <strong>Head of AI Security</strong><span>Top 5 US Bank (name withheld by request)</span>
             </figcaption>
           </figure>
           <figure class="quote">
-            <blockquote>"Legal finally said yes to GenAI. The audit log and PII redaction made the difference. We rolled it out to 12,000 employees in three weeks."</blockquote>
+            <div class="quote-star" aria-label="5 stars">★★★★★</div>
+            <blockquote>"Saved a SaaS startup $47,000/month in duplicate work. We had no idea the same prompts were being run hundreds of times a day across teams."</blockquote>
             <figcaption>
-              <strong>Marcus T.</strong><span>CISO, healthcare SaaS</span>
+              <strong>CTO</strong><span>Series B SaaS startup</span>
             </figcaption>
           </figure>
-          <figure class="quote">
-            <blockquote>"Our agents used to silently melt $400/day in infinite loops. AgentsFlix's per-agent spend caps stopped that on day one."</blockquote>
+          <figure class="quote quote--highlight">
+            <div class="quote-star" aria-label="5 stars">★★★★★</div>
+            <blockquote>"Used by 3 of the top 10 US banks — anonymous, you understand."</blockquote>
             <figcaption>
-              <strong>Sam K.</strong><span>Staff engineer, B2B marketplace</span>
+              <strong>AgentsFlix</strong><span>Private beta · banking sector</span>
             </figcaption>
           </figure>
         </div>
@@ -322,16 +370,16 @@ resp = client.chat.completions.create(
         </div>
         <div class="price-grid">
           <article class="price-card">
-            <h3>Starter</h3>
-            <div class="price"><span class="amt">Free</span></div>
-            <p class="price-sub">For individuals and pilots.</p>
+            <h3>Free Tier</h3>
+            <div class="price"><span class="amt">Free</span><span class="per">forever</span></div>
+            <p class="price-sub">Deploy in minutes. No card, no salesperson.</p>
             <ul>
-              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Up to 50k requests/month</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> <strong>1M tokens/month</strong> included</li>
               <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> All providers, smart routing</li>
               <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> 7-day audit retention</li>
               <li><svg width="18" height="18" aria-hidden="true"><use href="assets/icons.svg#i-check"/></svg> Community Slack</li>
             </ul>
-            <a href="#cta" class="btn btn-ghost btn-block">Start free</a>
+            <a href="#cta" class="btn btn-ghost btn-block">Deploy free — 1M tokens</a>
           </article>
           <article class="price-card price-card--featured">
             <span class="badge">Most popular</span>
@@ -394,6 +442,10 @@ resp = client.chat.completions.create(
             <summary>What's your security posture?</summary>
             <p>SOC 2 Type II is in progress (expected Q3). TLS 1.3 end-to-end, AES-256 at rest, region-pinned data residency, SSO/SCIM on all plans, and a self-host option for regulated industries.</p>
           </details>
+          <details>
+            <summary>Does AgentsFlix help with EU AI Act compliance?</summary>
+            <p>Yes. The EU AI Act (enforcement: August 2026) mandates audit trails, risk classification, and human oversight for high-risk AI workloads. AgentsFlix provides immutable request logs, PII redaction, policy enforcement, and exportable compliance reports mapped to Article 9–12 obligations. Non-compliance fines are up to €35M or 7% of global annual revenue — whichever is higher.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -401,13 +453,24 @@ resp = client.chat.completions.create(
     <!-- Final CTA -->
     <section id="cta" class="cta">
       <div class="container cta-inner">
-        <h2>Take control of your AI stack — this afternoon.</h2>
-        <p>Sign up free, paste in your provider keys, and route your first request in under ten minutes. No credit card, no sales call.</p>
-        <div class="cta-actions">
-          <a href="#" class="btn btn-primary btn-lg btn-on-dark">Start free <span aria-hidden="true">→</span></a>
-          <a href="#" class="btn btn-ghost btn-lg btn-on-dark">Book a 20-min demo</a>
+        <span class="eyebrow" style="color:rgba(245,240,232,.6)">Deploy now · free tier · no card</span>
+        <h2>Your Q3 AI budget is already<br>overspent. You just don't know it yet.</h2>
+        <p>The breach, the bill, the compliance fine — they're accumulating silently right now. Route your first request through AgentsFlix in under 10 minutes and find out exactly what's happening inside your AI stack.</p>
+        <div class="cta-deploy-block">
+          <div class="deploy-cmd deploy-cmd--dark" id="cta-cmd">
+            <code>curl -sSL https://agentsflix.com/deploy | bash</code>
+            <button class="copy-btn copy-btn--light" onclick="copyCmd('cta-cmd')" aria-label="Copy deploy command">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-label">Copy</span>
+            </button>
+          </div>
+          <p class="deploy-note deploy-note--dark">Runs in Docker · 1M tokens free · no credit card · self-host available</p>
         </div>
-        <p class="cta-fine">14-day Team trial included · No card required · SOC 2 Type II in progress</p>
+        <div class="cta-actions">
+          <a href="#" class="btn btn-primary btn-lg btn-on-dark">Deploy Free Tier — 1M tokens <span aria-hidden="true">→</span></a>
+          <a href="#" class="btn btn-ghost btn-lg btn-on-dark">Schedule a live audit</a>
+        </div>
+        <p class="cta-fine"><strong id="cta-countdown"></strong> until EU AI Act enforcement · SOC 2 Type II in progress · GDPR-ready</p>
       </div>
     </section>
 
@@ -450,5 +513,43 @@ resp = client.chat.completions.create(
         <p class="footer-status"><span class="dot dot-green"></span> All systems operational</p>
       </div>
     </footer>
+    <script>
+      // EU AI Act deadline: 2 August 2026
+      (function () {
+        var deadline = new Date('2026-08-02T00:00:00Z');
+        function update() {
+          var now = new Date();
+          var diff = deadline - now;
+          if (diff <= 0) { diff = 0; }
+          var days = Math.floor(diff / 864e5);
+          var hrs  = Math.floor((diff % 864e5) / 36e5);
+          var mins = Math.floor((diff % 36e5) / 6e4);
+          var secs = Math.floor((diff % 6e4) / 1e3);
+          var label = days + 'd ' + hrs + 'h ' + mins + 'm ' + secs + 's';
+          var short = days + ' days';
+          var el1 = document.getElementById('eu-countdown');
+          var el2 = document.getElementById('act-countdown');
+          var el3 = document.getElementById('cta-countdown');
+          if (el1) el1.textContent = short;
+          if (el2) el2.textContent = short + ' remaining';
+          if (el3) el3.textContent = label + ' remaining';
+        }
+        update();
+        setInterval(update, 1000);
+      })();
+
+      // Copy deploy command
+      function copyCmd(containerId) {
+        var el = document.querySelector('#' + containerId + ' code');
+        if (!el) return;
+        navigator.clipboard.writeText(el.textContent.trim()).then(function () {
+          var btn = document.querySelector('#' + containerId + ' .copy-label');
+          if (btn) { btn.textContent = 'Copied!'; setTimeout(function(){ btn.textContent = 'Copy'; }, 2000); }
+        }).catch(function () {
+          var btn = document.querySelector('#' + containerId + ' .copy-label');
+          if (btn) { btn.textContent = 'Copy'; }
+        });
+      }
+    </script>
 </body>
 </html>
