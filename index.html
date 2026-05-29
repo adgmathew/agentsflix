@@ -25,6 +25,9 @@
     </script>
 </head>
 <body>
+    <!-- Accessibility: skip to main content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Sprite for icons -->
     <object data="assets/icons.svg" type="image/svg+xml" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></object>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -57,16 +60,48 @@
           <a href="#docs">Docs</a>
         </nav>
         <div class="nav-cta">
-          <!-- [Dark Mode] Toggle -->
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
             <i class="fa-solid fa-sun theme-icon-light" aria-hidden="true"></i>
             <i class="fa-solid fa-moon theme-icon-dark" aria-hidden="true"></i>
           </button>
-          <a href="#" class="btn btn-ghost">Sign in</a>
-          <a href="#cta" class="btn btn-primary">Deploy free — 1M tokens</a>
+          <a href="#" class="btn btn-ghost nav-signin">Sign in</a>
+          <a href="#demo" class="btn btn-ghost nav-demo-btn">Book demo</a>
+          <a href="#cta" class="btn btn-primary nav-deploy">Deploy free</a>
+          <!-- Hamburger — visible on mobile only -->
+          <button class="hamburger" id="hamburger-btn"
+                  aria-label="Open navigation menu"
+                  aria-expanded="false"
+                  aria-controls="mobile-nav">
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
     </header>
+
+    <!-- Mobile navigation overlay -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+      <div class="mobile-nav-links">
+        <a href="#features" class="mobile-nav-link">Product</a>
+        <a href="#how" class="mobile-nav-link">How it works</a>
+        <a href="#demo" class="mobile-nav-link">Book a demo</a>
+        <a href="#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="#roi" class="mobile-nav-link">ROI calculator</a>
+        <a href="#faq" class="mobile-nav-link">FAQ</a>
+      </div>
+      <div class="mobile-nav-cta">
+        <a href="#cta" class="btn btn-primary btn-block">Deploy free — 1M tokens →</a>
+        <a href="#demo" class="btn btn-ghost btn-block">Book a 20-min demo</a>
+        <div class="mobile-nav-meta">
+          <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-sun theme-icon-light" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon theme-icon-dark" aria-hidden="true"></i>
+          </button>
+          <span class="mobile-nav-tagline">No credit card · SOC 2 in progress</span>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content">
 
     <!-- Hero -->
     <section class="hero">
@@ -95,6 +130,20 @@
               </button>
             </div>
           </div>
+          <!-- Non-dev path: email capture -->
+          <div class="hero-email-row" id="hero-form-wrap">
+            <p class="hero-email-or">Or get access with your work email:</p>
+            <form class="hero-email-form" onsubmit="submitForm(event,'hero')" novalidate>
+              <label for="hero-email" class="sr-only">Work email address</label>
+              <input type="email" id="hero-email" name="email" placeholder="you@company.com" required autocomplete="email" aria-required="true">
+              <button type="submit" class="btn btn-primary">Get access <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+            </form>
+          </div>
+          <div class="form-success" id="success-hero" hidden role="status">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            <strong>You're on the list!</strong> Access link is on its way to your inbox.
+          </div>
+
           <ul class="hero-trust" aria-label="Highlights">
             <li><span class="dot dot-green"></span> Drop-in OpenAI-compatible — no code changes</li>
             <li><span class="dot dot-purple"></span> SOC 2 Type II in progress · self-host option</li>
@@ -492,6 +541,78 @@ resp = client.chat.completions.create(
       </div>
     </section>
 
+    <!-- Demo Request — primary non-dev conversion form -->
+    <section id="demo" class="demo-section">
+      <div class="container demo-grid">
+        <div class="demo-copy">
+          <span class="eyebrow">Live audit · 20 minutes · no pitch deck</span>
+          <h2>See AgentsFlix catch a leak — live, in your environment.</h2>
+          <p class="section-lede">In 20 minutes we'll connect your AI traffic and show you exactly what's leaking, wasted, or out of policy. You bring the access. We bring the receipts.</p>
+          <ul class="demo-bullets">
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> We look at your actual LLM invoices and request logs</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> We identify duplicate prompts, oversized model usage, and PII exposure</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> You leave knowing your exact monthly waste figure</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> No commitment — we'll tell you honestly if we're not the right fit</li>
+          </ul>
+          <figure class="demo-quote-card">
+            <blockquote>"We had no idea the same 5 prompts were running 30,000 times a day. The 20-min audit caught $47k/month in waste — on the first call."</blockquote>
+            <figcaption><strong>CTO</strong> · Series B SaaS startup</figcaption>
+          </figure>
+        </div>
+        <div class="demo-form-card">
+          <h3>Book your 20-min live audit</h3>
+          <p class="demo-form-sub">Slots available this week. Response &lt; 1 business hour.</p>
+          <form id="demo-form" onsubmit="submitForm(event,'demo')" novalidate>
+            <div class="form-field">
+              <label for="df-name">Your name <abbr title="required" aria-label="required">*</abbr></label>
+              <input type="text" id="df-name" name="name" placeholder="Jane Smith" required autocomplete="name" aria-required="true">
+            </div>
+            <div class="form-field">
+              <label for="df-email">Work email <abbr title="required" aria-label="required">*</abbr></label>
+              <input type="email" id="df-email" name="email" placeholder="jane@company.com" required autocomplete="email" aria-required="true">
+            </div>
+            <div class="form-field">
+              <label for="df-company">Company <abbr title="required" aria-label="required">*</abbr></label>
+              <input type="text" id="df-company" name="company" placeholder="Acme Corp" required autocomplete="organization" aria-required="true">
+            </div>
+            <div class="form-row-2">
+              <div class="form-field">
+                <label for="df-size">Team size</label>
+                <select id="df-size" name="team_size">
+                  <option value="">Select…</option>
+                  <option value="1-50">1 – 50</option>
+                  <option value="50-250">50 – 250</option>
+                  <option value="250-1000">250 – 1,000</option>
+                  <option value="1000+">1,000+</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="df-spend">Monthly AI spend</label>
+                <select id="df-spend" name="ai_spend">
+                  <option value="">Select…</option>
+                  <option value="<5k">Under $5k</option>
+                  <option value="5k-50k">$5k – $50k</option>
+                  <option value="50k-250k">$50k – $250k</option>
+                  <option value="250k+">$250k+</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              Book 20-min audit <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+            <p class="form-fine">No credit card. No sales pitch. Just your data.</p>
+          </form>
+          <div class="form-success" id="success-demo" hidden role="status">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            <div>
+              <strong>Audit booked!</strong>
+              <p>We'll be in touch within 1 business hour to confirm your slot.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- [Trust Badges] Security & compliance row -->
     <section class="trust-badges-section">
       <div class="container">
@@ -702,6 +823,19 @@ resp = client.chat.completions.create(
         <span class="eyebrow" style="color:rgba(245,240,232,.6)">Deploy now · free tier · no card</span>
         <h2>Your Q3 AI budget is already<br>overspent. You just don't know it yet.</h2>
         <p>The breach, the bill, the compliance fine — they're accumulating silently right now. Route your first request through AgentsFlix in under 10 minutes and find out exactly what's happening inside your AI stack.</p>
+        <!-- Primary CTA: email form -->
+        <form class="cta-email-form" id="cta-form" onsubmit="submitForm(event,'cta')" novalidate>
+          <div class="cta-form-row">
+            <label for="cta-email" class="sr-only">Work email address</label>
+            <input type="email" id="cta-email" name="email" placeholder="Work email — get free access" required autocomplete="email" aria-required="true">
+            <button type="submit" class="btn btn-primary btn-lg">Get free access <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+          </div>
+        </form>
+        <div class="form-success" id="success-cta" hidden role="status" style="color:#fff; text-align:center; margin-bottom:16px;">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <strong>You're on the list!</strong> Access link is on its way to your inbox.
+        </div>
+        <!-- Secondary: curl for devs -->
         <div class="cta-deploy-block">
           <div class="deploy-cmd deploy-cmd--dark" id="cta-cmd">
             <code>curl -sSL https://agentsflix.com/deploy | bash</code>
@@ -710,15 +844,13 @@ resp = client.chat.completions.create(
               <span class="copy-label">Copy</span>
             </button>
           </div>
-          <p class="deploy-note deploy-note--dark">Runs in Docker · 1M tokens free · no credit card · self-host available</p>
-        </div>
-        <div class="cta-actions">
-          <a href="#" class="btn btn-primary btn-lg btn-on-dark">Deploy Free Tier — 1M tokens <span aria-hidden="true">→</span></a>
-          <a href="#" class="btn btn-ghost btn-lg btn-on-dark">Schedule a live audit</a>
+          <p class="deploy-note deploy-note--dark">Or deploy directly · Docker · 1M tokens free · no credit card · self-host available</p>
         </div>
         <p class="cta-fine"><strong id="cta-countdown"></strong> until EU AI Act enforcement · SOC 2 Type II in progress · GDPR-ready</p>
       </div>
     </section>
+
+    </main><!-- /main -->
 
     <footer class="footer">
       <div class="container footer-grid">
@@ -869,6 +1001,32 @@ resp = client.chat.completions.create(
       </div>
     </div>
 
+    <!-- Sticky CTA bar — appears after hero scrolls out of view -->
+    <div class="sticky-bar" id="sticky-bar" aria-hidden="true" aria-label="Quick access">
+      <div class="container sticky-bar-inner">
+        <div class="sticky-bar-copy">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span><strong>127 companies</strong> now protected &middot; <strong id="sticky-countdown"></strong> until EU enforcement</span>
+        </div>
+        <div class="sticky-bar-cta">
+          <a href="#demo" class="btn btn-ghost btn-sm">Book demo</a>
+          <a href="#cta" class="btn btn-primary btn-sm">Deploy free →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <i class="fa-solid fa-circle-check toast-icon" aria-hidden="true"></i>
+      <div class="toast-body">
+        <strong id="toast-title">You're on the list!</strong>
+        <p id="toast-msg">We'll be in touch within 1 business hour.</p>
+      </div>
+      <button class="toast-close" onclick="closeToast()" aria-label="Dismiss notification">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
     <script>
       // ─── EU AI Act countdown ─────────────────────────────────────────────
       (function () {
@@ -883,9 +1041,11 @@ resp = client.chat.completions.create(
           var e1 = document.getElementById('eu-countdown');
           var e2 = document.getElementById('act-countdown');
           var e3 = document.getElementById('cta-countdown');
+          var e4 = document.getElementById('sticky-countdown');
           if (e1) e1.textContent = days + ' days';
           if (e2) e2.textContent = days + ' days remaining';
           if (e3) e3.textContent = days + 'd ' + hrs + 'h ' + mins + 'm ' + secs + 's remaining';
+          if (e4) e4.textContent = days + 'd ' + hrs + 'h';
         }
         update();
         setInterval(update, 1000);
@@ -1032,13 +1192,151 @@ resp = client.chat.completions.create(
       function carouselNext() { carouselGoTo((carouselIdx + 1) % carouselTotal); }
       function carouselPrev() { carouselGoTo((carouselIdx - 1 + carouselTotal) % carouselTotal); }
 
-      // Keyboard nav inside modal
+      // ─── Keyboard nav + touch swipe for carousel ────────────────────────
       document.addEventListener('keydown', function (e) {
         var m = document.getElementById('demo-modal');
         if (!m || m.hidden) return;
         if (e.key === 'ArrowRight') carouselNext();
         if (e.key === 'ArrowLeft')  carouselPrev();
       });
+      // Touch swipe support
+      (function() {
+        var track = document.getElementById('carousel-track');
+        if (!track) return;
+        var startX = null;
+        track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener('touchend', function(e){
+          if (startX === null) return;
+          var dx = e.changedTouches[0].clientX - startX;
+          if (Math.abs(dx) > 48) dx < 0 ? carouselNext() : carouselPrev();
+          startX = null;
+        }, { passive: true });
+      })();
+
+      // ─── Focus trap in modal ─────────────────────────────────────────────
+      (function() {
+        var modal = document.getElementById('demo-modal');
+        if (!modal) return;
+        modal.addEventListener('keydown', function(e) {
+          if (e.key !== 'Tab') return;
+          var focusable = modal.querySelectorAll('button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          var first = focusable[0], last = focusable[focusable.length - 1];
+          if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+          } else {
+            if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+          }
+        });
+      })();
+
+      // ─── Hamburger + mobile nav ──────────────────────────────────────────
+      (function() {
+        var btn = document.getElementById('hamburger-btn');
+        var nav = document.getElementById('mobile-nav');
+        if (!btn || !nav) return;
+        function openNav() {
+          btn.setAttribute('aria-expanded', 'true');
+          btn.classList.add('is-open');
+          nav.classList.add('is-open');
+          nav.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeNav() {
+          btn.setAttribute('aria-expanded', 'false');
+          btn.classList.remove('is-open');
+          nav.classList.remove('is-open');
+          nav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+        btn.addEventListener('click', function() { nav.classList.contains('is-open') ? closeNav() : openNav(); });
+        nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeNav); });
+        document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeNav(); });
+        // Also hook mobile theme toggle
+        var mbToggle = document.getElementById('theme-toggle-mobile');
+        if (mbToggle) mbToggle.addEventListener('click', function() {
+          var cur = document.documentElement.getAttribute('data-theme');
+          var next = cur === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('af-theme', next);
+        });
+      })();
+
+      // ─── Sticky bar ──────────────────────────────────────────────────────
+      (function() {
+        var bar = document.getElementById('sticky-bar');
+        var hero = document.querySelector('.hero');
+        if (!bar || !hero) return;
+        var shown = false;
+        window.addEventListener('scroll', function() {
+          var past = hero.getBoundingClientRect().bottom < 0;
+          if (past && !shown) {
+            bar.classList.add('is-visible');
+            bar.setAttribute('aria-hidden', 'false');
+            shown = true;
+          } else if (!past && shown) {
+            bar.classList.remove('is-visible');
+            bar.setAttribute('aria-hidden', 'true');
+            shown = false;
+          }
+        }, { passive: true });
+        // keep sticky countdown in sync
+        var sEl = document.getElementById('sticky-countdown');
+        if (sEl) {
+          setInterval(function() {
+            var d = Math.max(0, new Date('2026-08-02T00:00:00Z') - new Date());
+            sEl.textContent = Math.floor(d / 864e5) + 'd';
+          }, 1000);
+        }
+      })();
+
+      // ─── Form submission handler ─────────────────────────────────────────
+      function submitForm(e, type) {
+        e.preventDefault();
+        var form = e.target;
+        var btn  = form.querySelector('button[type="submit"]');
+        var successId = 'success-' + type;
+
+        // Simple client-side validation
+        var invalid = form.querySelectorAll(':invalid');
+        if (invalid.length) {
+          invalid[0].focus();
+          invalid[0].reportValidity();
+          return;
+        }
+
+        // Loading state
+        if (btn) { btn.disabled = true; btn.setAttribute('data-orig', btn.innerHTML); btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Sending…'; }
+
+        // Simulate async submission (replace with Formspree/Netlify in production)
+        setTimeout(function() {
+          // Show success state
+          form.hidden = true;
+          var suc = document.getElementById(successId);
+          if (suc) { suc.hidden = false; }
+          // Show toast
+          showToast(
+            type === 'demo' ? 'Audit booked! 🎉' : 'You\'re on the list!',
+            type === 'demo'
+              ? 'We\'ll reach out within 1 business hour to confirm your slot.'
+              : 'Check your work email — access link is on its way.'
+          );
+        }, 900);
+      }
+
+      // ─── Toast ───────────────────────────────────────────────────────────
+      function showToast(title, msg) {
+        var toast = document.getElementById('toast');
+        var t = document.getElementById('toast-title');
+        var m = document.getElementById('toast-msg');
+        if (t) t.textContent = title;
+        if (m) m.textContent = msg;
+        toast.classList.add('is-visible');
+        setTimeout(closeToast, 6000);
+      }
+      function closeToast() {
+        var toast = document.getElementById('toast');
+        if (toast) toast.classList.remove('is-visible');
+      }
     </script>
 </body>
 </html>
