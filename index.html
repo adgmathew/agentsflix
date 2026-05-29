@@ -12,7 +12,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="style.css">
+    <!-- [Dark Mode] Prevent flash of wrong theme before CSS loads -->
+    <script>
+      (function(){
+        var stored = localStorage.getItem('af-theme');
+        var sys = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', stored || sys);
+      })();
+    </script>
 </head>
 <body>
     <!-- Sprite for icons -->
@@ -47,6 +57,11 @@
           <a href="#docs">Docs</a>
         </nav>
         <div class="nav-cta">
+          <!-- [Dark Mode] Toggle -->
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <i class="fa-solid fa-sun theme-icon-light" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon theme-icon-dark" aria-hidden="true"></i>
+          </button>
           <a href="#" class="btn btn-ghost">Sign in</a>
           <a href="#cta" class="btn btn-primary">Deploy free — 1M tokens</a>
         </div>
@@ -72,7 +87,13 @@
                 <span class="copy-label">Copy</span>
               </button>
             </div>
-            <p class="deploy-note">Runs in Docker · no card · 1M free tokens included</p>
+            <div class="deploy-meta">
+              <p class="deploy-note">Runs in Docker · no card · 1M free tokens included</p>
+              <!-- [Demo Modal] Trigger -->
+              <button class="btn-demo-preview" onclick="openDemoModal()" aria-label="Open live dashboard preview">
+                <i class="fa-regular fa-eye" aria-hidden="true"></i> See live dashboard
+              </button>
+            </div>
           </div>
           <ul class="hero-trust" aria-label="Highlights">
             <li><span class="dot dot-green"></span> Drop-in OpenAI-compatible — no code changes</li>
@@ -93,6 +114,29 @@
         <img src="assets/logos.svg" alt="Northwind, Lumen, Vertex, Halcyon, Mercia, Sable, Atlas" class="logos-strip" />
       </div>
     </section>
+
+    <!-- [Live Counter] Company activity strip -->
+    <div class="live-counter-strip" aria-label="Live platform activity">
+      <div class="container live-counter-inner">
+        <div class="live-counter-item">
+          <span class="live-dot"></span>
+          <span class="live-count" id="counter-companies">0</span>
+          <span class="live-label">companies protected</span>
+        </div>
+        <div class="live-divider" aria-hidden="true"></div>
+        <div class="live-counter-item">
+          <span class="live-dot live-dot--cyan"></span>
+          <span class="live-count" id="counter-leaks">0</span>
+          <span class="live-label">data leaks blocked to date</span>
+        </div>
+        <div class="live-divider" aria-hidden="true"></div>
+        <div class="live-counter-item">
+          <span class="live-dot live-dot--orange"></span>
+          <span class="live-count" id="counter-tokens">0</span>
+          <span class="live-label">tokens saved today</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Stats -->
     <section class="stats">
@@ -214,6 +258,94 @@
             <p>Every request, response, token, and dollar is logged and queryable. Export to your SIEM. Answer "what did AI do last quarter?" in seconds.</p>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- [Architecture Diagram] Inline SVG with CSS tooltips -->
+    <section class="arch-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Architecture</span>
+          <h2>How the gateway sits in your stack.</h2>
+          <p class="section-lede">Every AI request flows through AgentsFlix — enforcing policy, checking cache, and routing to the right model before a single token is billed.</p>
+        </div>
+        <div class="arch-diagram" role="img" aria-label="Architecture diagram: employees and AI agents send requests through the AgentsFlix gateway (with policy engine, audit logs, and cost optimizer) then out to OpenAI, Claude, Gemini, and DeepSeek">
+          <!-- Sources column -->
+          <div class="arch-col arch-col--sources">
+            <div class="arch-node af-tooltip" data-tip="Your employees using Slack, IDE plugins, web apps, and internal tools — all channelled through one controlled endpoint.">
+              <div class="arch-node-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
+              <div class="arch-node-label">Employees</div>
+            </div>
+            <div class="arch-node af-tooltip" data-tip="Autonomous agents (LangChain, CrewAI, AutoGen, custom) that call LLMs in loops — exactly where spend caps matter most.">
+              <div class="arch-node-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
+              <div class="arch-node-label">AI Agents</div>
+            </div>
+            <div class="arch-node af-tooltip" data-tip="OpenAI SDK, Anthropic SDK, LangChain, LlamaIndex — drop-in compatible with no code changes.">
+              <div class="arch-node-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+              <div class="arch-node-label">SDKs / APIs</div>
+            </div>
+          </div>
+
+          <!-- Arrow left -->
+          <div class="arch-arrows arch-arrows--left" aria-hidden="true">
+            <div class="arch-arrow-line"></div>
+            <div class="arch-arrow-line"></div>
+            <div class="arch-arrow-line"></div>
+          </div>
+
+          <!-- Gateway -->
+          <div class="arch-gateway af-tooltip" data-tip="The AgentsFlix gateway intercepts every request and response — logging, redacting, routing, and enforcing policy in under 25ms.">
+            <div class="arch-gateway-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+            <div class="arch-gateway-name">AgentsFlix<br>Gateway</div>
+            <div class="arch-gateway-modules">
+              <div class="arch-module af-tooltip" data-tip="Enforce per-team budget limits, approved model lists, content rules, and region pinning before any token is spent.">
+                <i class="fa-solid fa-sliders" aria-hidden="true"></i> Policy Engine
+              </div>
+              <div class="arch-module af-tooltip" data-tip="Immutable audit log of every request and response. EU AI Act Article 9-12 ready. Export to your SIEM.">
+                <i class="fa-solid fa-scroll" aria-hidden="true"></i> Audit Logs
+              </div>
+              <div class="arch-module af-tooltip" data-tip="Semantic cache, prompt deduplication, and capability-aware routing. Typical savings: 40–70% of monthly spend.">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i> Cost Optimizer
+              </div>
+            </div>
+          </div>
+
+          <!-- Arrow right -->
+          <div class="arch-arrows arch-arrows--right" aria-hidden="true">
+            <div class="arch-arrow-line"></div>
+            <div class="arch-arrow-line"></div>
+            <div class="arch-arrow-line"></div>
+            <div class="arch-arrow-line"></div>
+          </div>
+
+          <!-- Providers column -->
+          <div class="arch-col arch-col--providers">
+            <div class="arch-node arch-node--provider af-tooltip" data-tip="GPT-4o, GPT-4o-mini, o1, o3-mini. We route to the cheapest model that meets your quality bar.">
+              <div class="arch-node-icon arch-node-icon--provider">
+                <i class="fa-solid fa-brain" aria-hidden="true"></i>
+              </div>
+              <div class="arch-node-label">OpenAI</div>
+            </div>
+            <div class="arch-node arch-node--provider af-tooltip" data-tip="Claude Sonnet, Haiku, Opus. Automatically used for long-context and reasoning tasks where it outperforms cheaper alternatives.">
+              <div class="arch-node-icon arch-node-icon--provider">
+                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+              </div>
+              <div class="arch-node-label">Claude</div>
+            </div>
+            <div class="arch-node arch-node--provider af-tooltip" data-tip="Gemini 2.5 Pro and Flash. Excellent for multimodal and high-volume low-cost inference.">
+              <div class="arch-node-icon arch-node-icon--provider">
+                <i class="fa-brands fa-google" aria-hidden="true"></i>
+              </div>
+              <div class="arch-node-label">Gemini</div>
+            </div>
+            <div class="arch-node arch-node--provider af-tooltip" data-tip="DeepSeek R1 and V3. Frontier-level reasoning at a fraction of the cost — ideal for batch workloads.">
+              <div class="arch-node-icon arch-node-icon--provider">
+                <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+              </div>
+              <div class="arch-node-label">DeepSeek</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -360,6 +492,69 @@ resp = client.chat.completions.create(
       </div>
     </section>
 
+    <!-- [Trust Badges] Security & compliance row -->
+    <section class="trust-badges-section">
+      <div class="container">
+        <p class="trusted-label">Security &amp; compliance</p>
+        <div class="trust-badge-row">
+          <div class="trust-badge af-tooltip" data-tip="We are actively pursuing SOC 2 Type II certification. Report expected Q3 2026. Current controls: TLS 1.3, AES-256 at rest, penetration tested quarterly.">
+            <div class="trust-badge-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+            <div class="trust-badge-text">
+              <strong>SOC 2 Type II</strong>
+              <span class="trust-badge-status trust-badge-status--progress">In progress · Q3 2026</span>
+            </div>
+          </div>
+          <div class="trust-badge af-tooltip" data-tip="We process only the minimum necessary personal data, with data residency options for EU regions, right-to-erasure support, and a signed DPA on all plans.">
+            <div class="trust-badge-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+            <div class="trust-badge-text">
+              <strong>GDPR Compliant</strong>
+              <span class="trust-badge-status trust-badge-status--active">Active</span>
+            </div>
+          </div>
+          <div class="trust-badge af-tooltip" data-tip="AgentsFlix provides the audit logs, risk classification, PII redaction, and policy enforcement required by EU AI Act Articles 9-12. Enforcement: August 2026.">
+            <div class="trust-badge-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+            <div class="trust-badge-text">
+              <strong>EU AI Act Ready</strong>
+              <span class="trust-badge-status trust-badge-status--active">Active</span>
+            </div>
+          </div>
+          <div class="trust-badge af-tooltip" data-tip="ISO 27001 certification is planned for 2026. Current ISMS controls align with ISO 27001 Annex A. Enterprise customers can request our current controls matrix.">
+            <div class="trust-badge-icon"><i class="fa-solid fa-certificate" aria-hidden="true"></i></div>
+            <div class="trust-badge-text">
+              <strong>ISO 27001</strong>
+              <span class="trust-badge-status trust-badge-status--coming">Coming 2026</span>
+            </div>
+          </div>
+          <div class="trust-badge af-tooltip" data-tip="HIPAA-eligible deployment available on Enterprise plan. Dedicated tenancy, BAA available, zero PHI retention by default.">
+            <div class="trust-badge-icon"><i class="fa-solid fa-hospital" aria-hidden="true"></i></div>
+            <div class="trust-badge-text">
+              <strong>HIPAA Eligible</strong>
+              <span class="trust-badge-status trust-badge-status--progress">Enterprise plan</span>
+            </div>
+          </div>
+        </div>
+        <!-- [Case Study Downloads] -->
+        <div class="case-study-row">
+          <a href="/whitepaper.pdf" class="case-study-link" download aria-label="Download security whitepaper PDF">
+            <i class="fa-regular fa-file-pdf" aria-hidden="true"></i>
+            <div>
+              <strong>Security Whitepaper</strong>
+              <span>Architecture, compliance &amp; data handling · 2 pages · PDF</span>
+            </div>
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+          </a>
+          <a href="/case-study-saas.pdf" class="case-study-link" download aria-label="Download SaaS startup case study PDF">
+            <i class="fa-regular fa-file-pdf" aria-hidden="true"></i>
+            <div>
+              <strong>Case Study: $47k/month saved</strong>
+              <span>How a Series B SaaS startup cut AI spend in 30 days · PDF</span>
+            </div>
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Pricing -->
     <section id="pricing" class="pricing">
       <div class="container">
@@ -406,6 +601,57 @@ resp = client.chat.completions.create(
             </ul>
             <a href="#cta" class="btn btn-ghost btn-block">Talk to sales</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- [ROI Calculator] Interactive savings estimator -->
+    <section class="roi" id="roi">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">ROI Calculator</span>
+          <h2>See your savings in 10 seconds.</h2>
+          <p class="section-lede">Move the sliders. We'll show you what you're likely wasting right now.</p>
+        </div>
+        <div class="roi-card">
+          <div class="roi-inputs">
+            <div class="roi-field">
+              <div class="roi-label-row">
+                <label for="spend-slider">Monthly LLM spend</label>
+                <span class="roi-val">$<span id="spend-display">50,000</span></span>
+              </div>
+              <input type="range" id="spend-slider" min="1000" max="500000" step="1000" value="50000" aria-label="Monthly LLM spend in dollars">
+              <div class="roi-range-labels"><span>$1k</span><span>$500k</span></div>
+            </div>
+            <div class="roi-field">
+              <div class="roi-label-row">
+                <label for="emp-slider">Number of employees using AI</label>
+                <span class="roi-val"><span id="emp-display">100</span></span>
+              </div>
+              <input type="range" id="emp-slider" min="10" max="10000" step="10" value="100" aria-label="Number of employees">
+              <div class="roi-range-labels"><span>10</span><span>10,000</span></div>
+            </div>
+          </div>
+          <div class="roi-output">
+            <div class="roi-savings-label">Estimated monthly savings</div>
+            <div class="roi-savings-amount" aria-live="polite">$<span id="savings-amount">30,000</span></div>
+            <div class="roi-savings-sub">Based on average 60% reduction across AgentsFlix customers</div>
+            <div class="roi-breakdown" aria-label="Savings breakdown">
+              <div class="roi-item">
+                <span><i class="fa-solid fa-database" aria-hidden="true"></i> Semantic cache</span>
+                <span id="cache-savings" class="roi-item-val">$12,500</span>
+              </div>
+              <div class="roi-item">
+                <span><i class="fa-solid fa-route" aria-hidden="true"></i> Smart routing</span>
+                <span id="routing-savings" class="roi-item-val">$10,000</span>
+              </div>
+              <div class="roi-item">
+                <span><i class="fa-solid fa-copy" aria-hidden="true"></i> Deduplication</span>
+                <span id="dedup-savings" class="roi-item-val">$7,500</span>
+              </div>
+            </div>
+            <a href="#cta" class="btn btn-primary">Deploy free and verify this yourself <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
     </section>
@@ -479,6 +725,14 @@ resp = client.chat.completions.create(
         <div class="footer-brand">
           <img src="assets/logo.svg" alt="AgentsFlix" width="160" height="28">
           <p>The AI gateway and governance platform for the enterprise.</p>
+          <div class="footer-downloads">
+            <a href="/whitepaper.pdf" class="footer-download-link" download>
+              <i class="fa-regular fa-file-pdf" aria-hidden="true"></i> Security Whitepaper (PDF)
+            </a>
+            <a href="/case-study-saas.pdf" class="footer-download-link" download>
+              <i class="fa-regular fa-file-pdf" aria-hidden="true"></i> Case Study: $47k/month saved
+            </a>
+          </div>
         </div>
         <div>
           <h4>Product</h4>
@@ -513,43 +767,278 @@ resp = client.chat.completions.create(
         <p class="footer-status"><span class="dot dot-green"></span> All systems operational</p>
       </div>
     </footer>
+    <!-- =============================================
+         [Demo Modal] Live dashboard preview
+         ============================================= -->
+    <div class="modal" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal-backdrop" onclick="closeDemoModal()"></div>
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeDemoModal()" aria-label="Close modal">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="modal-header">
+          <h3 id="modal-title">Live Dashboard Preview</h3>
+          <p>Read-only view of the AgentsFlix observability interface</p>
+        </div>
+        <!-- Carousel -->
+        <div class="carousel" id="demo-carousel">
+          <div class="carousel-track-wrapper">
+          <div class="carousel-track" id="carousel-track">
+            <!-- Slide 1: Main dashboard -->
+            <div class="carousel-slide">
+              <img src="assets/dashboard.svg" alt="AgentsFlix main dashboard: spend overview, cache hit rate, daily spend chart, top models, and live request log" loading="lazy">
+              <p class="carousel-caption">Overview — spend, cache hits, model distribution</p>
+            </div>
+            <!-- Slide 2: Alert blocking (inline SVG placeholder) -->
+            <div class="carousel-slide">
+              <div class="carousel-placeholder">
+                <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" width="100%" role="img" aria-label="Policy alert blocking dashboard">
+                  <rect width="700" height="360" rx="10" fill="#0B0B0F"/>
+                  <rect x="16" y="16" width="668" height="40" rx="6" fill="#161620"/>
+                  <text x="32" y="41" font-family="monospace" font-size="13" fill="#A8A296">AgentsFlix · Policy Alerts</text>
+                  <circle cx="676" cy="36" r="6" fill="#FB7185"/>
+                  <text x="32" y="90" font-family="monospace" font-size="11" fill="#FB7185" font-weight="700">⛔ BLOCKED  14:01:22  legal-team · gpt-4o · REASON: SSN detected in prompt</text>
+                  <text x="32" y="116" font-family="monospace" font-size="11" fill="#FB7185" font-weight="700">⛔ BLOCKED  14:00:58  hr-team · claude-opus · REASON: employee_data.csv attachment</text>
+                  <text x="32" y="142" font-family="monospace" font-size="11" fill="#F97316" font-weight="700">⚠ FLAGGED  13:58:11  engineering · gpt-4o · REASON: AWS key pattern detected</text>
+                  <text x="32" y="168" font-family="monospace" font-size="11" fill="#10B981">✓ ALLOWED  13:57:44  marketing · gpt-4o-mini · cache hit</text>
+                  <text x="32" y="194" font-family="monospace" font-size="11" fill="#10B981">✓ ALLOWED  13:57:21  support · claude-sonnet · routed</text>
+                  <rect x="16" y="220" width="668" height="1" fill="#22222C"/>
+                  <text x="32" y="248" font-family="monospace" font-size="11" fill="#A8A296">Policy violations today:</text>
+                  <rect x="200" y="234" width="150" height="22" rx="4" fill="#2A0A0A"/>
+                  <text x="240" y="249" font-family="monospace" font-size="12" font-weight="700" fill="#FB7185">24 blocked</text>
+                  <rect x="360" y="234" width="150" height="22" rx="4" fill="#2A1500"/>
+                  <text x="390" y="249" font-family="monospace" font-size="12" font-weight="700" fill="#F97316">7 flagged</text>
+                  <text x="32" y="300" font-family="monospace" font-size="10" fill="#5C5648">All events are immutably logged · SIEM export available · EU AI Act Article 12 compliant</text>
+                </svg>
+              </div>
+              <p class="carousel-caption">Policy Alerts — real-time PII blocking and content enforcement</p>
+            </div>
+            <!-- Slide 3: Audit log -->
+            <div class="carousel-slide">
+              <div class="carousel-placeholder">
+                <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" width="100%" role="img" aria-label="Full audit log table">
+                  <rect width="700" height="360" rx="10" fill="#0B0B0F"/>
+                  <rect x="0" y="0" width="700" height="40" rx="10" fill="#7C3AED"/>
+                  <text x="20" y="25" font-family="monospace" font-size="13" font-weight="700" fill="#fff">Audit Log  —  May 29, 2026</text>
+                  <rect x="0" y="40" width="700" height="30" fill="#161620"/>
+                  <text x="16" y="59" font-family="monospace" font-size="10" fill="#A8A296">TIMESTAMP         USER           TEAM        MODEL            TOKENS   COST      STATUS</text>
+                  <g font-family="monospace" font-size="10" fill="#F5F0E8">
+                    <rect x="0" y="70" width="700" height="26" fill="#13131A"/>
+                    <text x="16" y="87">14:02:11 UTC   j.doe@acme.com   marketing   gpt-4o-mini       248    $0.000   CACHE HIT</text>
+                    <rect x="0" y="96" width="700" height="26" fill="#0B0B0F"/>
+                    <text x="16" y="113">14:02:08 UTC   bot-agent-4      ops         claude-sonnet    1,842   $0.012   ROUTED</text>
+                    <rect x="0" y="122" width="700" height="26" fill="#13131A"/>
+                    <text x="16" y="139" fill="#FB7185">14:02:04 UTC   m.chan@acme.com  legal      gpt-4o             —      —       BLOCKED</text>
+                    <rect x="0" y="148" width="700" height="26" fill="#0B0B0F"/>
+                    <text x="16" y="165">14:01:58 UTC   bot-agent-7      finance     gemini-flash     3,201   $0.003   ROUTED</text>
+                    <rect x="0" y="174" width="700" height="26" fill="#13131A"/>
+                    <text x="16" y="191">14:01:44 UTC   a.smith@acme.com support     claude-haiku       892   $0.001   CACHED</text>
+                    <rect x="0" y="200" width="700" height="26" fill="#0B0B0F"/>
+                    <text x="16" y="217">14:01:33 UTC   bot-agent-2      engineering gpt-4o-mini       415   $0.000   CACHE HIT</text>
+                    <rect x="0" y="226" width="700" height="26" fill="#13131A"/>
+                    <text x="16" y="243" fill="#F97316">14:01:21 UTC   r.jones@acme.com hr        claude-opus        —      —       FLAGGED</text>
+                  </g>
+                  <rect x="0" y="280" width="700" height="80" rx="0" fill="#161620"/>
+                  <text x="16" y="305" font-family="monospace" font-size="10" fill="#A8A296">Total today:  2,841 requests · 4.2M tokens · $18.40 spend · 41.7% cache rate · 24 blocked</text>
+                  <text x="16" y="325" font-family="monospace" font-size="10" fill="#A8A296">Export: CSV · JSON · SIEM (Splunk, Datadog, Elastic)   Retention: 90 days (Team) / unlimited (Enterprise)</text>
+                </svg>
+              </div>
+              <p class="carousel-caption">Audit Log — every request, response, and decision, immutably logged</p>
+            </div>
+          </div>
+          </div><!-- /carousel-track-wrapper -->
+          <!-- Carousel controls -->
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="prev-btn" onclick="carouselPrev()" aria-label="Previous slide">
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="carousel-dots" id="carousel-dots">
+              <button class="carousel-dot active" onclick="carouselGoTo(0)" aria-label="Slide 1"></button>
+              <button class="carousel-dot" onclick="carouselGoTo(1)" aria-label="Slide 2"></button>
+              <button class="carousel-dot" onclick="carouselGoTo(2)" aria-label="Slide 3"></button>
+            </div>
+            <button class="carousel-btn" id="next-btn" onclick="carouselNext()" aria-label="Next slide">
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p>This is a read-only preview. Want full access?</p>
+          <a href="#cta" class="btn btn-primary" onclick="closeDemoModal()">Deploy free tier — 1M tokens <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+
     <script>
-      // EU AI Act deadline: 2 August 2026
+      // ─── EU AI Act countdown ─────────────────────────────────────────────
       (function () {
         var deadline = new Date('2026-08-02T00:00:00Z');
         function update() {
-          var now = new Date();
-          var diff = deadline - now;
-          if (diff <= 0) { diff = 0; }
+          var now  = new Date();
+          var diff = Math.max(0, deadline - now);
           var days = Math.floor(diff / 864e5);
           var hrs  = Math.floor((diff % 864e5) / 36e5);
           var mins = Math.floor((diff % 36e5) / 6e4);
           var secs = Math.floor((diff % 6e4) / 1e3);
-          var label = days + 'd ' + hrs + 'h ' + mins + 'm ' + secs + 's';
-          var short = days + ' days';
-          var el1 = document.getElementById('eu-countdown');
-          var el2 = document.getElementById('act-countdown');
-          var el3 = document.getElementById('cta-countdown');
-          if (el1) el1.textContent = short;
-          if (el2) el2.textContent = short + ' remaining';
-          if (el3) el3.textContent = label + ' remaining';
+          var e1 = document.getElementById('eu-countdown');
+          var e2 = document.getElementById('act-countdown');
+          var e3 = document.getElementById('cta-countdown');
+          if (e1) e1.textContent = days + ' days';
+          if (e2) e2.textContent = days + ' days remaining';
+          if (e3) e3.textContent = days + 'd ' + hrs + 'h ' + mins + 'm ' + secs + 's remaining';
         }
         update();
         setInterval(update, 1000);
       })();
 
-      // Copy deploy command
-      function copyCmd(containerId) {
-        var el = document.querySelector('#' + containerId + ' code');
-        if (!el) return;
-        navigator.clipboard.writeText(el.textContent.trim()).then(function () {
-          var btn = document.querySelector('#' + containerId + ' .copy-label');
-          if (btn) { btn.textContent = 'Copied!'; setTimeout(function(){ btn.textContent = 'Copy'; }, 2000); }
-        }).catch(function () {
-          var btn = document.querySelector('#' + containerId + ' .copy-label');
-          if (btn) { btn.textContent = 'Copy'; }
+      // ─── Copy deploy command ──────────────────────────────────────────────
+      function copyCmd(id) {
+        var code = document.querySelector('#' + id + ' code');
+        if (!code) return;
+        navigator.clipboard.writeText(code.textContent.trim()).then(function () {
+          var lbl = document.querySelector('#' + id + ' .copy-label');
+          if (lbl) { lbl.textContent = 'Copied!'; setTimeout(function(){ lbl.textContent = 'Copy'; }, 2000); }
         });
       }
+
+      // ─── Dark mode toggle ────────────────────────────────────────────────
+      (function () {
+        var btn = document.getElementById('theme-toggle');
+        function applyTheme(t) {
+          document.documentElement.setAttribute('data-theme', t);
+          localStorage.setItem('af-theme', t);
+        }
+        if (btn) {
+          btn.addEventListener('click', function () {
+            var cur = document.documentElement.getAttribute('data-theme');
+            applyTheme(cur === 'dark' ? 'light' : 'dark');
+          });
+        }
+        // Sync with OS preference changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+          if (!localStorage.getItem('af-theme')) applyTheme(e.matches ? 'dark' : 'light');
+        });
+      })();
+
+      // ─── Live company counter (count-up animation) ───────────────────────
+      (function () {
+        var targets = [
+          { id: 'counter-companies', target: 127,       suffix: '' },
+          { id: 'counter-leaks',     target: 12847,     suffix: '' },
+          { id: 'counter-tokens',    target: 84200000,  suffix: '' }
+        ];
+        function fmt(n) {
+          if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+          return n.toLocaleString();
+        }
+        function animateCounter(el, target, duration) {
+          var start = 0, step = target / (duration / 16);
+          var raf = function () {
+            start += step;
+            if (start >= target) { el.textContent = fmt(target); return; }
+            el.textContent = fmt(Math.floor(start));
+            requestAnimationFrame(raf);
+          };
+          requestAnimationFrame(raf);
+        }
+        // Trigger when strip enters viewport
+        var strip = document.querySelector('.live-counter-strip');
+        if (strip && 'IntersectionObserver' in window) {
+          var done = false;
+          new IntersectionObserver(function (entries, obs) {
+            if (entries[0].isIntersecting && !done) {
+              done = true;
+              targets.forEach(function (t) {
+                var el = document.getElementById(t.id);
+                if (el) animateCounter(el, t.target, 1400);
+              });
+              obs.disconnect();
+            }
+          }, { threshold: 0.3 }).observe(strip);
+        } else {
+          targets.forEach(function (t) {
+            var el = document.getElementById(t.id);
+            if (el) el.textContent = fmt(t.target);
+          });
+        }
+      })();
+
+      // ─── ROI Calculator ──────────────────────────────────────────────────
+      (function () {
+        var spendSlider   = document.getElementById('spend-slider');
+        var empSlider     = document.getElementById('emp-slider');
+        var spendDisplay  = document.getElementById('spend-display');
+        var empDisplay    = document.getElementById('emp-display');
+        var savingsAmount = document.getElementById('savings-amount');
+        var cacheSavings  = document.getElementById('cache-savings');
+        var routeSavings  = document.getElementById('routing-savings');
+        var dedupSavings  = document.getElementById('dedup-savings');
+
+        function fmt$(n) {
+          return n >= 1000 ? '$' + (n / 1000).toFixed(0) + 'k' : '$' + n;
+        }
+        function fmtComma(n) { return n.toLocaleString(); }
+
+        function update() {
+          var spend = parseInt(spendSlider.value);
+          var emp   = parseInt(empSlider.value);
+          if (spendDisplay) spendDisplay.textContent = fmtComma(spend);
+          if (empDisplay)   empDisplay.textContent   = fmtComma(emp);
+
+          var total   = Math.round(spend * 0.60);
+          var cache   = Math.round(total * 0.416);   // 25% of spend
+          var routing = Math.round(total * 0.333);   // 20% of spend
+          var dedup   = Math.round(total - cache - routing);
+
+          if (savingsAmount) savingsAmount.textContent = fmtComma(total);
+          if (cacheSavings)  cacheSavings.textContent  = fmt$(cache);
+          if (routeSavings)  routeSavings.textContent  = fmt$(routing);
+          if (dedupSavings)  dedupSavings.textContent  = fmt$(dedup);
+        }
+
+        if (spendSlider) { spendSlider.addEventListener('input', update); update(); }
+        if (empSlider)   empSlider.addEventListener('input', update);
+      })();
+
+      // ─── Demo modal ──────────────────────────────────────────────────────
+      var carouselIdx = 0;
+      var carouselTotal = 3;
+
+      function openDemoModal() {
+        var m = document.getElementById('demo-modal');
+        if (!m) return;
+        m.hidden = false;
+        document.body.style.overflow = 'hidden';
+        carouselGoTo(0);
+      }
+      function closeDemoModal() {
+        var m = document.getElementById('demo-modal');
+        if (!m) return;
+        m.hidden = true;
+        document.body.style.overflow = '';
+      }
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeDemoModal();
+      });
+
+      function carouselGoTo(idx) {
+        carouselIdx = idx;
+        var track = document.getElementById('carousel-track');
+        if (track) track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        document.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+          d.classList.toggle('active', i === idx);
+        });
+      }
+      function carouselNext() { carouselGoTo((carouselIdx + 1) % carouselTotal); }
+      function carouselPrev() { carouselGoTo((carouselIdx - 1 + carouselTotal) % carouselTotal); }
+
+      // Keyboard nav inside modal
+      document.addEventListener('keydown', function (e) {
+        var m = document.getElementById('demo-modal');
+        if (!m || m.hidden) return;
+        if (e.key === 'ArrowRight') carouselNext();
+        if (e.key === 'ArrowLeft')  carouselPrev();
+      });
     </script>
 </body>
 </html>
