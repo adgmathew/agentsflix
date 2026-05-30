@@ -4,24 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AgentsFlix — AI Gateway & Governance. Deploy Free in 60 Seconds.</title>
-<meta name="description" content="Stop overpaying for AI. AgentsFlix gives you centralized control, cost optimization, and compliance across every LLM. Free tier: 1M tokens.">
+<meta name="description" content="Stop overpaying for AI. AgentsFlix gives centralized control, cost optimization, and compliance across every LLM. Free tier: 1M tokens.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- URGENCY BAR -->
 <div class="urgency-bar">
   <span class="urgency-dot"></span>
   <strong>EU AI Act enforcement starts August 2026.</strong>
   <span id="countdown-inline">Loading...</span>
-  — Non-compliance: up to €35M or 7% global revenue.
+  — Fine: up to €35M or 7% global revenue.
   <a href="#deploy">Get compliant free →</a>
 </div>
+
+<!-- NAV -->
 <nav>
   <div class="container nav-inner">
     <div class="logo-wrap">
-      <div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9h3l2-5 3 10 2-5h2" stroke="#00c896" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="logo-mark">
+        <svg viewBox="0 0 18 18" fill="none"><path d="M3 9h3l2-5 3 10 2-5h2" stroke="#00c896" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
       <span class="logo-name">Agents<em>Flix</em></span>
     </div>
     <ul class="nav-links">
@@ -36,61 +42,103 @@
     </div>
   </div>
 </nav>
+
+<!-- HERO -->
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero-split">
+
+      <!-- LEFT -->
       <div class="hero-copy">
         <div class="hero-badge"><span class="live-dot"></span> 500+ teams · $12M+ saved this month</div>
         <h1>Your AI bill is<br><span class="h1-red">out of control.</span><br>Fix it in 60 seconds.</h1>
         <p class="hero-lead">AgentsFlix is the AI gateway that sits between your teams and every LLM — catching waste, blocking leaks, and enforcing policy before the damage is done.</p>
+
+        <!-- DEPLOY BOX -->
         <div class="deploy-box" id="deploy">
-          <div class="deploy-label"><span class="deploy-badge">FREE TIER — 1M TOKENS INCLUDED</span></div>
+          <div class="deploy-label">
+            <span class="deploy-badge">FREE TIER — 1M TOKENS INCLUDED</span>
+          </div>
           <div class="deploy-cmd">
             <code id="deploy-code">curl -sSL https://agentsflix.com/deploy | bash</code>
             <button class="copy-btn" onclick="copyDeploy()" id="copy-btn">Copy</button>
           </div>
-          <div class="deploy-sub">Or <a href="#">sign up with GitHub</a> · <a href="#">sign up with Google</a> · No credit card · Live in 60 seconds</div>
+          <div class="deploy-sub">
+            Or <a href="#">sign up with GitHub</a> · <a href="#">sign up with Google</a> · No credit card · Live in 60s
+          </div>
         </div>
+
         <div class="hero-trust">
-          <div class="trust-item"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H6L8 1Z" fill="#f59e0b"/></svg><span>SOC 2 Type II</span></div>
-          <div class="trust-item"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#00c896" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#00c896" stroke-width="1.5" stroke-linecap="round"/></svg><span>GDPR Compliant</span></div>
-          <div class="trust-item"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="9" rx="2" stroke="#4f46e5" stroke-width="1.5"/><path d="M5 6V4a3 3 0 0 1 6 0v2" stroke="#4f46e5" stroke-width="1.5" stroke-linecap="round"/></svg><span>EU AI Act Ready</span></div>
-          <div class="trust-item"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 5V9C14 12.5 11 15 8 15C5 15 2 12.5 2 9V5L8 2Z" stroke="#6b7280" stroke-width="1.5"/></svg><span>AWS Mumbai</span></div>
+          <div class="trust-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1L10 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H6L8 1Z" fill="#f59e0b"/></svg>
+            <span>SOC 2 Type II</span>
+          </div>
+          <div class="trust-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#00c896" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#00c896" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>GDPR</span>
+          </div>
+          <div class="trust-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="9" rx="2" stroke="#4f46e5" stroke-width="1.5"/><path d="M5 6V4a3 3 0 0 1 6 0v2" stroke="#4f46e5" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span>EU AI Act Ready</span>
+          </div>
+          <div class="trust-item">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2L14 5V9C14 12.5 11 15 8 15C5 15 2 12.5 2 9V5L8 2Z" stroke="#6b7280" stroke-width="1.5"/></svg>
+            <span>AWS Mumbai</span>
+          </div>
         </div>
       </div>
+
+      <!-- RIGHT -->
       <div class="hero-right">
         <div class="incident-panel">
           <div class="incident-header">
-            <span class="incident-live"><span class="live-dot"></span> Live AI spend incidents</span>
+            <span class="incident-live"><span class="live-dot"></span>&nbsp;Live AI spend incidents</span>
             <span class="incident-today">Today</span>
           </div>
           <div class="incident-list">
             <div class="incident-item incident-red">
               <div class="inc-icon">🔥</div>
-              <div class="inc-body"><div class="inc-title">Microsoft internal ban</div><div class="inc-desc">Engineers burning $2,000/month each on Claude Code. Usage suspended company-wide.</div><div class="inc-meta">Microsoft · 2025</div></div>
+              <div class="inc-body">
+                <div class="inc-title">Microsoft internal ban</div>
+                <div class="inc-desc">Engineers burning $2,000/month each on Claude Code. Suspended company-wide.</div>
+                <div class="inc-meta">Microsoft · 2025</div>
+              </div>
               <div class="inc-cost">$2K<span>/mo/eng</span></div>
             </div>
             <div class="incident-item incident-amber">
               <div class="inc-icon">⚡</div>
-              <div class="inc-body"><div class="inc-title">Uber AI budget exhausted</div><div class="inc-desc">$3.4B AI budget consumed in 4 months. Zero governance. Zero visibility.</div><div class="inc-meta">Uber · Q1 2025</div></div>
+              <div class="inc-body">
+                <div class="inc-title">Uber AI budget exhausted</div>
+                <div class="inc-desc">$3.4B AI budget consumed in 4 months. Zero governance. Zero visibility.</div>
+                <div class="inc-meta">Uber · Q1 2025</div>
+              </div>
               <div class="inc-cost">$3.4B<span>/4mo</span></div>
             </div>
             <div class="incident-item incident-red">
               <div class="inc-icon">💀</div>
-              <div class="inc-body"><div class="inc-title">Anonymous Fortune 500</div><div class="inc-desc">$500M spent on Claude tokens in one year. CFO discovered during annual audit.</div><div class="inc-meta">Fortune 500 · 2024</div></div>
+              <div class="inc-body">
+                <div class="inc-title">Anonymous Fortune 500</div>
+                <div class="inc-desc">$500M on Claude tokens in one year. CFO found out during annual audit.</div>
+                <div class="inc-meta">Fortune 500 · 2024</div>
+              </div>
               <div class="inc-cost">$500M<span>/yr</span></div>
             </div>
             <div class="incident-item incident-purple">
               <div class="inc-icon">⚖️</div>
-              <div class="inc-body"><div class="inc-title">EU AI Act — enforcement soon</div><div class="inc-desc">August 2026 deadline. No audit logs = immediate non-compliance.</div><div class="inc-meta">EU Commission · Aug 2026</div></div>
+              <div class="inc-body">
+                <div class="inc-title">EU AI Act — enforcement soon</div>
+                <div class="inc-desc">August 2026 deadline. No audit logs = immediate non-compliance.</div>
+                <div class="inc-meta">EU Commission · Aug 2026</div>
+              </div>
               <div class="inc-cost">€35M<span>fine</span></div>
             </div>
           </div>
           <div class="incident-footer">
-            <span class="inc-footer-text">Could any of these happen at your company?</span>
-            <a href="#deploy" class="inc-footer-cta">Deploy AgentsFlix →</a>
+            <span class="inc-footer-text">Could this happen at your company?</span>
+            <a href="#deploy" class="inc-footer-cta">Deploy free →</a>
           </div>
         </div>
+
         <div class="countdown-card">
           <div class="cd-label">⏳ EU AI Act enforcement deadline</div>
           <div class="cd-timer">
@@ -105,138 +153,333 @@
           <div class="cd-sub">August 1, 2026 · €35M or 7% global revenue penalty</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
+<!-- LOGOS -->
 <section class="logos-bar">
   <div class="container">
     <p class="logos-lbl">Protecting AI operations at</p>
     <div class="logos-row">
-      <span class="logo-chip">🏦 Top 5 US Bank (×3)</span><span class="logo-chip">Razorpay</span><span class="logo-chip">Zepto</span><span class="logo-chip">BrowserStack</span><span class="logo-chip">Meesho</span><span class="logo-chip">Hasura</span><span class="logo-chip">Setu</span>
+      <span class="logo-chip">🏦 Top 5 US Bank (×3)</span>
+      <span class="logo-chip">Razorpay</span>
+      <span class="logo-chip">Zepto</span>
+      <span class="logo-chip">BrowserStack</span>
+      <span class="logo-chip">Meesho</span>
+      <span class="logo-chip">Hasura</span>
+      <span class="logo-chip">Setu</span>
     </div>
   </div>
 </section>
+
+<!-- PROBLEM -->
 <section class="section" id="problem">
   <div class="container">
-    <div class="section-eyebrow red">⚠ The Cost of Waiting</div>
+    <span class="section-eyebrow red">⚠ The Cost of Waiting</span>
     <h2 class="section-h">Every day without governance<br>is another leak you'll never find.</h2>
     <p class="section-p muted">Real incidents. Real numbers. Real consequences.</p>
+
     <div class="cost-grid">
-      <div class="cost-card red-card"><div class="cost-num">$2,000</div><div class="cost-per">per engineer / month</div><div class="cost-desc">Microsoft banned Claude Code after discovering engineers were spending thousands monthly with zero oversight or output tracking.</div><div class="cost-src">Source: Internal Microsoft memo, 2025</div></div>
-      <div class="cost-card amber-card"><div class="cost-num">$3.4B</div><div class="cost-per">in 4 months</div><div class="cost-desc">Uber burned through their entire annual AI budget in a single quarter. No central gateway. No policy engine. No way to stop it until it was gone.</div><div class="cost-src">Source: Uber CFO earnings call, Q1 2025</div></div>
-      <div class="cost-card purple-card"><div class="cost-num">€35M</div><div class="cost-per">or 7% global revenue</div><div class="cost-desc">EU AI Act enforcement begins August 2026. No audit logs. No data residency controls. That's the fine — before legal fees.</div><div class="cost-src">Source: EU AI Act Article 99, 2024</div></div>
-      <div class="cost-card dark-card"><div class="cost-num">$500M</div><div class="cost-per">one company, one year</div><div class="cost-desc">A Fortune 500 CFO discovered $500M in Claude token spending during an annual audit. The AI team didn't know either. Nobody had visibility.</div><div class="cost-src">Source: Anonymous, disclosed to Anthropic</div></div>
-    </div>
-    <div class="problem-statement">
-      <div class="ps-inner">
-        <div class="ps-icon">🔍</div>
-        <div class="ps-text"><strong>"Your Q3 AI budget is already overspent. You just don't know it yet."</strong><span>The average enterprise runs 6+ AI tools across 4+ departments with zero central visibility. AgentsFlix changes that in 60 seconds.</span></div>
-        <a href="#deploy" class="ps-cta">Fix it now →</a>
+      <div class="cost-card red-card">
+        <div class="cost-num">$2,000</div>
+        <div class="cost-per">per engineer / month</div>
+        <div class="cost-desc">Microsoft banned Claude Code after discovering engineers spending thousands monthly with zero oversight or output tracking.</div>
+        <div class="cost-src">Source: Internal Microsoft memo, 2025</div>
       </div>
+      <div class="cost-card amber-card">
+        <div class="cost-num">$3.4B</div>
+        <div class="cost-per">in 4 months</div>
+        <div class="cost-desc">Uber burned through their entire annual AI budget in a single quarter. No gateway. No policy engine. No way to stop it until it was gone.</div>
+        <div class="cost-src">Source: Uber CFO earnings call, Q1 2025</div>
+      </div>
+      <div class="cost-card purple-card">
+        <div class="cost-num">€35M</div>
+        <div class="cost-per">or 7% global revenue</div>
+        <div class="cost-desc">EU AI Act enforcement begins August 2026. No audit logs. No data residency controls. That's the fine — before legal fees.</div>
+        <div class="cost-src">Source: EU AI Act Article 99, 2024</div>
+      </div>
+      <div class="cost-card dark-card">
+        <div class="cost-num">$500M</div>
+        <div class="cost-per">one company, one year</div>
+        <div class="cost-desc">A Fortune 500 CFO discovered $500M in Claude token spending during an annual audit. The AI team didn't know either.</div>
+        <div class="cost-src">Source: Anonymous, disclosed to Anthropic</div>
+      </div>
+    </div>
+
+    <div class="ps-inner">
+      <div class="ps-icon">🔍</div>
+      <div class="ps-text">
+        <strong>"Your Q3 AI budget is already overspent. You just don't know it yet."</strong>
+        <span>The average enterprise runs 6+ AI tools across 4+ departments with zero central visibility. AgentsFlix changes that in 60 seconds.</span>
+      </div>
+      <a href="#deploy" class="ps-cta">Fix it now →</a>
     </div>
   </div>
 </section>
+
+<!-- HOW IT WORKS -->
 <section class="section bg-alt" id="how">
   <div class="container">
-    <div class="section-eyebrow green">How It Works</div>
+    <span class="section-eyebrow green">How It Works</span>
     <h2 class="section-h">One endpoint. Total visibility.<br>Zero disruption.</h2>
     <p class="section-p muted">Change one URL. Gain complete control over every LLM request your teams make.</p>
-    <div class="flow-visual">
-      <div class="flow-compare">
-        <div class="flow-before">
-          <div class="flow-label red-label">❌ Without AgentsFlix</div>
-          <div class="flow-teams-row"><div class="ft">Eng</div><div class="ft">HR</div><div class="ft">Sales</div><div class="ft">Finance</div><div class="ft">Ops</div></div>
-          <svg viewBox="0 0 300 80" style="width:100%;display:block;"><line x1="30" y1="0" x2="60" y2="80" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2" opacity=".6"/><line x1="90" y1="0" x2="200" y2="80" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 2" opacity=".6"/><line x1="150" y1="0" x2="60" y2="80" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2" opacity=".5"/><line x1="150" y1="0" x2="130" y2="80" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 2" opacity=".5"/><line x1="210" y1="0" x2="130" y2="80" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2" opacity=".6"/><line x1="270" y1="0" x2="260" y2="80" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 2" opacity=".6"/><line x1="30" y1="0" x2="260" y2="80" stroke="#ef4444" stroke-width="1" stroke-dasharray="3 2" opacity=".3"/></svg>
-          <div class="flow-models-row"><div class="fm red-fm">GPT-4o</div><div class="fm amber-fm">Claude</div><div class="fm blue-fm">Gemini</div><div class="fm purple-fm">Mistral</div></div>
-          <div class="flow-result red-result">No visibility · No control · No compliance</div>
+
+    <div class="flow-compare">
+      <div class="flow-box">
+        <div class="flow-label red-label">❌ Without AgentsFlix</div>
+        <div class="flow-teams-row">
+          <div class="ft">Eng</div><div class="ft">HR</div><div class="ft">Sales</div><div class="ft">Finance</div><div class="ft">Ops</div>
         </div>
-        <div class="flow-divider">VS</div>
-        <div class="flow-after">
-          <div class="flow-label green-label">✓ With AgentsFlix</div>
-          <div class="flow-teams-row"><div class="ft">Eng</div><div class="ft">HR</div><div class="ft">Sales</div><div class="ft">Finance</div><div class="ft">Ops</div></div>
-          <svg viewBox="0 0 300 40" style="width:100%;display:block;"><line x1="30" y1="0" x2="150" y2="40" stroke="#00c896" stroke-width="1.5"/><line x1="90" y1="0" x2="150" y2="40" stroke="#00c896" stroke-width="1.5"/><line x1="150" y1="0" x2="150" y2="40" stroke="#00c896" stroke-width="2"/><line x1="210" y1="0" x2="150" y2="40" stroke="#00c896" stroke-width="1.5"/><line x1="270" y1="0" x2="150" y2="40" stroke="#00c896" stroke-width="1.5"/></svg>
-          <div class="gateway-node"><span>⚡ AgentsFlix Gateway</span><div class="gn-tags"><span class="gn-tag">PII Scan</span><span class="gn-tag">Budget</span><span class="gn-tag">Cache</span><span class="gn-tag">Log</span><span class="gn-tag">Route</span></div></div>
-          <svg viewBox="0 0 300 40" style="width:100%;display:block;"><line x1="150" y1="0" x2="40" y2="40" stroke="#e2e5eb" stroke-width="1.5"/><line x1="150" y1="0" x2="110" y2="40" stroke="#e2e5eb" stroke-width="1.5"/><line x1="150" y1="0" x2="190" y2="40" stroke="#e2e5eb" stroke-width="1.5"/><line x1="150" y1="0" x2="260" y2="40" stroke="#e2e5eb" stroke-width="1.5"/></svg>
-          <div class="flow-models-row"><div class="fm">GPT-4o</div><div class="fm">Claude</div><div class="fm">Gemini</div><div class="fm">Mistral</div></div>
-          <div class="flow-result green-result">Full control · Zero waste · Fully compliant</div>
+        <svg viewBox="0 0 300 72" style="width:100%;display:block;overflow:visible;">
+          <line x1="30" y1="0" x2="60" y2="72" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2" opacity=".55"/>
+          <line x1="90" y1="0" x2="200" y2="72" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 2" opacity=".55"/>
+          <line x1="150" y1="0" x2="60" y2="72" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2" opacity=".45"/>
+          <line x1="150" y1="0" x2="130" y2="72" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 2" opacity=".45"/>
+          <line x1="210" y1="0" x2="130" y2="72" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2" opacity=".55"/>
+          <line x1="270" y1="0" x2="260" y2="72" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="3 2" opacity=".55"/>
+        </svg>
+        <div class="flow-models-row">
+          <div class="fm fm-red">GPT-4o</div><div class="fm fm-amber">Claude</div><div class="fm fm-blue">Gemini</div><div class="fm fm-purple">Mistral</div>
         </div>
+        <div class="flow-result flow-result-bad">No visibility · No control · No compliance</div>
+      </div>
+
+      <div class="flow-vs">VS</div>
+
+      <div class="flow-box">
+        <div class="flow-label green-label">✓ With AgentsFlix</div>
+        <div class="flow-teams-row">
+          <div class="ft">Eng</div><div class="ft">HR</div><div class="ft">Sales</div><div class="ft">Finance</div><div class="ft">Ops</div>
+        </div>
+        <svg viewBox="0 0 300 36" style="width:100%;display:block;overflow:visible;">
+          <line x1="30" y1="0" x2="150" y2="36" stroke="#00c896" stroke-width="1.4"/>
+          <line x1="90" y1="0" x2="150" y2="36" stroke="#00c896" stroke-width="1.4"/>
+          <line x1="150" y1="0" x2="150" y2="36" stroke="#00c896" stroke-width="2"/>
+          <line x1="210" y1="0" x2="150" y2="36" stroke="#00c896" stroke-width="1.4"/>
+          <line x1="270" y1="0" x2="150" y2="36" stroke="#00c896" stroke-width="1.4"/>
+        </svg>
+        <div class="gateway-node">
+          <span>⚡ AgentsFlix Gateway</span>
+          <div class="gn-tags">
+            <span class="gn-tag">PII Scan</span><span class="gn-tag">Budget</span><span class="gn-tag">Cache</span><span class="gn-tag">Log</span><span class="gn-tag">Route</span>
+          </div>
+        </div>
+        <svg viewBox="0 0 300 36" style="width:100%;display:block;overflow:visible;">
+          <line x1="150" y1="0" x2="40" y2="36" stroke="#e2e5eb" stroke-width="1.4"/>
+          <line x1="150" y1="0" x2="110" y2="36" stroke="#e2e5eb" stroke-width="1.4"/>
+          <line x1="150" y1="0" x2="190" y2="36" stroke="#e2e5eb" stroke-width="1.4"/>
+          <line x1="150" y1="0" x2="260" y2="36" stroke="#e2e5eb" stroke-width="1.4"/>
+        </svg>
+        <div class="flow-models-row">
+          <div class="fm">GPT-4o</div><div class="fm">Claude</div><div class="fm">Gemini</div><div class="fm">Mistral</div>
+        </div>
+        <div class="flow-result flow-result-good">Full control · Zero waste · Fully compliant</div>
       </div>
     </div>
-    <div class="steps-row">
-      <div class="step-card"><div class="step-n">01</div><h4>Connect providers</h4><p>Add your OpenAI, Claude, Gemini API keys. AES-256 encrypted vault. Takes 2 minutes.</p></div>
-      <div class="step-arrow-icon">→</div>
-      <div class="step-card"><div class="step-n">02</div><h4>Change one URL</h4><p>Replace any LLM base URL with <code>api.agentsflix.com/v1</code>. Works with LangChain, OpenAI SDK, any HTTP client.</p></div>
-      <div class="step-arrow-icon">→</div>
-      <div class="step-card"><div class="step-n">03</div><h4>Set policies</h4><p>Budget limits by dept, model restrictions by role, PII detection — visual editor, no code needed.</p></div>
-      <div class="step-arrow-icon">→</div>
-      <div class="step-card"><div class="step-n">04</div><h4>Costs drop instantly</h4><p>Most teams see 30–40% cost reduction in week one from caching alone.</p></div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-n">01</div>
+        <h4>Connect providers</h4>
+        <p>Add your OpenAI, Claude, Gemini API keys. AES-256 encrypted vault. Takes 2 minutes.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-n">02</div>
+        <h4>Change one URL</h4>
+        <p>Replace any LLM base URL with <code>api.agentsflix.com/v1</code>. Works with LangChain, OpenAI SDK, any HTTP client.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-n">03</div>
+        <h4>Set policies</h4>
+        <p>Budget limits by dept, model restrictions by role, PII detection — visual editor, no code needed.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-n">04</div>
+        <h4>Costs drop instantly</h4>
+        <p>Most teams see 30–40% cost reduction in week one from caching alone.</p>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ARCHITECTURE -->
+<section class="arch-section" id="architecture">
+  <div class="container">
+    <span class="section-eyebrow arch-eyebrow">Architecture</span>
+    <h2 class="section-h arch-h">How AgentsFlix fits into your stack.</h2>
+    <p class="section-p arch-p">A transparent proxy layer. Zero changes to your existing code. Complete control added in one step.</p>
+    <button class="demo-trigger" onclick="openDemo()">▶ See Live Dashboard Demo</button>
+    <div class="arch-diagram">
+      <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
+        <rect width="760" height="380" fill="#0f1117" rx="10"/>
+        <!-- Label top -->
+        <text x="380" y="28" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.3)" font-weight="600" letter-spacing="1.2">YOUR TEAMS &amp; APPLICATIONS</text>
+        <!-- Client boxes -->
+        <rect x="22" y="38" width="90" height="32" rx="6" fill="#1c2033" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="67" y="58" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600">Engineering</text>
+        <rect x="124" y="38" width="90" height="32" rx="6" fill="#1c2033" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="169" y="58" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600">Finance</text>
+        <rect x="226" y="38" width="90" height="32" rx="6" fill="#1c2033" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="271" y="58" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600">HR / Legal</text>
+        <rect x="328" y="38" width="90" height="32" rx="6" fill="#1c2033" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="373" y="58" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600">Marketing</text>
+        <rect x="430" y="38" width="90" height="32" rx="6" fill="#1c2033" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="475" y="58" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600">AI Agents</text>
+        <rect x="532" y="38" width="124" height="32" rx="6" fill="#1c2033" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+        <text x="594" y="58" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600">3rd-party / SDKs</text>
+        <!-- Lines to gateway -->
+        <line x1="67" y1="70" x2="380" y2="148" stroke="rgba(0,200,150,.25)" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <line x1="169" y1="70" x2="380" y2="148" stroke="rgba(0,200,150,.25)" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <line x1="271" y1="70" x2="380" y2="148" stroke="rgba(0,200,150,.3)" stroke-width="1.3" stroke-dasharray="4 3"/>
+        <line x1="373" y1="70" x2="380" y2="148" stroke="rgba(0,200,150,.35)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <line x1="475" y1="70" x2="380" y2="148" stroke="rgba(0,200,150,.25)" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <line x1="594" y1="70" x2="380" y2="148" stroke="rgba(0,200,150,.25)" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <!-- Gateway box -->
+        <rect x="118" y="148" width="524" height="84" rx="10" fill="#131825" stroke="#00c896" stroke-width="1.5"/>
+        <text x="380" y="172" text-anchor="middle" font-size="9.5" fill="rgba(0,200,150,.65)" font-weight="700" letter-spacing="1.2">AGENTSFLIX GATEWAY  ·  api.agentsflix.com/v1</text>
+        <text x="380" y="192" text-anchor="middle" font-size="14" fill="#ffffff" font-weight="800">Policy · Cache · PII Scan · Audit Log · Smart Router</text>
+        <!-- Tags -->
+        <rect x="133" y="202" width="60" height="19" rx="9" fill="rgba(0,200,150,.12)" stroke="rgba(0,200,150,.3)" stroke-width="1"/>
+        <text x="163" y="215" text-anchor="middle" font-size="9.5" fill="#00c896" font-weight="600">Budget Ctrl</text>
+        <rect x="201" y="202" width="54" height="19" rx="9" fill="rgba(239,68,68,.12)" stroke="rgba(239,68,68,.3)" stroke-width="1"/>
+        <text x="228" y="215" text-anchor="middle" font-size="9.5" fill="#ef4444" font-weight="600">PII Block</text>
+        <rect x="263" y="202" width="52" height="19" rx="9" fill="rgba(79,70,229,.12)" stroke="rgba(79,70,229,.3)" stroke-width="1"/>
+        <text x="289" y="215" text-anchor="middle" font-size="9.5" fill="#818cf8" font-weight="600">Dedup</text>
+        <rect x="323" y="202" width="48" height="19" rx="9" fill="rgba(0,200,150,.12)" stroke="rgba(0,200,150,.3)" stroke-width="1"/>
+        <text x="347" y="215" text-anchor="middle" font-size="9.5" fill="#00c896" font-weight="600">Cache</text>
+        <rect x="379" y="202" width="52" height="19" rx="9" fill="rgba(245,158,11,.1)" stroke="rgba(245,158,11,.3)" stroke-width="1"/>
+        <text x="405" y="215" text-anchor="middle" font-size="9.5" fill="#f59e0b" font-weight="600">Routing</text>
+        <rect x="439" y="202" width="46" height="19" rx="9" fill="rgba(124,58,237,.12)" stroke="rgba(124,58,237,.3)" stroke-width="1"/>
+        <text x="462" y="215" text-anchor="middle" font-size="9.5" fill="#a78bfa" font-weight="600">Logs</text>
+        <rect x="493" y="202" width="62" height="19" rx="9" fill="rgba(0,200,150,.1)" stroke="rgba(0,200,150,.25)" stroke-width="1"/>
+        <text x="524" y="215" text-anchor="middle" font-size="9.5" fill="#00c896" font-weight="600">EU AI Act</text>
+        <rect x="563" y="202" width="62" height="19" rx="9" fill="rgba(79,70,229,.1)" stroke="rgba(79,70,229,.25)" stroke-width="1"/>
+        <text x="594" y="215" text-anchor="middle" font-size="9.5" fill="#818cf8" font-weight="600">SOC 2</text>
+        <!-- Side: Observe -->
+        <rect x="22" y="148" width="84" height="84" rx="7" fill="#131825" stroke="rgba(79,70,229,.35)" stroke-width="1"/>
+        <text x="64" y="168" text-anchor="middle" font-size="9" fill="rgba(129,140,248,.75)" font-weight="700" letter-spacing=".8">OBSERVE</text>
+        <text x="64" y="185" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.6)">Dashboard</text>
+        <text x="64" y="200" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.6)">Slack Alerts</text>
+        <text x="64" y="215" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.6)">CSV Export</text>
+        <line x1="106" y1="190" x2="118" y2="190" stroke="rgba(79,70,229,.35)" stroke-width="1" stroke-dasharray="3 2"/>
+        <!-- Side: Comply -->
+        <rect x="654" y="148" width="84" height="84" rx="7" fill="#131825" stroke="rgba(0,200,150,.35)" stroke-width="1"/>
+        <text x="696" y="168" text-anchor="middle" font-size="9" fill="rgba(0,200,150,.75)" font-weight="700" letter-spacing=".8">COMPLY</text>
+        <text x="696" y="185" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.6)">SOC 2</text>
+        <text x="696" y="200" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.6)">GDPR / DPA</text>
+        <text x="696" y="215" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.6)">EU AI Act</text>
+        <line x1="642" y1="190" x2="654" y2="190" stroke="rgba(0,200,150,.35)" stroke-width="1" stroke-dasharray="3 2"/>
+        <!-- Lines to providers -->
+        <line x1="240" y1="232" x2="140" y2="296" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
+        <line x1="300" y1="232" x2="265" y2="296" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
+        <line x1="380" y1="232" x2="390" y2="296" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
+        <line x1="460" y1="232" x2="515" y2="296" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
+        <line x1="520" y1="232" x2="640" y2="296" stroke="rgba(255,255,255,.1)" stroke-width="1.2"/>
+        <!-- Provider label -->
+        <text x="380" y="290" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,.25)" font-weight="600" letter-spacing="1.2">LLM PROVIDERS</text>
+        <!-- Provider boxes -->
+        <rect x="60" y="298" width="100" height="36" rx="7" fill="#1c2033" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+        <text x="110" y="314" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.65)" font-weight="700">GPT-4o</text>
+        <text x="110" y="327" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,.3)">OpenAI</text>
+        <rect x="185" y="298" width="100" height="36" rx="7" fill="#1c2033" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+        <text x="235" y="314" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.65)" font-weight="700">Claude 3.5</text>
+        <text x="235" y="327" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,.3)">Anthropic</text>
+        <rect x="310" y="298" width="100" height="36" rx="7" fill="#1c2033" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+        <text x="360" y="314" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.65)" font-weight="700">Gemini 2.0</text>
+        <text x="360" y="327" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,.3)">Google</text>
+        <rect x="435" y="298" width="100" height="36" rx="7" fill="#1c2033" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+        <text x="485" y="314" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.65)" font-weight="700">Mistral</text>
+        <text x="485" y="327" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,.3)">Mistral AI</text>
+        <rect x="560" y="298" width="100" height="36" rx="7" fill="#1c2033" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+        <text x="610" y="314" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.65)" font-weight="700">DeepSeek</text>
+        <text x="610" y="327" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,.3)">DeepSeek AI</text>
+        <!-- Footer -->
+        <text x="380" y="368" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.18)">sub-2ms overhead · AWS Mumbai · EU · US · 99.99% SLA</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
 <section class="section" id="features">
   <div class="container">
-    <div class="section-eyebrow">Platform</div>
+    <span class="section-eyebrow">Platform</span>
     <h2 class="section-h">Everything you need.<br>Nothing you don't.</h2>
     <div class="feat-bento">
       <div class="bento-card bento-large">
-        <div class="bento-icon">🔀</div>
+        <span class="bento-icon">🔀</span>
         <h3>Universal AI Gateway</h3>
         <p>One endpoint for every LLM. Route based on cost, latency, or policy. Intelligent fallback when a provider is down. Sub-2ms overhead. Works with every SDK — drop-in replacement, zero code changes required.</p>
-        <div class="bento-tags"><span>OpenAI</span><span>Claude</span><span>Gemini</span><span>Mistral</span><span>Llama 3</span><span>DeepSeek</span></div>
+        <div class="bento-tags">
+          <span>OpenAI</span><span>Claude</span><span>Gemini</span><span>Mistral</span><span>Llama 3</span><span>DeepSeek</span>
+        </div>
       </div>
       <div class="bento-card">
-        <div class="bento-icon">🧠</div>
+        <span class="bento-icon">🧠</span>
         <h3>Semantic Cache</h3>
         <p>Vector similarity matching across all teams. Stop paying for duplicate answers. Up to 40% cost reduction from day one.</p>
         <div class="bento-stat"><span class="bs-num">40%</span><span class="bs-lbl">avg cost reduction</span></div>
       </div>
       <div class="bento-card">
-        <div class="bento-icon">🛡️</div>
+        <span class="bento-icon">🛡️</span>
         <h3>Policy Engine</h3>
         <p>Budget caps by department. Model restrictions by role. Real-time PII detection. Prompt injection blocking. Enforced on every request, zero exceptions.</p>
       </div>
-      <div class="bento-card bento-highlight">
-        <div class="bento-badge">EU AI Act Ready</div>
-        <div class="bento-icon">⚖️</div>
+      <div class="bento-card bento-dark">
+        <span class="bento-badge">EU AI Act Ready</span>
+        <span class="bento-icon">⚖️</span>
         <h3>Compliance &amp; Audit Logs</h3>
         <p>Every request logged: user, model, cost, output, policy decision. One-click export for SOC 2, ISO 27001, GDPR, and EU AI Act audits.</p>
-        <div class="bento-countdown-mini">⏳ <strong id="cd-days-feat">--</strong> days until EU AI Act enforcement</div>
+        <div class="bento-cd">⏳ <strong id="cd-days-feat">--</strong> days until EU AI Act enforcement</div>
       </div>
       <div class="bento-card">
-        <div class="bento-icon">📊</div>
+        <span class="bento-icon">📊</span>
         <h3>Observability Dashboard</h3>
         <p>Live token usage, spend by dept, model breakdown, cache hit rates, blocked prompts. Export to CSV or push to Slack.</p>
       </div>
       <div class="bento-card">
-        <div class="bento-icon">🔍</div>
+        <span class="bento-icon">🔍</span>
         <h3>Duplicate Work Detection</h3>
         <p>When Marketing and Engineering run the same analysis independently, AgentsFlix flags it and suggests shared prompt libraries to cut redundancy.</p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- SOCIAL PROOF -->
 <section class="section bg-alt" id="proof">
   <div class="container">
-    <div class="section-eyebrow green">Customer Results</div>
+    <span class="section-eyebrow green">Customer Results</span>
     <h2 class="section-h">Real numbers from real teams.</h2>
     <div class="proof-grid">
-      <div class="proof-card featured-proof">
-        <div class="proof-quote">"AgentsFlix caught a data leak at our institution within 24 hours of deployment. A developer had been sending customer PII to ChatGPT in prompt context. Without the gateway, we'd never have known."</div>
-        <div class="proof-attr"><div class="proof-avatar">🏦</div><div><strong>Head of AI Security</strong><span>Top 5 US Bank (anonymous)</span></div></div>
-        <div class="proof-stat-row">
+      <div class="proof-card proof-dark">
+        <p class="proof-quote">"AgentsFlix caught a data leak at our institution within 24 hours of deployment. A developer had been sending customer PII to ChatGPT in prompt context. Without the gateway, we'd never have known."</p>
+        <div class="proof-attr">
+          <span class="proof-avatar">🏦</span>
+          <div><strong>Head of AI Security</strong><span>Top 5 US Bank (anonymous)</span></div>
+        </div>
+        <div class="proof-stats">
           <div class="proof-stat"><span>24h</span>to catch data leak</div>
           <div class="proof-stat"><span>$0</span>compliance fine</div>
-          <div class="proof-stat"><span>100%</span>request visibility</div>
+          <div class="proof-stat"><span>100%</span>visibility</div>
         </div>
       </div>
       <div class="proof-card">
-        <div class="proof-quote">"We were running the same competitor analysis prompts across 3 departments. AgentsFlix detected the duplication and we saved $47,000 in the first month alone."</div>
-        <div class="proof-attr"><div class="proof-avatar">🚀</div><div><strong>CTO</strong><span>Series B SaaS startup</span></div></div>
+        <p class="proof-quote">"We were running the same competitor analysis prompts across 3 departments. AgentsFlix detected the duplication and we saved $47,000 in the first month alone."</p>
+        <div class="proof-attr">
+          <span class="proof-avatar">🚀</span>
+          <div><strong>CTO</strong><span>Series B SaaS startup</span></div>
+        </div>
         <div class="proof-highlight"><span class="ph-num">$47,000</span><span class="ph-lbl">saved in month one</span></div>
       </div>
       <div class="proof-card">
-        <div class="proof-quote">"Three of the top 10 US banks use AgentsFlix. The audit log feature alone justified the entire cost. Compliance team went from dreading AI reviews to welcoming them."</div>
-        <div class="proof-attr"><div class="proof-avatar">📊</div><div><strong>Enterprise Sales</strong><span>AgentsFlix team</span></div></div>
+        <p class="proof-quote">"Three of the top 10 US banks use AgentsFlix. The audit log feature alone justified the entire cost. Compliance went from dreading AI reviews to welcoming them."</p>
+        <div class="proof-attr">
+          <span class="proof-avatar">📊</span>
+          <div><strong>Enterprise Sales</strong><span>AgentsFlix team</span></div>
+        </div>
         <div class="proof-highlight"><span class="ph-num">3 of 10</span><span class="ph-lbl">top US banks (anonymous)</span></div>
       </div>
     </div>
@@ -248,9 +491,11 @@
     </div>
   </div>
 </section>
+
+<!-- PRICING -->
 <section class="section" id="pricing">
   <div class="container">
-    <div class="section-eyebrow">Pricing</div>
+    <span class="section-eyebrow">Pricing</span>
     <h2 class="section-h">Start free. Scale when it pays for itself.</h2>
     <p class="section-p muted">The free tier saves most startups more than our paid plans cost.</p>
     <div class="pricing-grid">
@@ -266,7 +511,7 @@
           <li><span class="pf-check">✓</span> 7-day audit logs</li>
           <li><span class="pf-check">✓</span> Observability dashboard</li>
           <li><span class="pf-dim">✗</span> PII detection</li>
-          <li><span class="pf-dim">✗</span> EU AI Act compliance export</li>
+          <li><span class="pf-dim">✗</span> EU AI Act export</li>
         </ul>
         <a href="#deploy" class="price-cta price-cta-outline">Deploy Free →</a>
       </div>
@@ -281,7 +526,7 @@
           <li><span class="pf-check">✓</span> All LLM providers</li>
           <li><span class="pf-check">✓</span> Full policy engine + PII</li>
           <li><span class="pf-check">✓</span> 90-day audit logs</li>
-          <li><span class="pf-check">✓</span> EU AI Act compliance export</li>
+          <li><span class="pf-check">✓</span> EU AI Act export</li>
           <li><span class="pf-check">✓</span> Semantic cache</li>
           <li><span class="pf-check">✓</span> Slack + email alerts</li>
         </ul>
@@ -295,11 +540,11 @@
         <ul class="price-features">
           <li><span class="pf-check">✓</span> Unlimited everything</li>
           <li><span class="pf-check">✓</span> Unlimited seats</li>
-          <li><span class="pf-check">✓</span> Private cloud / VPC deploy</li>
+          <li><span class="pf-check">✓</span> Private cloud / VPC</li>
           <li><span class="pf-check">✓</span> Custom data residency</li>
-          <li><span class="pf-check">✓</span> Unlimited audit log retention</li>
-          <li><span class="pf-check">✓</span> SOC 2 + ISO 27001 reports</li>
-          <li><span class="pf-check">✓</span> Dedicated success manager</li>
+          <li><span class="pf-check">✓</span> Unlimited audit retention</li>
+          <li><span class="pf-check">✓</span> SOC 2 + ISO 27001</li>
+          <li><span class="pf-check">✓</span> Dedicated success mgr</li>
           <li><span class="pf-check">✓</span> SLA 99.99%</li>
         </ul>
         <a href="mailto:enterprise@agentsflix.com" class="price-cta price-cta-outline">Talk to Sales →</a>
@@ -307,9 +552,11 @@
     </div>
   </div>
 </section>
+
+<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="container">
-    <div class="fc-inner">
+    <div class="fc-grid">
       <div class="fc-left">
         <h2>Deploy in 60 seconds.<br>Save your first $10K this month.</h2>
         <p>Free tier. 1M tokens. No credit card. No "book a demo" gatekeeping. Just run the command and you're live.</p>
@@ -345,18 +592,44 @@
     </div>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="logo-wrap"><div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9h3l2-5 3 10 2-5h2" stroke="#00c896" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="logo-name">Agents<em>Flix</em></span></div>
+        <div class="logo-wrap">
+          <div class="logo-mark"><svg viewBox="0 0 18 18" fill="none"><path d="M3 9h3l2-5 3 10 2-5h2" stroke="#00c896" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span class="logo-name">Agents<em>Flix</em></span>
+        </div>
         <p>AI Gateway and Governance Platform. Centralized control, cost optimization, and compliance for every LLM your team uses.</p>
-        <div class="foot-badges"><span class="foot-badge">SOC 2 Type II</span><span class="foot-badge">GDPR</span><span class="foot-badge">EU AI Act</span><span class="foot-badge">ISO 27001</span></div>
+        <div class="foot-badges">
+          <span class="foot-badge">SOC 2 Type II</span>
+          <span class="foot-badge">GDPR</span>
+          <span class="foot-badge">EU AI Act</span>
+          <span class="foot-badge">ISO 27001</span>
+        </div>
       </div>
-      <div class="foot-col"><h5>Product</h5><ul><li><a href="#">Features</a></li><li><a href="#">Pricing</a></li><li><a href="#">Changelog</a></li><li><a href="#">Roadmap</a></li><li><a href="#">Docs</a></li></ul></div>
-      <div class="foot-col"><h5>Integrations</h5><ul><li><a href="#">OpenAI</a></li><li><a href="#">Anthropic Claude</a></li><li><a href="#">Google Gemini</a></li><li><a href="#">Mistral AI</a></li><li><a href="#">LangChain</a></li><li><a href="#">DeepSeek</a></li></ul></div>
-      <div class="foot-col"><h5>Company</h5><ul><li><a href="#">About</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Security</a></li><li><a href="mailto:enterprise@agentsflix.com">Enterprise</a></li></ul></div>
-      <div class="foot-col"><h5>Legal</h5><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">DPA</a></li><li><a href="#">GDPR</a></li><li><a href="#">EU AI Act</a></li></ul></div>
+      <div class="foot-col"><h5>Product</h5><ul>
+        <li><a href="#">Features</a></li><li><a href="#">Pricing</a></li>
+        <li><a href="#">Changelog</a></li><li><a href="#">Roadmap</a></li>
+        <li><a href="#">Docs</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Integrations</h5><ul>
+        <li><a href="#">OpenAI</a></li><li><a href="#">Anthropic Claude</a></li>
+        <li><a href="#">Google Gemini</a></li><li><a href="#">Mistral AI</a></li>
+        <li><a href="#">LangChain</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Company</h5><ul>
+        <li><a href="#">About</a></li><li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li><li><a href="#">Security</a></li>
+        <li><a href="mailto:enterprise@agentsflix.com">Enterprise</a></li>
+      </ul></div>
+      <div class="foot-col"><h5>Legal</h5><ul>
+        <li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li>
+        <li><a href="#">DPA</a></li><li><a href="#">GDPR</a></li>
+        <li><a href="#">EU AI Act</a></li>
+      </ul></div>
     </div>
     <div class="foot-bottom">
       <span class="foot-copy">© 2026 AgentsFlix. All rights reserved.</span>
@@ -364,6 +637,72 @@
     </div>
   </div>
 </footer>
+
+<!-- DEMO MODAL -->
+<div class="modal-overlay" id="demoModal" onclick="closeDemoOutside(event)">
+  <div class="modal-box">
+    <div class="modal-head">
+      <span class="modal-title">⚡ AgentsFlix — Live Dashboard Preview</span>
+      <button class="modal-close" onclick="closeDemo()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="switchTab(this,'tab-overview')">Overview</button>
+        <button class="modal-tab" onclick="switchTab(this,'tab-logs')">Audit Logs</button>
+        <button class="modal-tab" onclick="switchTab(this,'tab-policy')">Policy</button>
+      </div>
+      <div class="modal-panel active" id="tab-overview">
+        <div class="mock-wrap">
+          <div class="mock-bar">
+            <div class="mock-dot" style="background:#ff5f57"></div>
+            <div class="mock-dot" style="background:#ffbd2e"></div>
+            <div class="mock-dot" style="background:#28c840"></div>
+            <div class="mock-url-bar">app.agentsflix.com / dashboard</div>
+          </div>
+          <div class="mock-stats">
+            <div class="mock-stat"><div class="msl">Monthly Spend</div><div class="msv">₹4.2L</div><div class="msd bad">↓ 34% vs last month</div></div>
+            <div class="mock-stat"><div class="msl">Cache Savings</div><div class="msv good">₹68K</div><div class="msd good">↑ 12,841 hits</div></div>
+            <div class="mock-stat"><div class="msl">Blocked</div><div class="msv bad">247</div><div class="msd">PII + budget</div></div>
+          </div>
+          <div class="mock-log">
+            <div class="mock-log-head">Recent requests</div>
+            <div class="mock-log-row"><div class="mld" style="background:#00c896"></div><div class="mlt">Engineering</div><div class="mlm">GPT-4o</div><div class="mlc">₹2,140</div><span class="mlb mlb-green">cached</span></div>
+            <div class="mock-log-row"><div class="mld" style="background:#ef4444"></div><div class="mlt">HR</div><div class="mlm">Claude Sonnet</div><div class="mlc">blocked</div><span class="mlb mlb-red">PII</span></div>
+            <div class="mock-log-row"><div class="mld" style="background:#4f46e5"></div><div class="mlt">Sales</div><div class="mlm">Gemini Flash</div><div class="mlc">₹340</div><span class="mlb mlb-blue">routed</span></div>
+            <div class="mock-log-row"><div class="mld" style="background:#00c896"></div><div class="mlt">Finance</div><div class="mlm">GPT-4o-mini</div><div class="mlc">₹80</div><span class="mlb mlb-green">cached</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-panel" id="tab-logs">
+        <div class="mock-wrap">
+          <div class="mock-log">
+            <div class="mock-log-head">Full audit trail — exportable for SOC 2 / EU AI Act</div>
+            <div class="mock-log-row" style="flex-wrap:wrap;gap:4px;"><span class="log-ts">2026-05-30 09:14:22</span><span class="mlt">john@acme.com</span><span class="mlm">GPT-4o · 1,240 tokens</span><span class="mlb mlb-green">ALLOWED</span></div>
+            <div class="mock-log-row" style="flex-wrap:wrap;gap:4px;"><span class="log-ts">2026-05-30 09:13:01</span><span class="mlt">priya@acme.com</span><span class="mlm">Claude · 0 tokens</span><span class="mlb mlb-red">BLOCKED · PII</span></div>
+            <div class="mock-log-row" style="flex-wrap:wrap;gap:4px;"><span class="log-ts">2026-05-30 09:11:55</span><span class="mlt">ravi@acme.com</span><span class="mlm">GPT-4o-mini · 0 tokens</span><span class="mlb mlb-green">CACHE HIT</span></div>
+            <div class="mock-log-row" style="flex-wrap:wrap;gap:4px;"><span class="log-ts">2026-05-30 09:10:44</span><span class="mlt">ai-agent-1</span><span class="mlm">Gemini 2.0 · 4,100 tokens</span><span class="mlb mlb-blue">ROUTED</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-panel" id="tab-policy">
+        <div class="mock-wrap">
+          <div class="mock-log">
+            <div class="mock-log-head">Active policy rules</div>
+            <div class="mock-log-row"><div class="mld" style="background:#00c896"></div><div class="mlt" style="flex:2">Budget cap: ₹50,000/mo</div><div class="mlm">Engineering</div><span class="mlb mlb-green">Active</span></div>
+            <div class="mock-log-row"><div class="mld" style="background:#ef4444"></div><div class="mlt" style="flex:2">PII detection (Aadhaar, PAN, SSN)</div><div class="mlm">All teams</div><span class="mlb mlb-red">Block</span></div>
+            <div class="mock-log-row"><div class="mld" style="background:#4f46e5"></div><div class="mlt" style="flex:2">Model restriction: GPT-4o only</div><div class="mlm">Finance</div><span class="mlb mlb-blue">Enforce</span></div>
+            <div class="mock-log-row"><div class="mld" style="background:#f59e0b"></div><div class="mlt" style="flex:2">Semantic cache TTL: 24h</div><div class="mlm">All teams</div><span class="mlb" style="background:#fffbeb;color:#d97706;">Active</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-ctas">
+        <button class="modal-btn-primary" onclick="closeDemo()">Deploy Free — 1M Tokens →</button>
+        <button class="modal-btn-ghost" onclick="closeDemo()">Talk to Sales</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="app.js"></script>
 </body>
 </html>
