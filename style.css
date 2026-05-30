@@ -452,3 +452,35 @@ footer{padding:48px 0 28px;border-top:1px solid var(--border);}
 
 /* value-visual wrapper */
 .value-visual{min-width:0;}
+
+/* ── PAY AS YOU GO PRICING ── */
+.payg-card{display:grid;grid-template-columns:1fr 1.6fr;gap:0;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:40px;box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.payg-left{background:var(--text);padding:36px;display:flex;flex-direction:column;gap:16px;}
+.payg-badge{background:var(--green);color:var(--text);font-size:10.5px;font-weight:800;padding:4px 12px;border-radius:100px;letter-spacing:.08em;display:inline-block;width:fit-content;}
+.payg-name{font-size:13px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.06em;text-transform:uppercase;}
+.payg-price{font-size:3rem;font-weight:800;color:#fff;letter-spacing:-0.05em;line-height:1;}
+.payg-price span{font-size:1.1rem;font-weight:500;color:rgba(255,255,255,.45);}
+.payg-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.75;flex:1;}
+.payg-cta{background:var(--green);color:var(--text);font-size:14px;font-weight:700;padding:13px 20px;border-radius:10px;border:none;cursor:pointer;font-family:var(--font);transition:opacity .15s;text-align:center;}
+.payg-cta:hover{opacity:.9;}
+.payg-note{font-size:12px;color:rgba(255,255,255,.3);line-height:1.6;}
+.payg-right{padding:32px;background:#fff;}
+.payg-includes-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:18px;}
+.payg-features{display:flex;flex-direction:column;gap:13px;}
+.pf-row{display:flex;gap:12px;align-items:flex-start;}
+.pf-row .pf-check{color:var(--green-dk);font-weight:700;flex-shrink:0;margin-top:1px;}
+.pf-row div{display:flex;flex-direction:column;gap:1px;}
+.pf-row strong{font-size:13.5px;font-weight:700;color:var(--text);}
+.pf-row span{font-size:12px;color:var(--text3);line-height:1.5;}
+.payg-currency-note{margin-top:20px;font-size:12px;color:var(--text3);border-top:1px solid var(--border);padding-top:14px;}
+
+/* ── SEO KEYWORDS SECTION ── */
+.seo-keywords{padding:48px 0;background:var(--bg2);border-top:1px solid var(--border);}
+.seo-keywords h2{font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:16px;letter-spacing:-0.02em;}
+.seo-keywords p{font-size:14px;color:var(--text2);line-height:1.9;max-width:900px;}
+.seo-keywords strong{color:var(--text);font-weight:600;}
+
+/* ── PAYG RESPONSIVE ── */
+@media(max-width:900px){
+  .payg-card{grid-template-columns:1fr;}
+}

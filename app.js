@@ -96,3 +96,47 @@ function switchTab(btn, panelId) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeForm(); closeDemo(); }
 });
+
+// ── FORM SUBMISSION (Formspree) ──
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const co    = document.getElementById('f-company').value.trim();
+  if (!name || !email || !co) {
+    alert('Please fill in your name, work email, and company name.');
+    return;
+  }
+  // Collect pain points into hidden field
+  const selected = Array.from(document.querySelectorAll('.pain-btn.selected'))
+    .map(b => b.getAttribute('data-val')).join(', ');
+  const inp = document.getElementById('painPointsInput');
+  if (inp) inp.value = selected || 'None selected';
+
+  const btn = document.getElementById('formSubmitBtn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const form = document.getElementById('contactForm');
+  const data = new FormData(form);
+
+  fetch('https://formspree.io/f/xwpblkdb', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
+      btn.style.background = '#008f6e';
+      setTimeout(closeForm, 2400);
+    } else {
+      btn.textContent = 'Send — We\'ll respond within 24 hours →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us at hello@agentsflix.com');
+    }
+  }).catch(() => {
+    btn.textContent = 'Send — We\'ll respond within 24 hours →';
+    btn.disabled = false;
+    alert('Network error. Please email hello@agentsflix.com directly.');
+  });
+}
