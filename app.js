@@ -8,7 +8,8 @@ function updateCountdown() {
   const secs  = Math.floor((diff % 60000) / 1000);
   const pad   = n => String(n).padStart(2,'0');
   const set   = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-  set('cd-days', pad(days)); set('cd-hours', pad(hours)); set('cd-mins', pad(mins)); set('cd-secs', pad(secs));
+  set('cd-days', pad(days)); set('cd-hours', pad(hours));
+  set('cd-mins', pad(mins)); set('cd-secs', pad(secs));
   set('fc-days', pad(days)); set('fc-hours', pad(hours)); set('fc-mins', pad(mins));
   set('cd-days-feat', days);
   const il = document.getElementById('countdown-inline');
@@ -25,19 +26,10 @@ function copyDeploy() {
     btn.textContent = '✓ Copied!'; btn.style.background = '#008f6e';
     setTimeout(() => { btn.textContent = 'Copy'; btn.style.background = ''; }, 2200);
   }).catch(() => {
-    // Fallback for older browsers
     const ta = document.createElement('textarea');
     ta.value = code; document.body.appendChild(ta); ta.select();
     document.execCommand('copy'); document.body.removeChild(ta);
     const btn = document.getElementById('copy-btn');
-    btn.textContent = '✓ Copied!';
-    setTimeout(() => { btn.textContent = 'Copy'; }, 2200);
-  });
-}
-function copyDeploy2() {
-  const code = document.getElementById('deploy-code-2').textContent;
-  navigator.clipboard.writeText(code).then(() => {
-    const btn = document.getElementById('copy-btn-2');
     btn.textContent = '✓ Copied!';
     setTimeout(() => { btn.textContent = 'Copy'; }, 2200);
   });
@@ -52,24 +44,55 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// ── FORM MODAL ──
+function openForm() {
+  document.getElementById('formModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeForm() {
+  document.getElementById('formModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeFormOutside(e) {
+  if (e.target === document.getElementById('formModal')) closeForm();
+}
+function togglePain(btn) {
+  btn.classList.toggle('selected');
+}
+function submitForm() {
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const co    = document.getElementById('f-company').value.trim();
+  if (!name || !email || !co) {
+    alert('Please fill in your name, email, and company name.');
+    return;
+  }
+  const btn = document.querySelector('.form-submit-btn');
+  btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
+  btn.style.background = '#008f6e';
+  btn.disabled = true;
+  setTimeout(closeForm, 2400);
+}
+
 // ── DEMO MODAL ──
 function openDemo() {
-  const modal = document.getElementById('demoModal');
-  if (modal) { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  document.getElementById('demoModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
-function closeModal() {
-  const modal = document.getElementById('demoModal');
-  if (modal) { modal.classList.remove('open'); document.body.style.overflow = ''; }
+function closeDemo() {
+  document.getElementById('demoModal').classList.remove('open');
+  document.body.style.overflow = '';
 }
-function closeDemo(e) {
-  if (e.target === document.getElementById('demoModal')) closeModal();
+function closeDemoOutside(e) {
+  if (e.target === document.getElementById('demoModal')) closeDemo();
 }
 function switchTab(btn, panelId) {
-  document.querySelectorAll('.dm-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.dm-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.modal-panel').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
-  const panel = document.getElementById(panelId);
-  if (panel) panel.classList.add('active');
+  const p = document.getElementById(panelId);
+  if (p) p.classList.add('active');
 }
-// Close modal on Escape
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeForm(); closeDemo(); }
+});
