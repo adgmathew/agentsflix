@@ -15,6 +15,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+  <!-- Microsoft Clarity — Visitor Recording & Heatmaps -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+  </script>
+  <!-- END Clarity -->
 </head>
 <body>
 
@@ -443,6 +453,32 @@
         <h3>LLM Observability &amp; Telemetry</h3>
         <p>Real-time dashboards: token throughput, spend attribution by tenant/team/model, p50/p95 latency per provider, cache hit rate, policy block rate, and agent iteration telemetry. OpenTelemetry-compatible. Export to Datadog, Grafana, or push events to Slack and PagerDuty.</p>
       </div>
+      <div class="bento-card">
+        <span class="bento-icon">👥</span>
+        <h3>Staff Onboarding &amp; Directory</h3>
+        <p>Add your entire team in minutes. Bulk import via CSV, sync from your HRMS, or auto-provision via SCIM from Okta or Entra ID. Each staff member gets an individual AI usage profile — their prompts, topics covered, token spend, and monthly value score — visible to managers and HR leads.</p>
+        <div class="bento-tags">
+          <span>CSV bulk import</span><span>SCIM auto-provision</span><span>HRMS sync</span><span>Per-staff AI profile</span>
+        </div>
+      </div>
+      <div class="bento-card bento-dark">
+        <span class="bento-badge">MCP Compatible</span>
+        <span class="bento-icon">🔌</span>
+        <h3>MCP — Model Context Protocol</h3>
+        <p>AgentsFlix is fully compatible with the Anthropic Model Context Protocol (MCP) spec. Drop AgentsFlix in front of any MCP server — your agents keep working exactly as before, but now every tool call is governed, costed, and audited. Database lookups, web search, code execution, internal APIs — all MCP tool invocations pass through the policy engine. Per-tool token budgets. Unauthorised tool blocking. Full MCP call audit trail.</p>
+        <div class="bento-tags">
+          <span>Anthropic MCP spec</span><span>Tool call governance</span><span>Per-tool budgets</span><span>MCP audit trail</span>
+        </div>
+      </div>
+      <div class="bento-card bento-large">
+        <span class="bento-badge">A2A Compatible</span>
+        <span class="bento-icon">🤝</span>
+        <h3>A2A — Agent-to-Agent Protocol</h3>
+        <p>AgentsFlix is fully compatible with the Google Agent-to-Agent (A2A) protocol. As your multi-agent architecture scales — orchestrators spawning subagents, subagents delegating to specialists — AgentsFlix becomes the governance layer between every agent hop. A2A messages are inspected for scope compliance, token budget inheritance is enforced, PII propagation is blocked, and runaway loops are terminated automatically. Define trust tiers between orchestrator, executor, and reviewer agents. Works with LangGraph, AutoGen, CrewAI, and any A2A-compliant runtime.</p>
+        <div class="bento-tags">
+          <span>Google A2A spec</span><span>Orchestrator governance</span><span>Token budget inheritance</span><span>A2A PII blocking</span><span>Loop termination</span><span>LangGraph</span><span>AutoGen</span><span>CrewAI</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -544,6 +580,81 @@
           <div>
             <h4>Weekly engineering manager digest</h4>
             <p>Automated Monday briefing: LLM spend vs. budget, cache hit delta, policy block rate, top token consumers, and prompt quality trends. Designed for engineering leads who own the AI budget line.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF VALUE INTELLIGENCE SECTION -->
+<section class="section" id="staff-value">
+  <div class="container">
+    <span class="section-eyebrow green">Staff AI Value Intelligence</span>
+    <h2 class="section-h">Know exactly what every employee<br>is doing with AI — and what it's worth.</h2>
+    <p class="section-p muted">AgentsFlix generates a monthly AI value report for every staff member. Managers see what their team built, automated, and learned. HR sees who's upskilling. The CFO sees ROI by department.</p>
+
+    <div class="staff-value-grid">
+      <div class="sv-card sv-card-dark">
+        <div class="sv-report-header">
+          <div class="sv-report-title">📋 May 2026 — Staff AI Value Report</div>
+          <div class="sv-report-meta">Engineering · 24 staff · Auto-generated monthly</div>
+        </div>
+        <div class="sv-stats">
+          <div class="sv-stat"><span class="sv-num green-text">87%</span><span class="sv-lbl">work-relevant prompts</span></div>
+          <div class="sv-stat"><span class="sv-num">$1,450</span><span class="sv-lbl">token spend</span></div>
+          <div class="sv-stat"><span class="sv-num green-text">4.2×</span><span class="sv-lbl">productivity multiplier</span></div>
+        </div>
+        <div class="sv-insights">
+          <div class="sv-insight">
+            <span>🔧</span>
+            <div><strong>Code review &amp; debugging</strong> — 340 PRs reviewed, 127 bugs caught pre-production. Est. 180 hours saved.</div>
+          </div>
+          <div class="sv-insight">
+            <span>📚</span>
+            <div><strong>Upskilling</strong> — 14 engineers explored Rust, Kubernetes, and React Server Components via AI-guided sessions. 3 levelled up to senior proficiency.</div>
+          </div>
+          <div class="sv-insight sv-warn">
+            <span>⚠️</span>
+            <div><strong>3 staff flagged</strong> — low AI value score. Mostly off-topic or trivially simple queries. Recommend AI literacy training.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sv-features">
+        <div class="sv-feature">
+          <div class="sv-feature-icon">👤</div>
+          <div>
+            <h4>Individual staff AI profiles</h4>
+            <p>Every employee gets a profile showing their prompts, topics, token usage, and monthly value score. Add your whole team via CSV bulk import, HRMS sync, or SCIM auto-provisioning from Okta or Entra ID.</p>
+          </div>
+        </div>
+        <div class="sv-feature">
+          <div class="sv-feature-icon">📈</div>
+          <div>
+            <h4>Monthly value reports per team</h4>
+            <p>Auto-generated summaries of what each team used AI for — tasks automated, skills developed, hours saved, token efficiency vs. org benchmark. Shareable with managers and CFO.</p>
+          </div>
+        </div>
+        <div class="sv-feature">
+          <div class="sv-feature-icon">🎯</div>
+          <div>
+            <h4>Prompt quality scoring</h4>
+            <p>Flags staff writing low signal-to-token prompts. Suggests reusable templates that get better output for less spend. Improves org-wide prompt quality over time.</p>
+          </div>
+        </div>
+        <div class="sv-feature">
+          <div class="sv-feature-icon">📧</div>
+          <div>
+            <h4>Weekly manager digest</h4>
+            <p>Every Monday: team AI spend vs. budget, top learners, policy blocks, and prompt quality trends — delivered to every engineering manager automatically.</p>
+          </div>
+        </div>
+        <div class="sv-feature">
+          <div class="sv-feature-icon">🏆</div>
+          <div>
+            <h4>Team benchmarking</h4>
+            <p>Compare token efficiency and AI adoption across departments. Surface high-leverage prompt patterns from top performers and standardise them as org-wide templates.</p>
           </div>
         </div>
       </div>
@@ -662,7 +773,7 @@
 <section class="section bg-alt" id="pricing">
   <div class="container">
     <span class="section-eyebrow">Pricing</span>
-    <h2 class="section-h">Pay as you go.<br>No seats. No tiers. No surprises.</h2>
+    <h2 class="section-h">Pay as you go.<br>No seat fees. No tiers. No surprises.</h2>
     <p class="section-p muted">One simple model: you pay for what you use. Token volume, active users, and features — billed monthly. Most companies recover the cost in the first week from waste reduction alone.</p>
 
     <div class="payg-card">
