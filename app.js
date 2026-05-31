@@ -120,19 +120,19 @@ function handleFormSubmit(e) {
   const form = document.getElementById('contactForm');
   const data = new FormData(form);
 
-  fetch('https://formspree.io/f/xwpblkdb', {
+  fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     body: data,
     headers: { 'Accept': 'application/json' }
-  }).then(r => {
-    if (r.ok) {
+  }).then(r => r.json()).then(data => {
+    if (data.success) {
       btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
       btn.style.background = '#008f6e';
       setTimeout(closeForm, 2400);
     } else {
       btn.textContent = 'Send — We\'ll respond within 24 hours →';
       btn.disabled = false;
-      alert('Something went wrong. Please email us at hello@agentsflix.com');
+      alert(data.message || 'Something went wrong. Please email hello@agentsflix.com');
     }
   }).catch(() => {
     btn.textContent = 'Send — We\'ll respond within 24 hours →';
