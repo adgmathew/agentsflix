@@ -786,8 +786,10 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   .modal-body{padding:16px 20px;}
   .form-grid{grid-template-columns:1fr;gap:12px;}
   .form-field-full{grid-column:span 1;}
-  .pain-btn{font-size:11px;padding:6px 8px;}\n  .check-opt{font-size:11px;padding:6px 8px;}\n  .check-group{display:grid;grid-template-columns:1fr;gap:4px;}\n  .pain-group{display:grid;grid-template-columns:1fr 1fr;gap:6px;}"}}]
-
+  .pain-btn{font-size:11px;padding:6px 8px;}
+  .check-opt{font-size:11px;padding:6px 8px;}
+  .check-group{display:grid;grid-template-columns:1fr;gap:4px;}
+  .pain-group{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
   .modal-ctas{flex-direction:column;}
   .modal-btn-ghost{text-align:center;}
 
@@ -817,14 +819,14 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   .steps-grid,.stats-row{grid-template-columns:1fr;}
   .stat-block{border-right:none!important;}
   .sv-stats{grid-template-columns:1fr 1fr 1fr;}
-  .sv-stat:last-child{grid-column:auto;border-top:none;}
+  .sv-stat:last-child{border-column:auto;border-top:none;}
   .ceo-table-head,.ceo-table-row{grid-template-columns:1.4fr 1fr;}
   .ceo-table-head span:nth-child(n+3){display:none;}
-  .ceo-table-row>span:nth-child(n+3){display:none;}  .hero-ctas{gap:8px !important;}
+  .ceo-table-row>span:nth-child(n+3){display:none;}
+  .hero-ctas{gap:8px !important;}
   .comparison-table-wrap table th,.comparison-table-wrap table td{padding:8px 6px !important;}
-  .comparison-table-wrap table{font-size:0.78rem;}}
-
-/* ── VALUE REPORT CARD (AI ROI section) ── */
+  .comparison-table-wrap table{font-size:0.78rem;}
+}
 .value-report-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 4px 24px rgba(10,15,30,.07);}
 .vrc-header{background:var(--ink);padding:18px 22px;}
 .vrc-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;}
