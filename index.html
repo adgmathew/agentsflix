@@ -15,6 +15,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<!-- Security headers should be configured at the server or CDN level:
+     Content-Security-Policy, Strict-Transport-Security,
+     X-Frame-Options, X-Content-Type-Options, Referrer-Policy -->
 
   <!-- Microsoft Clarity — Visitor Recording & Heatmaps -->
   <script type="text/javascript">
@@ -66,8 +69,12 @@
     <div class="hero-split">
       <div class="hero-copy">
         <div class="hero-badge"><span class="live-dot"></span> Trusted by 500+ enterprises · $12M+ in AI spend governed · SOC 2 Type II certified</div>
-        <h1>Enterprise AI without<br><span class="h1-red">governance</span> is your<br>next audit finding.</h1>
-        <p class="hero-lead">Microsoft, Uber, and an unnamed Fortune 500 all discovered their AI exposure the worst way — through a CFO escalation, an earnings call, or an annual audit. The common thread: no enterprise-grade LLM governance layer. AgentsFlix is that layer. Policy enforcement, data loss prevention, spend attribution, and EU AI Act compliance — operational in under 60 seconds.</p>
+        <h1>The MCP Gateway That Governs AI Agents Before They Act.</h1>
+        <p class="hero-lead">Intercept every tool call (MCP) and agent handoff (A2A). Enforce purpose-bound permissions in real time. SOC2 ready.</p>
+        <div class="hero-ctas" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;margin-bottom:16px;">
+          <a href="#get-started" class="btn-cta-sm" onclick="openForm()">Deploy Free – Pay for Usage</a>
+          <button class="btn-dark" onclick="openDemo()">See CEO Dashboard Demo</button>
+        </div>
 
         <div class="deploy-box" id="deploy">
           <div class="deploy-label">
@@ -166,6 +173,13 @@
           <div class="cd-sub">August 1, 2026 · €35M or 7% global revenue penalty</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+<section class="section bg-alt">
+  <div class="container">
+    <div style="background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;border-radius:20px;padding:22px;font-size:1rem;line-height:1.65;">
+      <em>Not just visibility – real-time control. AgentsFlix is an MCP gateway that evaluates every request before it executes. Budget, permissions, data sensitivity – all checked in milliseconds. Block or allow, with cryptographic audit trails.</em>
     </div>
   </div>
 </section>
@@ -414,34 +428,34 @@
     <div class="feat-bento">
       <div class="bento-card bento-large">
         <span class="bento-icon">🔀</span>
-        <h3>LLM Reverse Proxy &amp; Unified Gateway</h3>
-        <p>A single API-compatible endpoint for all LLM providers. Supports multi-model routing by cost, latency SLA, or policy tier. Provider failover with automatic retry. Sub-2ms proxy overhead. Zero changes to existing SDK calls — swap the base URL, nothing else.</p>
+        <h3>MCP Gateway Governance</h3>
+        <p>Intercept every tool request, enforce read-only/budgets.</p>
         <div class="bento-tags">
           <span>OpenAI</span><span>Claude</span><span>Gemini</span><span>Mistral</span><span>Llama 3</span><span>DeepSeek</span>
         </div>
       </div>
       <div class="bento-card">
         <span class="bento-icon">🧠</span>
-        <h3>Semantic Inference Cache</h3>
-        <p>Vector similarity matching on prompt embeddings across all tenants and teams. Configurable cosine similarity threshold. TTL-based cache invalidation. First-call inference is stored; subsequent semantically equivalent calls are served from cache with zero LLM latency or cost.</p>
+        <h3>A2A Agent Handoff Audit</h3>
+        <p>Track handoffs, prevent compromised agent spread.</p>
         <div class="bento-stat"><span class="bs-num">40%</span><span class="bs-lbl">avg cost reduction from caching alone</span></div>
       </div>
       <div class="bento-card">
         <span class="bento-icon">🛡️</span>
-        <h3>Policy Engine &amp; Governance Rules</h3>
-        <p>Per-tenant token budgets with hard and soft caps. Role-based model tier access control. Topic allowlist/blocklist enforcement. Prompt injection and jailbreak detection. Agent circuit breakers with configurable iteration and spend limits. All rules evaluated inline at &lt;1ms.</p>
+        <h3>Real-Time Policy Engine</h3>
+        <p>Purpose-bound credentials, SSO integration.</p>
       </div>
       <div class="bento-card bento-dark">
         <span class="bento-badge">EU AI Act Ready</span>
         <span class="bento-icon">⚖️</span>
-        <h3>Audit Trail &amp; Compliance Automation</h3>
-        <p>Immutable log of every inference call: principal identity, tenant, model, token counts, latency, cost, prompt hash, response, and policy decision. Queryable log store with one-click export for SOC 2 Type II, ISO 27001, GDPR Article 30, and EU AI Act Article 12 obligations.</p>
+        <h3>CEO Dashboard</h3>
+        <p>Live adoption, token ROI, waste detection.</p>
         <div class="bento-cd">⏳ <strong id="cd-days-feat">--</strong> days until EU AI Act enforcement</div>
       </div>
       <div class="bento-card">
         <span class="bento-icon">🔑</span>
-        <h3>SSO, SCIM &amp; Identity Federation</h3>
-        <p>SAML 2.0 and OIDC federation with Google Workspace, Microsoft Entra ID, and Okta. SCIM 2.0 for automated user provisioning and deprovisioning. MFA enforcement. Attribute-based access control (ABAC) for policy-to-identity mapping.</p>
+        <h3>Tamper-Proof Audit Logs</h3>
+        <p>Crypto-signed, EU AI Act ready.</p>
         <div class="sso-logos">
           <span class="sso-pill">Google Workspace</span>
           <span class="sso-pill">Microsoft Entra</span>
@@ -450,8 +464,8 @@
       </div>
       <div class="bento-card">
         <span class="bento-icon">📊</span>
-        <h3>LLM Observability &amp; Telemetry</h3>
-        <p>Real-time dashboards: token throughput, spend attribution by tenant/team/model, p50/p95 latency per provider, cache hit rate, policy block rate, and agent iteration telemetry. OpenTelemetry-compatible. Export to Datadog, Grafana, or push events to Slack and PagerDuty.</p>
+        <h3>Unlimited Seats, Pure Usage-Based</h3>
+        <p>$0.001/1K tokens, no minimum, no per-user fees.</p>
       </div>
       <div class="bento-card">
         <span class="bento-icon">👥</span>
@@ -479,6 +493,57 @@
           <span>Google A2A spec</span><span>Orchestrator governance</span><span>Token budget inheritance</span><span>A2A PII blocking</span><span>Loop termination</span><span>LangGraph</span><span>AutoGen</span><span>CrewAI</span>
         </div>
       </div>
+    </div>
+    <div class="comparison-table-wrap" style="margin-top:32px;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.95rem;">
+        <thead>
+          <tr style="text-align:left;border-bottom:1px solid var(--border);">
+            <th style="padding:14px 12px;">Capability</th>
+            <th style="padding:14px 12px;">AgentsFlix</th>
+            <th style="padding:14px 12px;">Cloudflare</th>
+            <th style="padding:14px 12px;">Portkey</th>
+            <th style="padding:14px 12px;">OpenRouter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 12px;">Pre-execution control</td>
+            <td style="padding:14px 12px;">Yes</td>
+            <td style="padding:14px 12px;">Limited</td>
+            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;">No</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 12px;">MCP gateway governance</td>
+            <td style="padding:14px 12px;">Yes</td>
+            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;">No</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 12px;">Pure pay-as-you-go</td>
+            <td style="padding:14px 12px;">Yes</td>
+            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;">No</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 12px;">Self-hosted/VPC</td>
+            <td style="padding:14px 12px;">Yes</td>
+            <td style="padding:14px 12px;">Partial</td>
+            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;">No</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 12px;">SOC2 readiness</td>
+            <td style="padding:14px 12px;">Yes</td>
+            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;">No</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="section-p muted" style="margin-top:18px;"><em>AgentsFlix is the independent, purpose-built MCP gateway – not an API add-on.</em></p>
     </div>
   </div>
 </section>
@@ -1055,6 +1120,7 @@
           <span class="foot-badge">GDPR</span>
           <span class="foot-badge">EU AI Act</span>
           <span class="foot-badge">ISO 27001</span>
+          <span class="foot-badge">Recognized in 2026 AI Governance Reports</span>
         </div>
       </div>
       <div class="foot-col"><h5>Product</h5><ul>
@@ -1089,6 +1155,7 @@
     <div class="foot-bottom">
       <span class="foot-copy">© 2026 AgentsFlix. All rights reserved.</span>
       <span class="foot-copy">Made in India · AWS Mumbai / EU / US</span>
+      <span class="foot-copy">AgentsFlix is the independent MCP gateway alternative to Cloudflare, Portkey, and OpenRouter.</span>
     </div>
   </div>
 </footer>
