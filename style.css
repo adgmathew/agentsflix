@@ -664,6 +664,8 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   .hero{padding:32px 0 40px;}
   .hero-badge{font-size:11px;padding:4px 12px;}
   .hero-lead{font-size:.92rem;}
+  .hero-ctas{flex-direction:column;gap:10px !important;width:100%;}
+  .hero-ctas a,.hero-ctas button{width:100%;text-align:center;}
 
   /* deploy */
   .deploy-cmd{flex-direction:column;gap:8px;}
@@ -723,6 +725,16 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   .feat-bento{grid-template-columns:1fr;}
   .bento-large{grid-column:span 1;}
   .bento-card{padding:22px;}
+  
+  /* comparison table */
+  .comparison-table-wrap{margin-top:20px !important;}
+  .comparison-table-wrap table{font-size:0.85rem;}
+  .comparison-table-wrap table th,.comparison-table-wrap table td{padding:10px 8px !important;}
+  .comparison-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:12px;}
+  .comparison-table-wrap table{min-width:500px;}
+  
+  /* highlight box */
+  .section.bg-alt > .container > div{padding:16px !important;font-size:0.9rem;line-height:1.6;}
 
   /* ceo */
   .ceo-grid{grid-template-columns:1fr;}
@@ -807,8 +819,9 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   .sv-stat:last-child{grid-column:auto;border-top:none;}
   .ceo-table-head,.ceo-table-row{grid-template-columns:1.4fr 1fr;}
   .ceo-table-head span:nth-child(n+3){display:none;}
-  .ceo-table-row>span:nth-child(n+3){display:none;}
-}
+  .ceo-table-row>span:nth-child(n+3){display:none;}  .hero-ctas{gap:8px !important;}
+  .comparison-table-wrap table th,.comparison-table-wrap table td{padding:8px 6px !important;}
+  .comparison-table-wrap table{font-size:0.78rem;}}
 
 /* ── VALUE REPORT CARD (AI ROI section) ── */
 .value-report-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 4px 24px rgba(10,15,30,.07);}
@@ -845,3 +858,44 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
 .value-screenshot{margin-bottom:22px;border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 14px 40px rgba(10,15,30,.08);}
 .value-screenshot svg{display:block;width:100%;height:auto;}
 @media(max-width:900px){.value-grid{grid-template-columns:1fr;}.value-outcomes-grid{grid-template-columns:1fr;}} 
+
+/* ── ADDITIONAL MOBILE REFINEMENTS ── */
+.highlight-box {
+  padding: 16px !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+
+@media(max-width:640px) {
+  .highlight-box {
+    padding: 14px !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .comparison-table-wrap {
+    border: none;
+    margin: 0 -12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .comparison-table-wrap table {
+    min-width: 550px;
+  }
+}
+
+@media(max-width:380px) {
+  .highlight-box {
+    padding: 12px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .comparison-table-wrap {
+    margin: 0 -8px;
+  }
+  
+  .comparison-table-wrap table {
+    font-size: 0.75rem;
+    min-width: 480px;
+  }
+}
