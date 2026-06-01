@@ -360,7 +360,10 @@ h2.section-h{
 .bento-card h3{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:-0.01em;}
 .bento-dark h3{color:#fff;}
 .bento-card p{font-size:13px;color:var(--ink3);line-height:1.75;font-weight:300;}
-.bento-dark p{color:rgba(255,255,255,.55);}
+.bento-dark p{color:rgba(255,255,255,.8);}
+.bento-dark .bento-tags span,
+.bento-dark .sso-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.88);}
+.bento-dark .bento-cd{margin-top:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.85);}
 .bento-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:16px;}
 .bento-tags span{background:var(--bg2);border:1px solid var(--border);color:var(--ink3);font-size:11.5px;font-weight:500;padding:3px 10px;border-radius:100px;}
 .bento-stat{margin-top:20px;}
@@ -731,7 +734,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   .comparison-table-wrap table{font-size:0.85rem;}
   .comparison-table-wrap table th,.comparison-table-wrap table td{padding:10px 8px !important;}
   .comparison-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:12px;}
-  .comparison-table-wrap table{min-width:500px;}
+  .comparison-table-wrap table{min-width:auto;}
   
   /* highlight box */
   .section.bg-alt > .container > div{padding:16px !important;font-size:0.9rem;line-height:1.6;}
@@ -878,6 +881,8 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   /* Comparison table: convert to card layout on mobile */
   .comparison-table-wrap table {
     display: block;
+    width: 100%;
+    min-width: auto !important;
     overflow: visible;
   }
   
@@ -904,8 +909,10 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
     display: flex;
     flex-direction: column;
     border: none;
-    padding: 8px 0 !important;
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 10px 0 !important;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    color:var(--ink);
+    font-size:0.95rem;
   }
   
   .comparison-table-wrap td:last-child {
@@ -919,7 +926,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
     border-bottom: 1px solid var(--border) !important;
   }
   
-  .comparison-table-wrap td:first-child::before {
+  .comparison-table-wrap td::before {
     content: attr(data-label);
     display: block;
     font-size: 10px;
