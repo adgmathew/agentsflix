@@ -72,7 +72,7 @@
         <h1>The MCP Gateway That Governs AI Agents Before They Act.</h1>
         <p class="hero-lead">Intercept every tool call (MCP) and agent handoff (A2A). Enforce purpose-bound permissions in real time. SOC2 ready.</p>
         <div class="hero-ctas" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;margin-bottom:16px;">
-          <a href="#get-started" class="btn-cta-sm" onclick="openForm()">Deploy Free – Pay for Usage</a>
+          <a href="#get-started" class="btn-cta-sm" onclick="openForm()" style="position:relative;">Deploy Free – Pay for Usage <span style="display:inline-block;margin-left:6px;background:#ef4444;color:#fff;border-radius:100px;padding:3px 9px;font-size:9px;font-weight:700;letter-spacing:0.05em;">LIMITED</span></a>
           <button class="btn-dark" onclick="openDemo()">See CEO Dashboard Demo</button>
         </div>
 
@@ -507,39 +507,39 @@
         </thead>
         <tbody>
           <tr style="border-top:1px solid var(--border);">
-            <td style="padding:14px 12px;">Pre-execution control</td>
-            <td style="padding:14px 12px;">Yes</td>
-            <td style="padding:14px 12px;">Limited</td>
-            <td style="padding:14px 12px;">No</td>
-            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;" data-label="Capability">Pre-execution control</td>
+            <td style="padding:14px 12px;" data-label="AgentsFlix">Yes</td>
+            <td style="padding:14px 12px;" data-label="Cloudflare">Limited</td>
+            <td style="padding:14px 12px;" data-label="Portkey">No</td>
+            <td style="padding:14px 12px;" data-label="OpenRouter">No</td>
           </tr>
           <tr style="border-top:1px solid var(--border);">
-            <td style="padding:14px 12px;">MCP gateway governance</td>
-            <td style="padding:14px 12px;">Yes</td>
-            <td style="padding:14px 12px;">No</td>
-            <td style="padding:14px 12px;">No</td>
-            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;" data-label="Capability">MCP gateway governance</td>
+            <td style="padding:14px 12px;" data-label="AgentsFlix">Yes</td>
+            <td style="padding:14px 12px;" data-label="Cloudflare">No</td>
+            <td style="padding:14px 12px;" data-label="Portkey">No</td>
+            <td style="padding:14px 12px;" data-label="OpenRouter">No</td>
           </tr>
           <tr style="border-top:1px solid var(--border);">
-            <td style="padding:14px 12px;">Pure pay-as-you-go</td>
-            <td style="padding:14px 12px;">Yes</td>
-            <td style="padding:14px 12px;">No</td>
-            <td style="padding:14px 12px;">No</td>
-            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;" data-label="Capability">Pure pay-as-you-go</td>
+            <td style="padding:14px 12px;" data-label="AgentsFlix">Yes</td>
+            <td style="padding:14px 12px;" data-label="Cloudflare">No</td>
+            <td style="padding:14px 12px;" data-label="Portkey">No</td>
+            <td style="padding:14px 12px;" data-label="OpenRouter">No</td>
           </tr>
           <tr style="border-top:1px solid var(--border);">
-            <td style="padding:14px 12px;">Self-hosted/VPC</td>
-            <td style="padding:14px 12px;">Yes</td>
-            <td style="padding:14px 12px;">Partial</td>
-            <td style="padding:14px 12px;">No</td>
-            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;" data-label="Capability">Self-hosted/VPC</td>
+            <td style="padding:14px 12px;" data-label="AgentsFlix">Yes</td>
+            <td style="padding:14px 12px;" data-label="Cloudflare">Partial</td>
+            <td style="padding:14px 12px;" data-label="Portkey">No</td>
+            <td style="padding:14px 12px;" data-label="OpenRouter">No</td>
           </tr>
           <tr style="border-top:1px solid var(--border);">
-            <td style="padding:14px 12px;">SOC2 readiness</td>
-            <td style="padding:14px 12px;">Yes</td>
-            <td style="padding:14px 12px;">No</td>
-            <td style="padding:14px 12px;">No</td>
-            <td style="padding:14px 12px;">No</td>
+            <td style="padding:14px 12px;" data-label="Capability">SOC2 readiness</td>
+            <td style="padding:14px 12px;" data-label="AgentsFlix">Yes</td>
+            <td style="padding:14px 12px;" data-label="Cloudflare">No</td>
+            <td style="padding:14px 12px;" data-label="Portkey">No</td>
+            <td style="padding:14px 12px;" data-label="OpenRouter">No</td>
           </tr>
         </tbody>
       </table>
@@ -1029,8 +1029,8 @@
         <div class="payg-name">Pay As You Go</div>
         <div class="payg-price">$0<span> to start</span></div>
         <div class="payg-desc">No seat fees. No per-user pricing. No tiered feature gates. You pay for tokens governed — nothing else. Scales from Series A startups to Global 2000 enterprises with identical feature parity across every deployment.</div>
-        <button class="payg-cta" onclick="openForm()">Get a Custom Quote for Your Team →</button>
-        <div class="payg-note">Typical savings offset cost within 1 week · No contract · Cancel anytime</div>
+          <button class="payg-cta" onclick="openForm()">Get Early Access – Limited Spots →</button>
+          <div class="payg-note">⚡ 97 companies on waitlist · Typical savings offset cost within 1 week · No contract · Cancel anytime</div>
       </div>
       <div class="payg-right">
         <div class="payg-includes-title">Everything included. Always.</div>
@@ -1154,7 +1154,7 @@
     </div>
     <div class="foot-bottom">
       <span class="foot-copy">© 2026 AgentsFlix. All rights reserved.</span>
-      <span class="foot-copy">Made in India · AWS Mumbai / EU / US</span>
+      <span class="foot-copy">AWS Mumbai · EU · US</span>
       <span class="foot-copy">AgentsFlix is the independent MCP gateway alternative to Cloudflare, Portkey, and OpenRouter.</span>
     </div>
   </div>
@@ -1165,8 +1165,8 @@
   <div class="modal-box modal-form-box">
     <div class="modal-head">
       <div>
-        <span class="modal-title">Request an Enterprise Assessment</span>
-        <div class="modal-subtitle">Tell us about your AI environment and compliance requirements. We'll respond with a tailored governance assessment within 24 hours.</div>
+        <span class="modal-title">⏳ Get Early Access – Limited Spots</span>
+        <div class="modal-subtitle">97 CTOs on waitlist. First 50 get founding tier pricing (50% discount forever). Setup in 24 hours.</div>
       </div>
       <button class="modal-close" onclick="closeForm()">✕</button>
     </div>
@@ -1264,7 +1264,7 @@
             </div>
           </div>
           <div class="form-field form-field-full">
-            <label>Biggest pain point right now (select all that apply)</label>
+            <label>Biggest pain point right now (select all that apply) <span style="color:#ef4444;font-weight:700;">*</span></label>
             <div class="pain-group" id="painGroup">
               <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Runaway AI costs">💸 Runaway AI costs</button>
               <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Token maxxing">🐋 Token maxxing</button>
@@ -1285,7 +1285,7 @@
           </div>
         </div>
         <button type="submit" class="form-submit-btn" id="formSubmitBtn">
-          Submit — Governance assessment within 24 hours →
+          🚀 Claim Early Access – Founding Tier →
         </button>
         <div class="form-fine-print">No spam. No unsolicited sales calls. Your data is never shared or used to train AI models. Responses go to the AgentsFlix team inbox.</div>
       </form>
@@ -1298,8 +1298,8 @@
   <div class="modal-box modal-form-box">
     <div class="modal-head">
       <div>
-        <span class="modal-title">Request an Enterprise Assessment</span>
-        <div class="modal-subtitle">Tell us about your company — we'll personalise your setup and pricing in 24 hours.</div>
+        <span class="modal-title">⏳ Join Founding Tier – 50% Off Forever</span>
+        <div class="modal-subtitle">First 50 companies get permanent 50% discount + priority support. Limited spots: 3 remain.</div>
       </div>
       <button class="modal-close" onclick="closeForm()">✕</button>
     </div>
