@@ -811,8 +811,8 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   .mlm{display:none;}
 
   /* arch */
-  .arch-diagram{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .arch-diagram svg{min-width:600px;}
+  .arch-diagram{overflow:hidden;}
+  .arch-diagram svg{min-width:0;max-width:100%;width:100%;}
 
   /* footer */
   .foot-top{flex-direction:column;gap:28px;}
