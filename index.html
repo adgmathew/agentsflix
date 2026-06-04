@@ -1229,8 +1229,8 @@
   <div class="modal-box modal-form-box">
     <div class="modal-head">
       <div>
-        <span class="modal-title">⏳ Get Early Access – Limited Spots</span>
-        <div class="modal-subtitle">97 CTOs on waitlist. First 50 get founding tier pricing (50% discount forever). Setup in 24 hours.</div>
+        <span class="modal-title">Enterprise AI assessment in 24 hours</span>
+        <div class="modal-subtitle">Minimal details now. We’ll scope your spend, agent risk, and compliance exposure before the first call.</div>
       </div>
       <button class="modal-close" onclick="closeForm()">✕</button>
     </div>
@@ -1239,7 +1239,6 @@
         <input type="hidden" name="access_key" value="" />
         <input type="hidden" name="subject" value="New AgentsFlix Enquiry" />
         <input type="hidden" name="from_name" value="AgentsFlix Website" />
-        <input type="checkbox" name="botcheck" style="display:none;" />
         <div class="form-grid">
           <div class="form-field">
             <label>Your name *</label>
@@ -1249,26 +1248,12 @@
             <label>Work email *</label>
             <input type="email" name="email" id="f-email" placeholder="jane@company.com" required />
           </div>
-          <div class="form-field">
+          <div class="form-field form-field-full">
             <label>Company name *</label>
             <input type="text" name="company" id="f-company" placeholder="Acme Corp" required />
           </div>
           <div class="form-field">
-            <label>Country / Region</label>
-            <select name="country" id="f-country">
-              <option value="">Select region</option>
-              <option>United States</option>
-              <option>United Kingdom</option>
-              <option>European Union</option>
-              <option>India</option>
-              <option>Singapore / APAC</option>
-              <option>Canada</option>
-              <option>Australia</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label>Number of staff using AI</label>
+            <label>AI team size</label>
             <select name="staff_count" id="f-staff">
               <option value="">Select range</option>
               <option>1–10 staff</option>
@@ -1280,70 +1265,24 @@
             </select>
           </div>
           <div class="form-field">
-            <label>Estimated monthly AI spend (USD)</label>
-            <select name="ai_spend" id="f-spend">
-              <option value="">Select range</option>
-              <option>Under $500/month</option>
-              <option>$500 – $2,500/month</option>
-              <option>$2,500 – $12,000/month</option>
-              <option>$12,000+/month</option>
-              <option>Not sure yet</option>
+            <label>Main priority</label>
+            <select name="priority" id="f-priority">
+              <option value="">Select one</option>
+              <option>Reduce token waste and runaway cost</option>
+              <option>Stop compliance and data leakage risk</option>
+              <option>Control agent sprawl and ungoverned workflows</option>
+              <option>Prove AI ROI to finance and executives</option>
+              <option>Assess your model routing and governance</option>
+              <option>Other</option>
             </select>
           </div>
           <div class="form-field form-field-full">
-            <label>Which LLMs are you currently using?</label>
-            <div class="check-group">
-              <label class="check-opt"><input type="checkbox" name="llms" value="OpenAI GPT-4o" /> OpenAI GPT-4o</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="Anthropic Claude" /> Anthropic Claude</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="Google Gemini" /> Google Gemini</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="Mistral AI" /> Mistral AI</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="Meta Llama" /> Meta Llama</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="DeepSeek" /> DeepSeek</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="Cohere" /> Cohere</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="Azure OpenAI" /> Azure OpenAI</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="AWS Bedrock" /> AWS Bedrock</label>
-              <label class="check-opt"><input type="checkbox" name="llms" value="Not sure" /> Not sure yet</label>
-            </div>
-            <div style="margin-top:10px;">
-              <div class="form-sublabel">Agentic frameworks / protocols in use</div>
-              <div class="check-group">
-                <label class="check-opt"><input type="checkbox" name="frameworks" value="LangChain" /> LangChain</label>
-                <label class="check-opt"><input type="checkbox" name="frameworks" value="LangGraph" /> LangGraph</label>
-                <label class="check-opt"><input type="checkbox" name="frameworks" value="AutoGen" /> AutoGen</label>
-                <label class="check-opt"><input type="checkbox" name="frameworks" value="CrewAI" /> CrewAI</label>
-                <label class="check-opt"><input type="checkbox" name="frameworks" value="MCP" /> MCP (Model Context Protocol)</label>
-                <label class="check-opt"><input type="checkbox" name="frameworks" value="A2A" /> A2A (Agent-to-Agent)</label>
-                <label class="check-opt"><input type="checkbox" name="frameworks" value="LlamaIndex" /> LlamaIndex</label>
-                <label class="check-opt"><input type="checkbox" name="frameworks" value="Custom" /> Custom / in-house</label>
-              </div>
-            </div>
-            <div class="form-field" style="margin-top:8px;">
-              <input type="text" name="llms_other" placeholder="Other LLMs not listed above (e.g. Perplexity, Groq, Ollama, custom model...)" />
-            </div>
-          </div>
-          <div class="form-field form-field-full">
-            <label>Biggest pain point right now (select all that apply) <span style="color:#ef4444;font-weight:700;">*</span></label>
-            <div class="pain-group" id="painGroup">
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Runaway AI costs">💸 Runaway AI costs</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Token maxxing">🐋 Token maxxing</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Agent sprawl">🤖 Agent sprawl</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Duplicate work">🔁 Duplicate work</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Data leakage / PII">🔓 Data leakage / PII</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Off-topic queries">🌤️ Off-topic / personal queries</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="EU AI Act compliance">⚖️ EU AI Act compliance</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="No AI ROI visibility">📊 No AI ROI visibility</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Shadow AI">👻 Shadow AI usage</button>
-              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="SSO / access control">🔑 Need SSO / access control</button>
-            </div>
-            <input type="hidden" name="pain_points" id="painPointsInput" />
-          </div>
-          <div class="form-field form-field-full">
-            <label>Anything else? (optional)</label>
-            <textarea name="notes" id="f-notes" placeholder="Tell us about your stack, compliance requirements, team structure, or anything specific you need..." rows="3"></textarea>
+            <label>Optional note</label>
+            <textarea name="notes" id="f-notes" placeholder="Briefly describe your current stack, AI risk, or what you want solved..." rows="4"></textarea>
           </div>
         </div>
         <button type="submit" class="form-submit-btn" id="formSubmitBtn">
-          🚀 Claim Early Access – Founding Tier →
+          🚀 Request an enterprise assessment →
         </button>
         <div class="form-fine-print">No spam. No unsolicited sales calls. Your data is never shared or used to train AI models. Responses go to the AgentsFlix team inbox.</div>
       </form>

@@ -544,14 +544,14 @@ h2.section-h{
 /* ── FORM MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(10,15,30,.7);backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s;}
 .modal-overlay.open{opacity:1;pointer-events:auto;}
-.modal-box{background:#fff;border-radius:var(--r-lg);width:100%;max-width:680px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(10,15,30,.25);}
-.modal-form-box{max-width:740px;}
-.modal-head{display:flex;align-items:flex-start;justify-content:space-between;padding:22px 28px;border-bottom:1px solid var(--border);gap:16px;}
-.modal-title{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--ink);display:block;}
-.modal-subtitle{font-size:13px;color:var(--muted);margin-top:4px;font-weight:300;}
-.modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);line-height:1;padding:4px;font-family:var(--font-body);}
+.modal-box{background:#fff;border-radius:28px;box-shadow:0 30px 90px rgba(10,15,30,.22);width:100%;max-width:620px;max-height:90vh;overflow-y:auto;}
+.modal-form-box{max-width:620px;}
+.modal-head{display:flex;align-items:flex-start;justify-content:space-between;padding:24px 30px;border-bottom:1px solid rgba(15,23,42,.08);gap:16px;}
+.modal-title{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--ink);display:block;line-height:1.1;}
+.modal-subtitle{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.7;font-weight:400;max-width:520px;}
+.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted);line-height:1;padding:8px;font-family:var(--font-body);}
 .modal-close:hover{color:var(--ink);}
-.modal-body{padding:24px 28px;}
+.modal-body{padding:28px 30px;}
 .modal-tabs{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:18px;}
 .modal-tab{flex:1;padding:9px;font-size:13px;font-weight:500;color:var(--muted);background:#fff;border:none;cursor:pointer;transition:all .15s;font-family:var(--font-body);}
 .modal-tab.active{background:var(--ink);color:#fff;}
@@ -586,14 +586,14 @@ h2.section-h{
 .modal-btn-primary:hover{opacity:.82;}
 .modal-btn-ghost{background:none;color:var(--muted);font-size:14px;font-weight:500;padding:12px 24px;border-radius:8px;border:1px solid var(--border);cursor:pointer;font-family:var(--font-body);transition:all .15s;}
 .modal-btn-ghost:hover{border-color:var(--ink3);color:var(--ink);}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
-.form-field{display:flex;flex-direction:column;gap:6px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px;}
+.form-field{display:flex;flex-direction:column;gap:8px;}
 .form-field-full{grid-column:span 2;}
 .form-field label{font-size:13px;font-weight:600;color:var(--ink2);}
 .form-sublabel{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px;letter-spacing:.02em;}
-.form-field input,.form-field select,.form-field textarea{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;font-family:var(--font-body);color:var(--ink);transition:border-color .15s;width:100%;}
-.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--ink3);}
-.form-field textarea{resize:vertical;}
+.form-field input,.form-field select,.form-field textarea{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px 16px;font-size:15px;font-family:var(--font-body);color:var(--ink);transition:border-color .15s,box-shadow .15s;width:100%;}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--ink3);box-shadow:0 0 0 5px rgba(15,23,42,.05);}
+.form-field textarea{resize:vertical;min-height:110px;}
 .check-group{display:flex;flex-wrap:wrap;gap:7px;}
 .check-opt{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink3);cursor:pointer;background:var(--bg2);border:1px solid var(--border);padding:6px 12px;border-radius:100px;transition:all .15s;}
 .check-opt:hover{border-color:var(--ink3);}
