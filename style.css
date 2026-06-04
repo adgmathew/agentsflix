@@ -822,7 +822,7 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
   .steps-grid,.stats-row{grid-template-columns:1fr;}
   .stat-block{border-right:none!important;}
   .sv-stats{grid-template-columns:1fr 1fr 1fr;}
-  .sv-stat:last-child{border-column:auto;border-top:none;}
+  .sv-stat:last-child{border-right:none;border-top:none;}
   .ceo-table-head,.ceo-table-row{grid-template-columns:1.4fr 1fr;}
   .ceo-table-head span:nth-child(n+3){display:none;}
   .ceo-table-row>span:nth-child(n+3){display:none;}
@@ -863,7 +863,10 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
 .compat-badge{font-size:13px;color:var(--ink);background:rgba(0,200,150,.08);border:1px solid rgba(0,200,150,.18);border-radius:999px;padding:10px 14px;white-space:nowrap;}
 .value-screenshot{margin-bottom:22px;border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 14px 40px rgba(10,15,30,.08);}
 .value-screenshot svg{display:block;width:100%;height:auto;}
-@media(max-width:900px){.value-grid{grid-template-columns:1fr;}.value-outcomes-grid{grid-template-columns:1fr;}} 
+.comparison-preview{display:grid;grid-template-columns:1fr 260px;gap:18px;align-items:center;margin-bottom:24px;}
+.comparison-preview-card{border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 26px 70px rgba(10,15,30,.08);background:#fff;}
+.comparison-preview-copy{font-size:0.95rem;color:var(--ink3);line-height:1.8;}
+@media(max-width:900px){.value-grid{grid-template-columns:1fr;}.value-outcomes-grid{grid-template-columns:1fr;}.comparison-preview{grid-template-columns:1fr;}}
 
 /* ── ADDITIONAL MOBILE REFINEMENTS ── */
 .highlight-box {
@@ -878,12 +881,21 @@ footer{padding:56px 0 32px;border-top:1px solid var(--border);}
     font-size: 0.85rem !important;
   }
   
+  .comparison-preview{grid-template-columns:1fr;}
+  .comparison-preview-card{width:100%;}
+
   /* Comparison table: convert to card layout on mobile */
+  .comparison-table-wrap{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
   .comparison-table-wrap table {
     display: block;
     width: 100%;
-    min-width: auto !important;
+    min-width: 0 !important;
+    max-width:100%;
     overflow: visible;
+    border-collapse:collapse;
   }
   
   .comparison-table-wrap thead {
