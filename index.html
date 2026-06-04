@@ -1183,6 +1183,8 @@
   </div>
 </footer>
 
+<div id="get-started" class="anchor-target"></div>
+
 <!-- GET STARTED FORM MODAL -->
 <div class="modal-overlay" id="formModal" onclick="closeFormOutside(event)">
   <div class="modal-box modal-form-box">
@@ -1194,14 +1196,8 @@
       <button class="modal-close" onclick="closeForm()">✕</button>
     </div>
     <div class="modal-body">
-      <!-- 
-        FORM SETUP REQUIRED: 
-        Go to https://web3forms.com → enter georgemathew46@gmail.com → get your access key
-        Replace YOUR_ACCESS_KEY_HERE below with your real key
-        Takes 30 seconds. Free. No domain verification needed.
-      -->
       <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event)">
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+        <input type="hidden" name="access_key" value="" />
         <input type="hidden" name="subject" value="New AgentsFlix Enquiry" />
         <input type="hidden" name="from_name" value="AgentsFlix Website" />
         <input type="checkbox" name="botcheck" style="display:none;" />
@@ -1312,88 +1308,6 @@
         </button>
         <div class="form-fine-print">No spam. No unsolicited sales calls. Your data is never shared or used to train AI models. Responses go to the AgentsFlix team inbox.</div>
       </form>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal-overlay" id="formModal" onclick="closeFormOutside(event)">
-  <div class="modal-box modal-form-box">
-    <div class="modal-head">
-      <div>
-        <span class="modal-title">⏳ Join Founding Tier – 50% Off Forever</span>
-        <div class="modal-subtitle">First 50 companies get permanent 50% discount + priority support. Limited spots: 3 remain.</div>
-      </div>
-      <button class="modal-close" onclick="closeForm()">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="form-grid">
-        <div class="form-field">
-          <label>Your name *</label>
-          <input type="text" id="f-name" placeholder="Priya Sharma" />
-        </div>
-        <div class="form-field">
-          <label>Work email *</label>
-          <input type="email" id="f-email" placeholder="priya@company.com" />
-        </div>
-        <div class="form-field">
-          <label>Company name *</label>
-          <input type="text" id="f-company" placeholder="Acme Corp" />
-        </div>
-        <div class="form-field">
-          <label>Number of staff using AI</label>
-          <select id="f-staff">
-            <option value="">Select range</option>
-            <option>1–10 staff</option>
-            <option>11–50 staff</option>
-            <option>51–200 staff</option>
-            <option>201–500 staff</option>
-            <option>500+ staff</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label>Estimated monthly AI spend</label>
-          <select id="f-spend">
-            <option value="">Select range</option>
-            <option>Under $500/month</option>
-            <option>$500 – $2,500/month</option>
-            <option>$2,500 – $12,000/month</option>
-            <option>$12,000+/month</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label>Which LLMs are you using?</label>
-          <div class="check-group">
-            <label class="check-opt"><input type="checkbox" value="OpenAI" /> OpenAI (GPT-4o)</label>
-            <label class="check-opt"><input type="checkbox" value="Claude" /> Anthropic Claude</label>
-            <label class="check-opt"><input type="checkbox" value="Gemini" /> Google Gemini</label>
-            <label class="check-opt"><input type="checkbox" value="Mistral" /> Mistral / Llama</label>
-            <label class="check-opt"><input type="checkbox" value="Other" /> Other / Not sure</label>
-          </div>
-        </div>
-        <div class="form-field form-field-full">
-          <label>Biggest pain point right now</label>
-          <div class="pain-group">
-            <button class="pain-btn" onclick="togglePain(this)">💸 Runaway AI costs</button>
-            <button class="pain-btn" onclick="togglePain(this)">🔁 Duplicate work</button>
-            <button class="pain-btn" onclick="togglePain(this)">🔓 Data leakage risk</button>
-            <button class="pain-btn" onclick="togglePain(this)">🌤️ Off-topic / personal queries</button>
-            <button class="pain-btn" onclick="togglePain(this)">⚖️ EU AI Act compliance</button>
-            <button class="pain-btn" onclick="togglePain(this)">📊 No AI ROI visibility</button>
-            <button class="pain-btn" onclick="togglePain(this)">👻 Shadow AI / uncontrolled usage</button>
-            <button class="pain-btn" onclick="togglePain(this)">🔑 Need SSO / access control</button>
-          </div>
-        </div>
-        <div class="form-field form-field-full">
-          <label>Anything else? (optional)</label>
-          <textarea id="f-notes" placeholder="Tell us about your setup, compliance requirements, or anything specific you need..." rows="3"></textarea>
-        </div>
-      </div>
-      <button class="form-submit-btn" onclick="submitForm()">
-        Send — We'll be in touch within 24 hours →
-      </button>
-      <div class="form-fine-print">No spam. No sales calls unless you want one. Your data is never shared or used to train AI models.</div>
     </div>
   </div>
 </div>

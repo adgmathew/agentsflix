@@ -59,18 +59,25 @@ function closeFormOutside(e) {
 function togglePain(btn) {
   btn.classList.toggle('selected');
 }
-function submitForm() {
-  const name  = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const co    = document.getElementById('f-company').value.trim();
+function submitForm(btn) {
+  // Find the nearest modal/form container from the clicked button
+  const container = (btn && btn.closest) ? btn.closest('.modal-body, .modal-box, .modal-overlay') : document;
+  const nameEl = container.querySelector('#f-name') || container.querySelector('input[name="name"]');
+  const emailEl = container.querySelector('#f-email') || container.querySelector('input[name="email"]');
+  const coEl = container.querySelector('#f-company') || container.querySelector('input[name="company"]');
+  const name = nameEl ? nameEl.value.trim() : '';
+  const email = emailEl ? emailEl.value.trim() : '';
+  const co = coEl ? coEl.value.trim() : '';
   if (!name || !email || !co) {
     alert('Please fill in your name, email, and company name.');
     return;
   }
-  const btn = document.querySelector('.form-submit-btn');
-  btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
-  btn.style.background = '#008f6e';
-  btn.disabled = true;
+  const btnEl = btn || document.querySelector('.form-submit-btn');
+  if (btnEl) {
+    btnEl.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
+    btnEl.style.background = '#008f6e';
+    btnEl.disabled = true;
+  }
   setTimeout(closeForm, 2400);
 }
 
@@ -100,43 +107,54 @@ document.addEventListener('keydown', e => {
 // ── FORM SUBMISSION (Formspree) ──
 function handleFormSubmit(e) {
   e.preventDefault();
-  const name  = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const co    = document.getElementById('f-company').value.trim();
+  const form = e.target || document.getElementById('contactForm');
+  const nameEl = form.querySelector('[name="name"]') || form.querySelector('#f-name');
+  const emailEl = form.querySelector('[name="email"]') || form.querySelector('#f-email');
+  const coEl = form.querySelector('[name="company"]') || form.querySelector('#f-company');
+  const name = nameEl ? nameEl.value.trim() : '';
+  const email = emailEl ? emailEl.value.trim() : '';
+  const co = coEl ? coEl.value.trim() : '';
   if (!name || !email || !co) {
     alert('Please fill in your name, work email, and company name.');
     return;
   }
-  // Collect pain points into hidden field
-  const selected = Array.from(document.querySelectorAll('.pain-btn.selected'))
+
+  // Collect pain points into hidden field, scoped to this form
+  const selected = Array.from(form.querySelectorAll('.pain-btn.selected'))
     .map(b => b.getAttribute('data-val')).join(', ');
-  const inp = document.getElementById('painPointsInput');
+  const inp = form.querySelector('[name="pain_points"]') || form.querySelector('#painPointsInput');
   if (inp) inp.value = selected || 'None selected';
 
-  const btn = document.getElementById('formSubmitBtn');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
+  const btn = form.querySelector('#formSubmitBtn') || form.querySelector('.form-submit-btn');
+  if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
 
-  const form = document.getElementById('contactForm');
+  const accessKey = form.querySelector('input[name="access_key"]')?.value || '';
+  const formAction = form.getAttribute('action') || 'https://api.web3forms.com/submit';
+  if (!accessKey.trim()) {
+    if (btn) {
+      btn.textContent = 'Email enterprise@agentsflix.com';
+      btn.disabled = false;
+    }
+    alert('This demo page is not currently connected to a form backend. Please email enterprise@agentsflix.com to request early access.');
+    return;
+  }
+
   const data = new FormData(form);
 
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
+  fetch(formAction, {
+    method: form.getAttribute('method') || 'POST',
     body: data,
     headers: { 'Accept': 'application/json' }
   }).then(r => r.json()).then(data => {
-    if (data.success) {
-      btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
-      btn.style.background = '#008f6e';
+    if (data && data.success) {
+      if (btn) { btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.'; btn.style.background = '#008f6e'; }
       setTimeout(closeForm, 2400);
     } else {
-      btn.textContent = 'Send — We\'ll respond within 24 hours →';
-      btn.disabled = false;
-      alert(data.message || 'Something went wrong. Please email hello@agentsflix.com');
+      if (btn) { btn.textContent = 'Send — We\'ll respond within 24 hours →'; btn.disabled = false; }
+      alert((data && data.message) || 'Something went wrong. Please email enterprise@agentsflix.com');
     }
   }).catch(() => {
-    btn.textContent = 'Send — We\'ll respond within 24 hours →';
-    btn.disabled = false;
-    alert('Network error. Please email hello@agentsflix.com directly.');
+    if (btn) { btn.textContent = 'Send — We\'ll respond within 24 hours →'; btn.disabled = false; }
+    alert('Network error. Please email enterprise@agentsflix.com directly.');
   });
 }
