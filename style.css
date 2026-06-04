@@ -141,7 +141,12 @@ h1{
 h1 .h1-red{color:var(--red);font-style:italic;}
 .hero-lead{
   font-size:1.05rem;color:var(--ink3);
-  line-height:1.8;margin-bottom:32px;font-weight:300;
+  line-height:1.8;margin-bottom:16px;font-weight:300;
+}
+.hero-sublead{
+  font-size:0.98rem;color:var(--ink3);
+  line-height:1.7;margin-bottom:24px;font-weight:500;
+  opacity:.95;
 }
 
 /* deploy box */
