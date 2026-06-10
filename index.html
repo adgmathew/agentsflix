@@ -12,6 +12,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="AgentsFlix is the enterprise AI governance platform for CISOs, CIOs, and CTOs. LLM policy enforcement, DLP, token budget control, EU AI Act compliance, agent sprawl prevention, and full audit trail — one proxy, zero disruption.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -862,6 +864,60 @@
 </section>
 
 <!-- CEO DASHBOARD -->
+
+<!-- CEO DASHBOARD -->
+<section class="section" id="ceo-dashboard">
+  <div class="container">
+    <span class="section-eyebrow red">Executive &amp; Board Reporting</span>
+    <h2 class="section-h">Full AI accountability.<br>From individual prompts to board-level ROI.</h2>
+    <p class="section-p muted">AgentsFlix gives CISOs, CIOs, and CTOs real-time visibility into how every staff member uses AI — with instant alerts on policy violations, token maxxing, and data exfiltration attempts.</p>
+
+    <div class="ceo-grid">
+      <div class="ceo-card-dark">
+        <div class="ceo-card-header">
+          <span class="ceo-card-label">👁️ Executive View — Live</span>
+          <span class="ceo-live"><span class="live-dot"></span> Real-time</span>
+        </div>
+        <div class="ceo-stats-row">
+          <div class="ceo-stat"><span class="ceo-num">124</span><span class="ceo-lbl">Staff active</span></div>
+          <div class="ceo-stat"><span class="ceo-num green-num">$2,840</span><span class="ceo-lbl">Spend today</span></div>
+          <div class="ceo-stat"><span class="ceo-num red-num">23</span><span class="ceo-lbl">Violations</span></div>
+          <div class="ceo-stat"><span class="ceo-num amber-num">7</span><span class="ceo-lbl">Maxxing flags</span></div>
+        </div>
+        <div class="ceo-table">
+          <div class="ceo-table-head">
+            <span>Staff</span><span>Dept</span><span>Tokens</span><span>Score</span><span>Flag</span>
+          </div>
+          <div class="ceo-table-row">
+            <span class="ceo-name">Priya S.</span><span class="ceo-dept">Engineering</span><span class="ceo-tokens">48,200</span><span class="ceo-score score-green">9.2/10</span><span class="ceo-flag">—</span>
+          </div>
+          <div class="ceo-table-row">
+            <span class="ceo-name">Rahul M.</span><span class="ceo-dept">Engineering</span><span class="ceo-tokens">41,800</span><span class="ceo-score score-green">8.7/10</span><span class="ceo-flag">—</span>
+          </div>
+          <div class="ceo-table-row ceo-row-warn">
+            <span class="ceo-name">David L.</span><span class="ceo-dept">Marketing</span><span class="ceo-tokens">89,400</span><span class="ceo-score score-red">2.1/10</span><span class="ceo-flag flag-maxxing">🐋 Token maxxing</span>
+          </div>
+          <div class="ceo-table-row ceo-row-warn">
+            <span class="ceo-name">Anita K.</span><span class="ceo-dept">HR</span><span class="ceo-tokens">12,100</span><span class="ceo-score score-amber">4.3/10</span><span class="ceo-flag flag-offtopic">🌤️ Off-topic</span>
+          </div>
+          <div class="ceo-table-row ceo-row-alert">
+            <span class="ceo-name">Wei C.</span><span class="ceo-dept">Sales</span><span class="ceo-tokens">6,200</span><span class="ceo-score score-red">1.4/10</span><span class="ceo-flag flag-pii">🔓 PII sent</span>
+          </div>
+        </div>
+        <div class="ceo-card-footer">Showing 5 of 124 staff · Sorted by flag severity · Updated every 60s</div>
+      </div>
+
+      <div class="ceo-features">
+        <div class="ceo-feature"><div class="ceo-feature-icon">👤</div><div><h4>Every staff member. Every prompt.</h4><p>View any employee's AI usage — prompts sent, models used, topics, token spend, and flagged activity. Full transparency with role-based access control.</p></div></div>
+        <div class="ceo-feature"><div class="ceo-feature-icon">🏆</div><div><h4>Highest value staff — ranked</h4><p>Leaderboard of employees generating the most productivity from AI. Ranked by value score: prompt quality, task relevance, token efficiency. Surface your top AI performers instantly.</p></div></div>
+        <div class="ceo-feature"><div class="ceo-feature-icon">🐋</div><div><h4>Token maxxing offenders — flagged by name</h4><p>Staff deliberately or accidentally inflating prompts are identified by name, department, and date. See exactly which prompts triggered the flag, the token-to-output ratio, and the cost impact.</p></div></div>
+        <div class="ceo-feature"><div class="ceo-feature-icon">🚨</div><div><h4>Real-time alerts on critical violations</h4><p>PII exfiltration, runaway agent loop, or source code in a prompt — the CISO gets an email and Slack alert within 60 seconds. Not a weekly report. Right now.</p></div></div>
+        <div class="ceo-feature"><div class="ceo-feature-icon">📋</div><div><h4>Monthly board-ready AI ROI report</h4><p>Auto-generated PDF: total token spend, cost per department, productivity multiplier, incidents blocked, compliance status. Ready to present to investors and the board.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section bg-alt" id="staff-value">
   <div class="container">
     <span class="section-eyebrow green">AI Value &amp; ROI Intelligence</span>
@@ -1239,6 +1295,33 @@
             <textarea name="notes" id="f-notes" placeholder="Briefly describe your current stack, AI risk, or what you want solved..." rows="4"></textarea>
           </div>
         </div>
+          <div class="form-field form-field-full">
+            <label>Biggest pain point right now</label>
+            <div class="pain-group" id="painGroup">
+              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Runaway AI costs">💸 Runaway AI costs</button>
+              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Token maxxing">🐋 Token maxxing</button>
+              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Agent sprawl">🤖 Agent sprawl</button>
+              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Duplicate work">🔁 Duplicate work</button>
+              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Data leakage / PII">🔓 Data leakage / PII</button>
+              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="EU AI Act compliance">⚖️ EU AI Act compliance</button>
+              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="No AI ROI visibility">📊 No AI ROI visibility</button>
+              <button type="button" class="pain-btn" onclick="togglePain(this)" data-val="Shadow AI">👻 Shadow AI usage</button>
+            </div>
+            <input type="hidden" name="pain_points" id="painPointsInput" />
+          </div>
+          <div class="form-field form-field-full">
+            <label>Agentic frameworks in use</label>
+            <div class="check-group">
+              <label class="check-opt"><input type="checkbox" name="frameworks" value="LangChain" /> LangChain</label>
+              <label class="check-opt"><input type="checkbox" name="frameworks" value="LangGraph" /> LangGraph</label>
+              <label class="check-opt"><input type="checkbox" name="frameworks" value="AutoGen" /> AutoGen</label>
+              <label class="check-opt"><input type="checkbox" name="frameworks" value="CrewAI" /> CrewAI</label>
+              <label class="check-opt"><input type="checkbox" name="frameworks" value="MCP" /> MCP</label>
+              <label class="check-opt"><input type="checkbox" name="frameworks" value="A2A" /> A2A</label>
+              <label class="check-opt"><input type="checkbox" name="frameworks" value="Custom" /> Custom</label>
+            </div>
+          </div>
+
         <button type="submit" class="form-submit-btn" id="formSubmitBtn">
           🚀 Request an enterprise assessment →
         </button>
