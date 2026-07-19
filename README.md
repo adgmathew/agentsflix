@@ -1,6 +1,6 @@
-# MicroFlix — Binge-Worthy Micro Dramas
+# Agentsflix — Binge-Worthy Micro Dramas
 
-MicroFlix is the premier streaming platform for bite-sized dramas. Watch, create, and monetize 60-second micro-dramas on mobile.
+Agentsflix is the premier streaming platform for bite-sized dramas. Watch, create, and monetize 60-second micro-dramas on mobile.
 
 - 🌐 Live site: [agentsflix.com](https://agentsflix.com)
 - 📱 Platforms: iOS, Android, Web
@@ -29,4 +29,4 @@ Visit [agentsflix.com](https://agentsflix.com) and sign up for early access.
 
 ## License
 
-© 2026 MicroFlix, Inc. All rights reserved.
+© 2026 Agentsflix, Inc. All rights reserved.

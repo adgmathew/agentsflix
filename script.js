@@ -1,3 +1,49 @@
+// ── COUNTDOWN TIMER ──
+function updateCountdown() {
+  const diff = new Date('2026-08-01T00:00:00Z') - new Date();
+  if (diff <= 0) return;
+  const days  = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins  = Math.floor((diff % 3600000) / 60000);
+  const secs  = Math.floor((diff % 60000) / 1000);
+  const pad   = n => String(n).padStart(2,'0');
+  const set   = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  set('cd-days', pad(days)); set('cd-hours', pad(hours));
+  set('cd-mins', pad(mins)); set('cd-secs', pad(secs));
+  const il = document.getElementById('countdown-inline');
+  if (il) il.textContent = days + ' days, ' + hours + 'h ' + mins + 'm remaining';
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── LIMITED SPOTS ANIMATION ──
+function animateSpots() {
+  const spots = [2847, 2843, 2839, 2832, 2828, 2821, 2817, 2812];
+  let idx = 0;
+  const el = document.getElementById('waitlist-count');
+  const sticky = document.getElementById('sticky-spots');
+  setInterval(() => {
+    idx = (idx + 1) % spots.length;
+    const val = spots[idx];
+    if (el) el.textContent = val.toLocaleString();
+    if (sticky) sticky.textContent = val.toLocaleString();
+  }, 3000 + Math.random() * 2000);
+}
+animateSpots();
+
+// ── EXIT INTENT POPUP ──
+let exitShown = false;
+document.addEventListener('mouseleave', (e) => {
+  if (exitShown) return;
+  if (e.clientY < 0) {
+    exitShown = true;
+    setTimeout(() => {
+      document.getElementById('waitlistModal')?.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }, 300);
+  }
+});
+
 // ── WAITLIST ──
 function joinWaitlist() {
   const email = document.getElementById('hero-email')?.value || document.getElementById('waitlist-email')?.value;
@@ -20,6 +66,24 @@ function closeWaitlistModal() {
 document.getElementById('waitlistModal')?.addEventListener('click', function(e) {
   if (e.target === this) closeWaitlistModal();
 });
+
+function closeExitIntent() {
+  document.getElementById('exitIntent')?.classList.remove('open');
+}
+
+function joinWaitlistFromExit() {
+  const email = document.getElementById('exit-email')?.value;
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  closeExitIntent();
+  // Open main waitlist modal
+  document.getElementById('waitlistModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const wlEmail = document.getElementById('wl-email');
+  if (wlEmail && email) wlEmail.value = email;
+}
 
 function handleWaitlistSubmit(e) {
   e.preventDefault();

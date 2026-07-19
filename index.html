@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MicroFlix — Binge-Worthy Micro Dramas | Coming Soon</title>
-  <meta name="description" content="MicroFlix is the premier streaming platform for bite-sized dramas. Romance, thriller, fantasy — 60-second stories that hook you. Join the waitlist for early access.">
+  <title>Agentsflix — Binge-Worthy Micro Dramas | Coming Soon</title>
+  <meta name="description" content="Agentsflix is the premier streaming platform for bite-sized dramas. Romance, thriller, fantasy — 60-second stories that hook you. Join the waitlist for early access.">
   <meta name="keywords" content="micro dramas, short dramas, streaming app, vertical video, romance thriller, mobile streaming, coming soon, waitlist">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,9 @@
   <!-- URGENCY BAR -->
   <div class="urgency-bar">
     <span class="urgency-dot"></span>
-    <strong>Launching August 2026</strong> — Be the first to stream micro-dramas.
+    <strong>Launching August 2026</strong> — 
+    <span id="countdown-inline">Loading...</span> remaining — 
+    <span style="color:var(--red);font-weight:600;">Only 2,847 waitlist spots left</span>
     <a href="#waitlist">Join Waitlist →</a>
   </div>
 
@@ -27,7 +29,7 @@
         <div class="logo-mark">
           <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6v16H4V4zm8 0h6v16h-6V4z" fill="#E50914"/></svg>
         </div>
-        <span class="logo-name">Micro<em>Flix</em></span>
+        <span class="logo-name">Agents<em>Flix</em></span>
       </div>
       <ul class="nav-links">
         <li><a href="#how-it-works">How It Works</a></li>
@@ -49,7 +51,7 @@
     </div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge"><span class="live-dot"></span> 50K+ creators · 2M+ episodes · Coming Soon</div>
+        <div class="hero-badge"><span class="live-dot"></span> 50K+ creators · 2M+ episodes · <span id="waitlist-count">2,847</span> spots left</div>
         <h1>Drama in 60 Seconds.</h1>
         <p class="hero-lead">The first streaming platform built for micro-dramas. Swipe through infinite romance, thriller, and fantasy episodes — optimized for mobile.</p>
         <div class="hero-ctas">
@@ -60,7 +62,14 @@
           <input type="email" id="hero-email" placeholder="Enter your email for early access" autocomplete="email" />
           <button class="hero-email-btn" onclick="joinWaitlist()">Get Early Access →</button>
         </div>
-        <p class="hero-email-note">No credit card · No commitment · Be first in line</p>
+        <p class="hero-email-note">No credit card · No commitment · Be first in line · <span style="color:var(--red);">Launching August 2026</span></p>
+        <div class="countdown-inline" style="margin-top:16px;">
+          <span style="color:var(--text3);font-size:13px;">Waitlist closes in:</span>
+          <span id="cd-days" style="font-weight:700;color:#fff;">--</span>d 
+          <span id="cd-hours" style="font-weight:700;color:#fff;">--</span>h 
+          <span id="cd-mins" style="font-weight:700;color:#fff;">--</span>m 
+          <span id="cd-secs" style="font-weight:700;color:#fff;">--</span>s
+        </div>
       </div>
     </div>
   </section>
@@ -94,13 +103,13 @@
     <div class="container">
       <span class="section-eyebrow red">How It Works</span>
       <h2 class="section-h">Watch. Swipe. Repeat.</h2>
-      <p class="section-p">MicroFlix delivers micro-dramas optimized for how you actually consume content — in 60-second bursts, endlessly scrollable, and perfectly vertical.</p>
+      <p class="section-p">Agentsflix delivers micro-dramas optimized for how you actually consume content — in 60-second bursts, endlessly scrollable, and perfectly vertical.</p>
       
       <div class="steps-grid">
         <div class="step-card">
           <div class="step-n">01</div>
           <h4>Download the App</h4>
-          <p>Get MicroFlix on iOS and Android. Vertical video native experience.</p>
+          <p>Get Agentsflix on iOS and Android. Vertical video native experience.</p>
         </div>
         <div class="step-card">
           <div class="step-n">02</div>
@@ -216,7 +225,7 @@
     <div class="container">
       <span class="section-eyebrow red">For Creators</span>
       <h2 class="section-h">Your next viral hit starts here.</h2>
-      <p class="section-p">MicroFlix gives you AI-powered tools to script, edit, and publish micro-dramas in minutes. Monetize your stories and build a global audience.</p>
+      <p class="section-p">Agentsflix gives you AI-powered tools to script, edit, and publish micro-dramas in minutes. Monetize your stories and build a global audience.</p>
       
       <div class="creator-grid">
         <div class="creator-card">
@@ -250,7 +259,7 @@
       <h2 class="section-h">Loved by drama addicts</h2>
       <div class="proof-grid">
         <div class="proof-card proof-dark">
-          <div class="proof-quote">"I watch 30 micro-dramas on my commute. MicroFlix is the only app that gets the vertical format right."</div>
+          <div class="proof-quote">"I watch 30 micro-dramas on my commute. Agentsflix is the only app that gets the vertical format right."</div>
           <div class="proof-attr">
             <span class="proof-avatar">👩</span>
             <div><strong>Sarah K.</strong><span>Student, NYC</span></div>
@@ -281,7 +290,7 @@
       <h2 class="section-h">Questions? Answers.</h2>
       <div class="faq-grid">
         <div class="faq-item">
-          <button class="faq-q">Is MicroFlix really free? <span class="faq-icon">+</span></button>
+          <button class="faq-q">Is Agentsflix really free? <span class="faq-icon">+</span></button>
           <div class="faq-a"><p>Yes. Watching micro-dramas is 100% free, ad-supported. We also offer a premium tier for ad-free viewing and exclusive content.</p></div>
         </div>
         <div class="faq-item">
@@ -289,7 +298,7 @@
           <div class="faq-a"><p>A micro-drama is a short-form dramatic series, typically 60 seconds per episode, designed for vertical mobile viewing. Think TikTok meets Netflix.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">When does MicroFlix launch? <span class="faq-icon">+</span></button>
+          <button class="faq-q">When does Agentsflix launch? <span class="faq-icon">+</span></button>
           <div class="faq-a"><p>We're launching in August 2026. Join the waitlist to get early access and exclusive creator tools before public launch.</p></div>
         </div>
         <div class="faq-item">
@@ -302,7 +311,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q">Is there an age restriction? <span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>MicroFlix is rated for ages 13+. We have strict content moderation and allow creators to tag mature content.</p></div>
+          <div class="faq-a"><p>Agentsflix is rated for ages 13+. We have strict content moderation and allow creators to tag mature content.</p></div>
         </div>
       </div>
     </div>
@@ -313,16 +322,20 @@
     <div class="container">
       <div class="cta-card">
         <h2>Be the first to binge.</h2>
-        <p>Join 50,000+ drama lovers on the MicroFlix waitlist. Early access + exclusive first episodes.</p>
+        <p>Join <strong>50,000+</strong> drama lovers on the Agentsflix waitlist. Early access + exclusive first episodes + <strong>lifetime 20% off premium</strong>.</p>
         <div class="waitlist-form">
           <input type="email" id="waitlist-email" placeholder="Enter your email" />
           <button class="btn-cta-hero" onclick="joinWaitlist()">Join Waitlist →</button>
         </div>
-        <p class="waitlist-note">We respect your privacy. Unsubscribe anytime.</p>
+        <p class="waitlist-note">We respect your privacy. Unsubscribe anytime. · <span style="color:var(--red);">Only 2,847 spots left</span></p>
         <div class="social-proof">
           <span>🎬 2M+ episodes waiting for you</span>
           <span>📱 iOS & Android</span>
           <span>🚀 Launching August 2026</span>
+        </div>
+        <div class="app-badges" style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <span style="background:var(--bg3);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-size:13px;color:var(--text2);">🍎 App Store</span>
+          <span style="background:var(--bg3);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-size:13px;color:var(--text2);">🤖 Google Play</span>
         </div>
       </div>
     </div>
@@ -337,7 +350,7 @@
             <div class="logo-mark">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6v16H4V4zm8 0h6v16h-6V4z" fill="#E50914"/></svg>
             </div>
-            <span class="logo-name">Micro<em>Flix</em></span>
+        <span class="logo-name">Agents<em>Flix</em></span>
           </div>
           <p>The premier streaming platform for micro-dramas. Watch, create, and monetize 60-second stories.</p>
           <div class="foot-badges">
@@ -374,7 +387,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span class="foot-copy">© 2026 MicroFlix, Inc. All rights reserved.</span>
+        <span class="foot-copy">© 2026 Agentsflix, Inc. All rights reserved.</span>
       </div>
     </div>
   </footer>
@@ -384,7 +397,7 @@
     <div class="modal-box modal-form-box">
       <div class="modal-head">
         <div>
-          <span class="modal-title">Join the MicroFlix Waitlist</span>
+          <span class="modal-title">Join the Agentsflix Waitlist</span>
           <span class="modal-subtitle">Get early access + exclusive first episodes</span>
         </div>
         <button class="modal-close" onclick="closeWaitlistModal()">×</button>
@@ -424,13 +437,27 @@
   <div class="sticky-bar" id="stickyBar">
     <div class="sticky-bar-inner">
       <div class="sticky-bar-left">
-        <strong>MicroFlix</strong>
-        <span class="sticky-sub">Launching August 2026</span>
+        <strong>Agentsflix</strong>
+        <span class="sticky-sub">Only <span id="sticky-spots">2,847</span> waitlist spots remaining</span>
       </div>
       <div class="sticky-bar-right">
         <button class="sticky-btn-g" onclick="closeStickyBar()">Dismiss</button>
         <button class="sticky-btn-p" onclick="joinWaitlist()">Join Waitlist →</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Exit Intent Popup -->
+  <div class="exit-intent-overlay" id="exitIntent">
+    <button class="exit-intent-close" onclick="closeExitIntent()">×</button>
+    <div class="exit-intent-box">
+      <h3>Wait! Don't miss out.</h3>
+      <p>Join the Agentsflix waitlist and get <strong>lifetime 20% off premium</strong> + exclusive first episodes.</p>
+      <div class="exit-intent-form">
+        <input type="email" id="exit-email" placeholder="Enter your email" />
+        <button class="btn-cta-hero" onclick="joinWaitlistFromExit()">Claim Spot →</button>
+      </div>
+      <p style="font-size:11px;color:var(--text3);margin-top:12px;">No spam. Unsubscribe anytime.</p>
     </div>
   </div>
 
