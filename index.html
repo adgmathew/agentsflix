@@ -47,8 +47,8 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg">
-      <video autoplay muted loop playsinline class="hero-video">
-        <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165" type="video/mp4">
+      <video autoplay muted loop playsinline class="hero-video" poster="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1200">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-glitchy-screen-of-a-video-editor-41041-large.mp4" type="video/mp4">
       </video>
       <div class="hero-gradient"></div>
     </div>
@@ -415,11 +415,11 @@
     <div class="modal-box video-modal-box">
       <button class="modal-close-abs" onclick="closeVideoModal()">×</button>
       <div class="video-container">
-        <div class="video-placeholder">
+        <div class="video-placeholder" id="videoLoader">
           <div class="loader"></div>
           <span>Loading drama preview...</span>
         </div>
-        <video id="previewVideo" controls playsinline></video>
+        <video id="previewVideo" controls playsinline onplaying="hideVideoLoader()"></video>
       </div>
       <div class="video-info">
         <h3 id="videoTitle">Drama Title</h3>

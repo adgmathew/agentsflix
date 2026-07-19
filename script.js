@@ -90,24 +90,34 @@ const videoModal = document.getElementById('videoModal');
 const previewVideo = document.getElementById('previewVideo');
 const videoTitle = document.getElementById('videoTitle');
 const videoMeta = document.getElementById('videoMeta');
+const videoLoader = document.getElementById('videoLoader');
 
 const videoSources = {
-  'The CEO\'s Secret': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165',
-  'Midnight Revenge': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165',
-  'Dragon\'s Heir': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165',
-  'Time Loop Love': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165',
-  'Royal Escape': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165'
+  'The CEO\'s Secret': 'https://assets.mixkit.co/videos/preview/mixkit-girl-in-a-red-dress-sitting-on-a-rock-43187-large.mp4',
+  'Midnight Revenge': 'https://assets.mixkit.co/videos/preview/mixkit-man-walking-in-a-dark-alley-at-night-42171-large.mp4',
+  'Dragon\'s Heir': 'https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-mysterious-glowing-stone-41484-large.mp4',
+  'Time Loop Love': 'https://assets.mixkit.co/videos/preview/mixkit-couple-in-a-clinch-on-a-city-street-43152-large.mp4',
+  'Royal Escape': 'https://assets.mixkit.co/videos/preview/mixkit-queen-running-down-a-palace-hallway-43188-large.mp4'
 };
 
 function openVideoModal(title, genre) {
   if (videoTitle) videoTitle.textContent = title;
   if (videoMeta) videoMeta.textContent = `Trending in ${genre.charAt(0).toUpperCase() + genre.slice(1)}`;
+  if (videoLoader) videoLoader.style.display = 'flex';
+
   if (previewVideo) {
     previewVideo.src = videoSources[title] || videoSources['The CEO\'s Secret'];
-    previewVideo.play().catch(e => console.log('Auto-play blocked'));
+    previewVideo.play().catch(e => {
+      console.log('Auto-play blocked');
+      if (videoLoader) videoLoader.style.display = 'none';
+    });
   }
   videoModal.classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function hideVideoLoader() {
+  if (videoLoader) videoLoader.style.display = 'none';
 }
 
 function closeVideoModal() {
@@ -116,6 +126,7 @@ function closeVideoModal() {
     previewVideo.pause();
     previewVideo.src = "";
   }
+  if (videoLoader) videoLoader.style.display = 'none';
   document.body.style.overflow = '';
 }
 
