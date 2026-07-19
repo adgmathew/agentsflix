@@ -47,10 +47,13 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165" type="video/mp4">
+      </video>
       <div class="hero-gradient"></div>
     </div>
     <div class="container">
-      <div class="hero-content">
+      <div class="hero-content" data-reveal>
         <div class="hero-badge"><span class="live-dot"></span> 50K+ creators · 2M+ episodes · <span id="waitlist-count">2,847</span> spots left</div>
         <h1>Drama in 60 Seconds.</h1>
         <p class="hero-lead">The first streaming platform built for micro-dramas. Swipe through infinite romance, thriller, and fantasy episodes — optimized for mobile.</p>
@@ -101,27 +104,27 @@
   <!-- HOW IT WORKS -->
   <section class="section bg-dark" id="how-it-works">
     <div class="container">
-      <span class="section-eyebrow red">How It Works</span>
-      <h2 class="section-h">Watch. Swipe. Repeat.</h2>
-      <p class="section-p">Agentsflix delivers micro-dramas optimized for how you actually consume content — in 60-second bursts, endlessly scrollable, and perfectly vertical.</p>
+      <span class="section-eyebrow red" data-reveal>How It Works</span>
+      <h2 class="section-h" data-reveal>Watch. Swipe. Repeat.</h2>
+      <p class="section-p" data-reveal>Agentsflix delivers micro-dramas optimized for how you actually consume content — in 60-second bursts, endlessly scrollable, and perfectly vertical.</p>
       
       <div class="steps-grid">
-        <div class="step-card">
+        <div class="step-card" data-reveal>
           <div class="step-n">01</div>
           <h4>Download the App</h4>
           <p>Get Agentsflix on iOS and Android. Vertical video native experience.</p>
         </div>
-        <div class="step-card">
+        <div class="step-card" data-reveal>
           <div class="step-n">02</div>
           <h4>Swipe Through Dramas</h4>
           <p>Scroll vertically through curated micro-dramas. Each episode ends on a cliffhanger.</p>
         </div>
-        <div class="step-card">
+        <div class="step-card" data-reveal>
           <div class="step-n">03</div>
           <h4>Follow & Binge</h4>
           <p>Follow your favorite series and get notified when new episodes drop.</p>
         </div>
-        <div class="step-card">
+        <div class="step-card" data-reveal>
           <div class="step-n">04</div>
           <h4>Create Your Own</h4>
           <p>Creators get AI tools to script, film, and publish micro-dramas in minutes.</p>
@@ -133,35 +136,35 @@
   <!-- GENRES -->
   <section class="section bg-darker" id="genres">
     <div class="container">
-      <span class="section-eyebrow">Genres</span>
-      <h2 class="section-h">Every drama. Every mood.</h2>
+      <span class="section-eyebrow" data-reveal>Genres</span>
+      <h2 class="section-h" data-reveal>Every drama. Every mood.</h2>
       <div class="genre-grid">
-        <div class="genre-card" style="background:linear-gradient(135deg, #E50914, #b20710);">
+        <div class="genre-card" style="background:linear-gradient(135deg, #E50914, #b20710);" data-reveal>
           <span class="genre-icon">💔</span>
           <h3>Romance</h3>
           <p>Enemies to lovers, CEO romance, college love</p>
         </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #1a1a2e, #16213e);">
+        <div class="genre-card" style="background:linear-gradient(135deg, #1a1a2e, #16213e);" data-reveal>
           <span class="genre-icon">🔪</span>
           <h3>Thriller</h3>
           <p>Revenge, murder mysteries, psychological twists</p>
         </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #16213e, #0f3460);">
+        <div class="genre-card" style="background:linear-gradient(135deg, #16213e, #0f3460);" data-reveal>
           <span class="genre-icon">🐉</span>
           <h3>Fantasy</h3>
           <p>Reincarnation, time travel, supernatural powers</p>
         </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #0f3460, #533483);">
+        <div class="genre-card" style="background:linear-gradient(135deg, #0f3460, #533483);" data-reveal>
           <span class="genre-icon">😂</span>
           <h3>Comedy</h3>
           <p>Slice of life, parody, feel-good shorts</p>
         </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #533483, #2b2d42);">
+        <div class="genre-card" style="background:linear-gradient(135deg, #533483, #2b2d42);" data-reveal>
           <span class="genre-icon">👑</span>
           <h3>Historical</h3>
           <p>Royal intrigue, palace drama, era romance</p>
         </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #2b2d42, #1a1a2e);">
+        <div class="genre-card" style="background:linear-gradient(135deg, #2b2d42, #1a1a2e);" data-reveal>
           <span class="genre-icon">🎬</span>
           <h3>Drama</h3>
           <p>Family sagas, career struggles, life choices</p>
@@ -173,44 +176,59 @@
   <!-- SHOWCASE ROW -->
   <section class="section bg-darker">
     <div class="container">
-      <span class="section-eyebrow">Trending Now</span>
-      <h2 class="section-h">This week's top micro-dramas</h2>
-      <div class="showcase-row">
-        <div class="showcase-card">
+      <span class="section-eyebrow" data-reveal>Trending Now</span>
+      <h2 class="section-h" data-reveal>This week's top micro-dramas</h2>
+      <div class="showcase-row" data-reveal>
+        <div class="showcase-card" onclick="openVideoModal('The CEO\'s Secret', 'romance')">
           <div class="showcase-thumb">
-            <img src="assets/thumb-1.svg" alt="The CEO's Secret - Romance" />
+            <img src="https://images.unsplash.com/photo-1518104593124-ac2e82a5eb9d?auto=format&fit=crop&q=80&w=400" alt="The CEO's Secret - Romance" />
+            <div class="showcase-overlay">
+              <span class="play-icon">▶</span>
+            </div>
             <span class="showcase-badge">#1</span>
             <span class="showcase-title">The CEO's Secret</span>
           </div>
           <p>12M views · Romance</p>
         </div>
-        <div class="showcase-card">
+        <div class="showcase-card" onclick="openVideoModal('Midnight Revenge', 'thriller')">
           <div class="showcase-thumb">
-            <img src="assets/thumb-2.svg" alt="Midnight Revenge - Thriller" />
+            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=400" alt="Midnight Revenge - Thriller" />
+            <div class="showcase-overlay">
+              <span class="play-icon">▶</span>
+            </div>
             <span class="showcase-badge">#2</span>
             <span class="showcase-title">Midnight Revenge</span>
           </div>
           <p>8.5M views · Thriller</p>
         </div>
-        <div class="showcase-card">
+        <div class="showcase-card" onclick="openVideoModal('Dragon\'s Heir', 'fantasy')">
           <div class="showcase-thumb">
-            <img src="assets/thumb-3.svg" alt="Dragon's Heir - Fantasy" />
+            <img src="https://images.unsplash.com/photo-1514539079130-25950c84af65?auto=format&fit=crop&q=80&w=400" alt="Dragon's Heir - Fantasy" />
+            <div class="showcase-overlay">
+              <span class="play-icon">▶</span>
+            </div>
             <span class="showcase-badge">#3</span>
             <span class="showcase-title">Dragon's Heir</span>
           </div>
           <p>6.2M views · Fantasy</p>
         </div>
-        <div class="showcase-card">
+        <div class="showcase-card" onclick="openVideoModal('Time Loop Love', 'romance')">
           <div class="showcase-thumb">
-            <img src="assets/thumb-4.svg" alt="Time Loop Love - Romance" />
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=400" alt="Time Loop Love - Romance" />
+            <div class="showcase-overlay">
+              <span class="play-icon">▶</span>
+            </div>
             <span class="showcase-badge">#4</span>
             <span class="showcase-title">Time Loop Love</span>
           </div>
           <p>5.1M views · Romance</p>
         </div>
-        <div class="showcase-card">
+        <div class="showcase-card" onclick="openVideoModal('Royal Escape', 'historical')">
           <div class="showcase-thumb">
-            <img src="assets/thumb-5.svg" alt="Royal Escape - Historical" />
+            <img src="https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?auto=format&fit=crop&q=80&w=400" alt="Royal Escape - Historical" />
+            <div class="showcase-overlay">
+              <span class="play-icon">▶</span>
+            </div>
             <span class="showcase-badge">#5</span>
             <span class="showcase-title">Royal Escape</span>
           </div>
@@ -223,27 +241,27 @@
   <!-- FOR CREATORS -->
   <section class="section bg-dark" id="creators">
     <div class="container">
-      <span class="section-eyebrow red">For Creators</span>
-      <h2 class="section-h">Your next viral hit starts here.</h2>
-      <p class="section-p">Agentsflix gives you AI-powered tools to script, edit, and publish micro-dramas in minutes. Monetize your stories and build a global audience.</p>
+      <span class="section-eyebrow red" data-reveal>For Creators</span>
+      <h2 class="section-h" data-reveal>Your next viral hit starts here.</h2>
+      <p class="section-p" data-reveal>Agentsflix gives you AI-powered tools to script, edit, and publish micro-dramas in minutes. Monetize your stories and build a global audience.</p>
       
       <div class="creator-grid">
-        <div class="creator-card">
+        <div class="creator-card" data-reveal>
           <div class="creator-icon">✍️</div>
           <h4>AI Script Generator</h4>
           <p>Generate gripping 60-second scripts with AI. Customize genre, tone, and plot twists.</p>
         </div>
-        <div class="creator-card">
+        <div class="creator-card" data-reveal>
           <div class="creator-icon">🎥</div>
           <h4>Smart Editor</h4>
           <p>Auto-edit vertical videos. Add effects, music, and subtitles in one tap.</p>
         </div>
-        <div class="creator-card">
+        <div class="creator-card" data-reveal>
           <div class="creator-icon">💰</div>
           <h4>Revenue Share</h4>
           <p>Earn from ads, tips, and subscriptions. 70% revenue share for creators.</p>
         </div>
-        <div class="creator-card">
+        <div class="creator-card" data-reveal>
           <div class="creator-icon">📊</div>
           <h4>Analytics</h4>
           <p>Track views, engagement, and earnings in real-time.</p>
@@ -255,24 +273,24 @@
   <!-- TESTIMONIALS -->
   <section class="section bg-darker">
     <div class="container">
-      <span class="section-eyebrow">Reviews</span>
-      <h2 class="section-h">Loved by drama addicts</h2>
+      <span class="section-eyebrow" data-reveal>Reviews</span>
+      <h2 class="section-h" data-reveal>Loved by drama addicts</h2>
       <div class="proof-grid">
-        <div class="proof-card proof-dark">
+        <div class="proof-card proof-dark" data-reveal>
           <div class="proof-quote">"I watch 30 micro-dramas on my commute. Agentsflix is the only app that gets the vertical format right."</div>
           <div class="proof-attr">
             <span class="proof-avatar">👩</span>
             <div><strong>Sarah K.</strong><span>Student, NYC</span></div>
           </div>
         </div>
-        <div class="proof-card proof-dark">
+        <div class="proof-card proof-dark" data-reveal>
           <div class="proof-quote">"I published my first drama series in 3 days using their AI tools. Now I have 50K followers."</div>
           <div class="proof-attr">
             <span class="proof-avatar">👨</span>
             <div><strong>Mike T.</strong><span>Creator, LA</span></div>
           </div>
         </div>
-        <div class="proof-card proof-dark">
+        <div class="proof-card proof-dark" data-reveal>
           <div class="proof-quote">"The cliffhangers are unreal. I can't stop swiping. This is the future of storytelling."</div>
           <div class="proof-attr">
             <span class="proof-avatar">👩</span>
@@ -393,6 +411,26 @@
   </footer>
 
   <!-- MODALS -->
+  <div class="modal-overlay" id="videoModal">
+    <div class="modal-box video-modal-box">
+      <button class="modal-close-abs" onclick="closeVideoModal()">×</button>
+      <div class="video-container">
+        <div class="video-placeholder">
+          <div class="loader"></div>
+          <span>Loading drama preview...</span>
+        </div>
+        <video id="previewVideo" controls playsinline></video>
+      </div>
+      <div class="video-info">
+        <h3 id="videoTitle">Drama Title</h3>
+        <p id="videoMeta">Views · Genre</p>
+        <div class="video-actions">
+          <button class="btn-cta-hero" onclick="joinWaitlist()">Join Waitlist to Watch Full Episode</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="waitlistModal">
     <div class="modal-box modal-form-box">
       <div class="modal-head">

@@ -18,16 +18,24 @@ setInterval(updateCountdown, 1000);
 
 // ── LIMITED SPOTS ANIMATION ──
 function animateSpots() {
-  const spots = [2847, 2843, 2839, 2832, 2828, 2821, 2817, 2812];
-  let idx = 0;
+  let count = 2847;
   const el = document.getElementById('waitlist-count');
   const sticky = document.getElementById('sticky-spots');
-  setInterval(() => {
-    idx = (idx + 1) % spots.length;
-    const val = spots[idx];
+  const inline = document.querySelector('.urgency-bar span[style*="color:var(--red)"]');
+
+  function update(val) {
     if (el) el.textContent = val.toLocaleString();
     if (sticky) sticky.textContent = val.toLocaleString();
-  }, 3000 + Math.random() * 2000);
+    if (inline) inline.textContent = `Only ${val.toLocaleString()} waitlist spots left`;
+  }
+
+  setInterval(() => {
+    if (Math.random() > 0.3) {
+      count -= Math.floor(Math.random() * 3) + 1;
+      if (count < 100) count = 100; // Cap it
+      update(count);
+    }
+  }, 4000 + Math.random() * 3000);
 }
 animateSpots();
 
@@ -37,20 +45,16 @@ document.addEventListener('mouseleave', (e) => {
   if (exitShown) return;
   if (e.clientY < 0) {
     exitShown = true;
-    setTimeout(() => {
-      document.getElementById('waitlistModal')?.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }, 300);
+    document.getElementById('exitIntent')?.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
 });
 
 // ── WAITLIST ──
 function joinWaitlist() {
+  closeVideoModal();
+  closeExitIntent();
   const email = document.getElementById('hero-email')?.value || document.getElementById('waitlist-email')?.value;
-  if (!email || !email.includes('@')) {
-    alert('Please enter a valid email address.');
-    return;
-  }
   // Open modal for full form
   document.getElementById('waitlistModal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -69,20 +73,50 @@ document.getElementById('waitlistModal')?.addEventListener('click', function(e) 
 
 function closeExitIntent() {
   document.getElementById('exitIntent')?.classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 function joinWaitlistFromExit() {
   const email = document.getElementById('exit-email')?.value;
-  if (!email || !email.includes('@')) {
-    alert('Please enter a valid email address.');
-    return;
-  }
   closeExitIntent();
-  // Open main waitlist modal
   document.getElementById('waitlistModal').classList.add('open');
   document.body.style.overflow = 'hidden';
   const wlEmail = document.getElementById('wl-email');
   if (wlEmail && email) wlEmail.value = email;
+}
+
+// ── VIDEO MODAL ──
+const videoModal = document.getElementById('videoModal');
+const previewVideo = document.getElementById('previewVideo');
+const videoTitle = document.getElementById('videoTitle');
+const videoMeta = document.getElementById('videoMeta');
+
+const videoSources = {
+  'The CEO\'s Secret': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165',
+  'Midnight Revenge': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165',
+  'Dragon\'s Heir': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165',
+  'Time Loop Love': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165',
+  'Royal Escape': 'https://player.vimeo.com/external/494252666.sd.mp4?s=7220934586238b313dabc28962da07bc961476f5&profile_id=165'
+};
+
+function openVideoModal(title, genre) {
+  if (videoTitle) videoTitle.textContent = title;
+  if (videoMeta) videoMeta.textContent = `Trending in ${genre.charAt(0).toUpperCase() + genre.slice(1)}`;
+  if (previewVideo) {
+    previewVideo.src = videoSources[title] || videoSources['The CEO\'s Secret'];
+    previewVideo.play().catch(e => console.log('Auto-play blocked'));
+  }
+  videoModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+  videoModal.classList.remove('open');
+  if (previewVideo) {
+    previewVideo.pause();
+    previewVideo.src = "";
+  }
+  document.body.style.overflow = '';
 }
 
 function handleWaitlistSubmit(e) {
@@ -151,8 +185,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // ── ESC TO CLOSE MODALS ──
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeWaitlistModal();
+  if (e.key === 'Escape') {
+    closeWaitlistModal();
+    closeVideoModal();
+    closeExitIntent();
+  }
 });
+
+// ── SCROLL REVEAL ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
 
 // ── HERO PARALLAX EFFECT ──
 window.addEventListener('scroll', () => {
