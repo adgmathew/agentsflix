@@ -1,58 +1,100 @@
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-// Active navigation highlighting on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('header nav ul li a');
-
-function setActiveLink() {
-    let scrollPosition = window.scrollY + 100; // Adjust for header height
-
-    sections.forEach(section => {
-        if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-            const currentId = section.getAttribute('id');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(currentId)) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
+// ── WAITLIST ──
+function joinWaitlist() {
+  const email = document.getElementById('hero-email')?.value || document.getElementById('waitlist-email')?.value;
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  // Open modal for full form
+  document.getElementById('waitlistModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Pre-fill email
+  const wlEmail = document.getElementById('wl-email');
+  if (wlEmail && email) wlEmail.value = email;
 }
 
-window.addEventListener('scroll', setActiveLink);
-window.addEventListener('load', setActiveLink);
-
-// Mobile menu toggle (optional enhancement)
-const hamburger = document.createElement('div');
-hamburger.classList.add('hamburger');
-hamburger.innerHTML = `
-    <span></span>
-    <span></span>
-    <span></span>
-`;
-document.querySelector('header .container').insertBefore(hamburger, document.querySelector('header nav'));
-
-const nav = document.querySelector('header nav');
-hamburger.addEventListener('click', () => {
-    nav.classList.toggle('mobile-active');
-    hamburger.classList.toggle('active');
+function closeWaitlistModal() {
+  document.getElementById('waitlistModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('waitlistModal')?.addEventListener('click', function(e) {
+  if (e.target === this) closeWaitlistModal();
 });
 
-// Close mobile menu when clicking a nav link (on mobile)
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            nav.classList.remove('mobile-active');
-            hamburger.classList.remove('active');
-        }
-    });
+function handleWaitlistSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const nameEl = form.querySelector('#wl-name');
+  const emailEl = form.querySelector('#wl-email');
+  const name = nameEl?.value.trim() || '';
+  const email = emailEl?.value.trim() || '';
+  
+  if (!name || !email) {
+    alert('Please fill in your name and email.');
+    return;
+  }
+
+  const btn = document.getElementById('wlSubmitBtn');
+  if (btn) {
+    btn.textContent = '✓ You\'re on the list! We\'ll be in touch.';
+    btn.style.background = '#008f6e';
+    btn.disabled = true;
+  }
+  setTimeout(closeWaitlistModal, 2500);
+}
+
+// ── STICKY BAR ON SCROLL ──
+const stickyBar = document.getElementById('stickyBar');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const current = window.scrollY;
+  if (current > 600 && !stickyBar?.classList.contains('visible')) {
+    stickyBar?.classList.add('visible');
+  } else if (current <= 400) {
+    stickyBar?.classList.remove('visible');
+  }
+  lastScroll = current;
+});
+
+function closeStickyBar() {
+  stickyBar?.classList.remove('visible');
+}
+
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+    // Open clicked (if it wasn't already open)
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+    }
+  });
+});
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// ── ESC TO CLOSE MODALS ──
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeWaitlistModal();
+});
+
+// ── HERO PARALLAX EFFECT ──
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg && scrolled < window.innerHeight) {
+    heroBg.style.transform = `translateY(${scrolled * 0.4}px)`;
+  }
 });

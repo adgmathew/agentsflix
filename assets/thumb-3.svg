@@ -1,0 +1,14 @@
+<svg viewBox="0 0 400 711" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#533483;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2b2d42;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="711" fill="url(#bg3)"/>
+  <circle cx="200" cy="280" r="80" fill="rgba(255,255,255,0.05)"/>
+  <rect x="140" y="380" width="120" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+  <rect x="160" y="400" width="80" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+  <text x="200" y="500" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#fff" text-anchor="middle">DRAGON'S</text>
+  <text x="200" y="540" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#fff" text-anchor="middle">HEIR</text>
+</svg>
