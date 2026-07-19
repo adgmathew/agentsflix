@@ -1,0 +1,81 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000"/>
+      <stop offset="30%" style="stop-color:#0a0505"/>
+      <stop offset="70%" style="stop-color:#1a0505"/>
+      <stop offset="100%" style="stop-color:#000000"/>
+    </linearGradient>
+    <radialGradient id="ogGlow" cx="70%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#E50914;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#E50914;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="ogTitleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+  <rect width="1200" height="630" fill="url(#ogGlow)"/>
+
+  <!-- Decorative particles -->
+  <circle cx="150" cy="100" r="2" fill="#E50914" opacity="0.6"/>
+  <circle cx="1050" cy="80" r="1.5" fill="#E50914" opacity="0.4"/>
+  <circle cx="200" cy="550" r="1" fill="#E50914" opacity="0.5"/>
+  <circle cx="1000" cy="580" r="2" fill="#E50914" opacity="0.4"/>
+  <circle cx="50" cy="300" r="1.5" fill="#E50914" opacity="0.3"/>
+  <circle cx="1150" cy="320" r="1" fill="#E50914" opacity="0.3"/>
+
+  <!-- Logo -->
+  <g transform="translate(600, 120)">
+    <rect x="-40" y="-40" width="80" height="80" rx="16" fill="#E50914"/>
+    <rect x="-30" y="-30" width="24" height="60" fill="#fff"/>
+    <rect x="6" y="-30" width="24" height="60" fill="#fff"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="240" text-anchor="middle" font-size="64" font-weight="900" fill="url(#ogTitleGrad)" font-family="system-ui, sans-serif" letter-spacing="-2">Drama in</text>
+  <text x="600" y="320" text-anchor="middle" font-size="64" font-weight="900" fill="url(#ogTitleGrad)" font-family="system-ui, sans-serif" letter-spacing="-2"><tspan fill="#E50914">60 Seconds</tspan>.</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="390" text-anchor="middle" font-size="24" fill="#b3b3b3" font-family="system-ui, sans-serif" font-weight="300">The first streaming platform built for micro-dramas</text>
+
+  <!-- Stats bar -->
+  <g transform="translate(200, 460)">
+    <g transform="translate(0, 0)">
+      <text x="0" y="0" text-anchor="middle" font-size="40" font-weight="900" fill="#E50914" font-family="system-ui">50K+</text>
+      <text x="0" y="30" text-anchor="middle" font-size="16" fill="#b3b3b3" font-family="system-ui">Creators</text>
+    </g>
+    <g transform="translate(300, 0)">
+      <text x="0" y="0" text-anchor="middle" font-size="40" font-weight="900" fill="#E50914" font-family="system-ui">2M+</text>
+      <text x="0" y="30" text-anchor="middle" font-size="16" fill="#b3b3b3" font-family="system-ui">Episodes</text>
+    </g>
+    <g transform="translate(600, 0)">
+      <text x="0" y="0" text-anchor="middle" font-size="40" font-weight="900" fill="#E50914" font-family="system-ui">70%</text>
+      <text x="0" y="30" text-anchor="middle" font-size="16" fill="#b3b3b3" font-family="system-ui">Revenue Share</text>
+    </g>
+    <g transform="translate(900, 0)">
+      <text x="0" y="0" text-anchor="middle" font-size="40" font-weight="900" fill="#E50914" font-family="system-ui">$4.99</text>
+      <text x="0" y="30" text-anchor="middle" font-size="16" fill="#b3b3b3" font-family="system-ui">Premium / mo</text>
+    </g>
+  </g>
+
+  <!-- CTA -->
+  <g transform="translate(600, 570)">
+    <rect x="-180" y="-30" width="360" height="60" rx="30" fill="#E50914"/>
+    <text x="0" y="8" text-anchor="middle" font-size="24" font-weight="800" fill="#fff" font-family="system-ui">Join 50K+ Waitlist →</text>
+    <text x="0" y="35" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.8)" font-family="system-ui">Lifetime 20% Off Premium • Early Access</text>
+  </g>
+
+  <!-- Badges -->
+  <g transform="translate(600, 610)">
+    <text x="-200" y="0" text-anchor="middle" font-size="12" fill="#808080" font-family="system-ui">🍎 App Store</text>
+    <text x="0" y="0" text-anchor="middle" font-size="12" fill="#808080" font-family="system-ui">🤖 Google Play</text>
+    <text x="200" y="0" text-anchor="middle" font-size="12" fill="#808080" font-family="system-ui">🌐 Web</text>
+  </g>
+
+  <!-- Domain -->
+  <text x="600" y="640" text-anchor="middle" font-size="16" fill="#808080" font-family="system-ui">agentsflix.com</text>
+</svg>

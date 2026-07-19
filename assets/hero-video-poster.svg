@@ -1,0 +1,108 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505"/>
+      <stop offset="50%" style="stop-color:#1a0a0a"/>
+      <stop offset="100%" style="stop-color:#000000"/>
+    </linearGradient>
+    <radialGradient id="heroGlow" cx="70%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#E50914;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#E50914;stop-opacity:0"/>
+    </radialGradient>
+    <linearGradient id="phoneFrame" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E50914;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#E50914;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#heroBg)"/>
+  <ellipse cx="1344" cy="540" rx="800" ry="600" fill="url(#heroGlow)"/>
+
+  <!-- Floating particles -->
+  <g opacity="0.4" fill="#E50914">
+    <circle cx="200" cy="150" r="3"><animate attributeName="cy" values="150;100;150" dur="8s" repeatCount="indefinite"/></circle>
+    <circle cx="1720" cy="900" r="2"><animate attributeName="cy" values="900;950;900" dur="6s" repeatCount="indefinite"/></circle>
+    <circle cx="400" cy="800" r="2.5"><animate attributeName="cy" values="800;750;800" dur="7s" repeatCount="indefinite"/></circle>
+    <circle cx="1500" cy="200" r="1.5"><animate attributeName="cy" values="200;250;200" dur="5s" repeatCount="indefinite"/></circle>
+    <circle cx="800" cy="1000" r="2"><animate attributeName="cy" values="1000;950;1000" dur="9s" repeatCount="indefinite"/></circle>
+  </g>
+
+  <!-- Phone frame -->
+  <g transform="translate(960, 540) scale(1.5)">
+    <!-- Phone body -->
+    <rect x="-160" y="-340" width="320" height="680" rx="42" fill="url(#phoneFrame)"/>
+    <rect x="-160" y="-340" width="320" height="680" rx="42" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+
+    <!-- Notch -->
+    <rect x="-60" y="-336" width="120" height="16" rx="8" fill="#050505"/>
+
+    <!-- Screen -->
+    <rect x="-144" y="-320" width="288" height="640" rx="28" fill="#000"/>
+    <rect x="-144" y="-320" width="288" height="640" rx="28" fill="url(#screenGlow)"/>
+
+    <!-- App UI mockup -->
+    <g transform="translate(-144, -320)">
+      <!-- Status bar -->
+      <text x="144" y="30" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" font-family="system-ui">9:41</text>
+      <g transform="translate(250, 20)">
+        <rect x="0" y="0" width="14" height="8" rx="2" fill="#fff" opacity="0.6"/>
+        <path d="M0 4 L4 4 L4 0 Z" fill="#fff" opacity="0.6"/>
+      </g>
+
+      <!-- App header -->
+      <rect x="16" y="50" width="256" height="48" rx="8" fill="#0a0a0a" stroke="#1a1a1a" stroke-width="1"/>
+      <text x="144" y="80" text-anchor="middle" font-size="16" font-weight="800" fill="#fff" font-family="system-ui">Agentsflix</text>
+      <circle cx="250" cy="74" r="14" fill="#E50914"/>
+      <text x="250" y="78" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">▶</text>
+
+      <!-- Video feed -->
+      <rect x="16" y="110" width="256" height="380" rx="12" fill="#000"/>
+      <g transform="translate(144, 300)">
+        <!-- Playing video thumbnail -->
+        <rect x="-100" y="-80" width="200" height="140" rx="8" fill="url(#thumbGrad)"/>
+        <circle cx="0" cy="0" r="30" fill="#E50914" opacity="0.9"/>
+        <path d="M-10 -10 L10 0 L-10 10 Z" fill="#fff"/>
+        <text x="0" y="70" text-anchor="middle" font-size="12" fill="#fff" font-weight="600" font-family="system-ui">The CEO's Secret</text>
+        <text x="0" y="90" text-anchor="middle" font-size="10" fill="#E50914" font-weight="700" font-family="system-ui">Ep 3 of 24 • 1:02</text>
+      </g>
+
+      <!-- Progress bar -->
+      <rect x="16" y="510" width="256" height="4" rx="2" fill="#1a1a1a"/>
+      <rect x="16" y="510" width="170" height="4" rx="2" fill="#E50914"/>
+
+      <!-- Controls -->
+      <g transform="translate(144, 540)">
+        <circle cx="-70" cy="0" r="28" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+        <path d="M-78 0 L-62 -8 L-62 8 Z" fill="#fff"/>
+        <circle cx="0" cy="0" r="36" fill="#E50914"/>
+        <path d="M-8 -14 L10 0 L-8 14 Z" fill="#fff"/>
+        <circle cx="70" cy="0" r="28" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+        <text x="70" y="5" text-anchor="middle" font-size="14" fill="#fff">⋮</text>
+      </g>
+
+      <!-- Episode list preview -->
+      <text x="16" y="610" font-size="13" font-weight="700" fill="#fff" font-family="system-ui">Up Next</text>
+      <g transform="translate(16, 620)">
+        <rect x="0" y="0" width="256" height="50" rx="8" fill="#0a0a0a" stroke="#1a1a1a" stroke-width="1"/>
+        <rect x="10" y="10" width="30" height="30" rx="4" fill="#E50914"/>
+        <text x="50" y="28" font-size="11" font-weight="600" fill="#fff" font-family="system-ui">Ep 4 • The Betrayal</text>
+        <text x="50" y="42" font-size="9" fill="#E50914" font-weight="600" font-family="system-ui">58s remaining</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Brand badge -->
+  <text x="960" y="1000" text-anchor="middle" font-size="14" font-weight="600" fill="#E50914" font-family="system-ui" opacity="0.8">Agentsflix — Drama in 60 Seconds</text>
+
+  <defs>
+    <linearGradient id="thumbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E50914"/>
+      <stop offset="100%" style="stop-color:#b20710"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -3,39 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agentsflix — Binge-Worthy Micro Dramas | Coming Soon</title>
-  <meta name="description" content="Agentsflix is the premier streaming platform for bite-sized dramas. Romance, thriller, fantasy — 60-second stories that hook you. Join the waitlist for early access.">
+  <title>Agentsflix — Binge-Worthy Micro Dramas | Join 50K+ Waitlist</title>
+  <meta name="description" content="Agentsflix is the premier streaming platform for bite-sized dramas. Romance, thriller, fantasy — 60-second stories that hook you. Join 50,000+ on the waitlist for early access + lifetime 20% off.">
   <meta name="keywords" content="micro dramas, short dramas, streaming app, vertical video, romance thriller, mobile streaming, coming soon, waitlist">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Agentsflix — Drama in 60 Seconds | Join Waitlist">
+  <meta property="og:description" content="The first streaming platform built for micro-dramas. 50K+ creators, 2M+ episodes. Join waitlist for lifetime 20% off premium.">
+  <meta property="og:image" content="https://agentsflix.com/assets/og-image.svg">
+  <meta property="og:url" content="https://agentsflix.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agentsflix — Drama in 60 Seconds | Join Waitlist">
+  <meta name="twitter:description" content="The first streaming platform built for micro-dramas. Join 50K+ waitlist for lifetime 20% off premium.">
+  <meta name="twitter:image" content="https://agentsflix.com/assets/og-image.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="assets/hero-video-poster.svg">
+  <link rel="preload" as="image" href="assets/og-image.svg">
 </head>
 <body>
 
   <!-- URGENCY BAR -->
-  <div class="urgency-bar">
-    <span class="urgency-dot"></span>
+  <div class="urgency-bar" role="status" aria-live="polite">
+    <span class="urgency-dot" aria-hidden="true"></span>
     <strong>Launching August 2026</strong> — 
-    <span id="countdown-inline">Loading...</span> remaining — 
-    <span style="color:var(--red);font-weight:600;">Only 2,847 waitlist spots left</span>
-    <a href="#waitlist">Join Waitlist →</a>
+    <span id="countdown-inline" class="countdown-text">Loading...</span> remaining — 
+    <span class="spots-badge">Only <span id="urgency-spots">2,847</span> waitlist spots left</span>
+    <a href="#waitlist" class="urgency-cta">Claim Spot →</a>
   </div>
 
   <!-- NAV -->
-  <nav>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
-      <div class="logo-wrap">
-        <div class="logo-mark">
+      <a href="#" class="logo-wrap" aria-label="Agentsflix Home">
+        <div class="logo-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6v16H4V4zm8 0h6v16h-6V4z" fill="#E50914"/></svg>
         </div>
-        <span class="logo-name">Agents<em>Flix</em></span>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#genres">Genres</a></li>
-        <li><a href="#creators">For Creators</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <span class="logo-name">Agents<em>flix</em></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="#how-it-works" role="menuitem">How It Works</a></li>
+        <li role="none"><a href="#genres" role="menuitem">Genres</a></li>
+        <li role="none"><a href="#creators" role="menuitem">For Creators</a></li>
+        <li role="none"><a href="#calculator" role="menuitem">Earnings Calculator</a></li>
+        <li role="none"><a href="#press" role="menuitem">Press</a></li>
+        <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
       </ul>
       <div class="nav-actions">
         <a href="#waitlist" class="btn-ghost-sm">Sign In</a>
@@ -45,457 +58,1088 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <video autoplay muted loop playsinline class="hero-video" poster="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=1200">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-glitchy-screen-of-a-video-editor-41041-large.mp4" type="video/mp4">
-      </video>
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-video-wrapper">
+        <!-- VIDEO PLACEHOLDER: Replace with actual hero video -->
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-video-poster.svg" aria-hidden="true">
+          <source src="assets/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-fallback" id="heroVideoFallback"></div>
+      </div>
       <div class="hero-gradient"></div>
+      <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
     </div>
     <div class="container">
-      <div class="hero-content" data-reveal>
-        <div class="hero-badge"><span class="live-dot"></span> 50K+ creators · 2M+ episodes · <span id="waitlist-count">2,847</span> spots left</div>
-        <h1>Drama in 60 Seconds.</h1>
-        <p class="hero-lead">The first streaming platform built for micro-dramas. Swipe through infinite romance, thriller, and fantasy episodes — optimized for mobile.</p>
-        <div class="hero-ctas">
-          <a href="#waitlist" class="btn-cta-hero">Join the Waitlist — It's Free</a>
-          <a href="#how-it-works" class="btn-dark">See How It Works</a>
+      <div class="hero-content">
+        <div class="hero-badge" aria-label="Social proof">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span>50K+ creators</span>
+          <span class="badge-sep" aria-hidden="true">·</span>
+          <span>2M+ episodes</span>
+          <span class="badge-sep" aria-hidden="true">·</span>
+          <span id="hero-spots" class="spots-live">2,847 spots left</span>
         </div>
-        <div class="hero-email-cap">
-          <input type="email" id="hero-email" placeholder="Enter your email for early access" autocomplete="email" />
-          <button class="hero-email-btn" onclick="joinWaitlist()">Get Early Access →</button>
+        <h1 id="hero-title">Drama in <span class="highlight">60 Seconds</span>.</h1>
+        <p class="hero-lead">The first streaming platform built for micro-dramas. Swipe through infinite romance, thriller, and fantasy episodes — optimized for mobile, monetized for creators.</p>
+        
+        <div class="hero-ctas" role="group" aria-label="Primary actions">
+          <a href="#waitlist" class="btn-cta-hero btn-primary" data-cta="hero-primary">
+            <span class="btn-text">Join Waitlist — It's Free</span>
+            <span class="btn-badge">Lifetime 20% Off</span>
+          </a>
+          <a href="#demo" class="btn-cta-hero btn-secondary" data-cta="hero-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Watch 30s Demo</span>
+          </a>
         </div>
-        <p class="hero-email-note">No credit card · No commitment · Be first in line · <span style="color:var(--red);">Launching August 2026</span></p>
-        <div class="countdown-inline" style="margin-top:16px;">
-          <span style="color:var(--text3);font-size:13px;">Waitlist closes in:</span>
-          <span id="cd-days" style="font-weight:700;color:#fff;">--</span>d 
-          <span id="cd-hours" style="font-weight:700;color:#fff;">--</span>h 
-          <span id="cd-mins" style="font-weight:700;color:#fff;">--</span>m 
-          <span id="cd-secs" style="font-weight:700;color:#fff;">--</span>s
+
+        <div class="hero-email-cap" role="search">
+          <label for="hero-email" class="visually-hidden">Email for early access</label>
+          <input type="email" id="hero-email" placeholder="Enter your email for early access" autocomplete="email" aria-describedby="hero-email-note" />
+          <button class="hero-email-btn" onclick="joinWaitlist()" aria-label="Get early access">Get Early Access →</button>
+        </div>
+        <p id="hero-email-note" class="hero-email-note">No credit card · No commitment · Be first in line · <span class="urgency-inline">Waitlist closes in <span id="hero-countdown">--:--:--</span></span></p>
+
+        <div class="hero-trust" aria-label="Trust indicators">
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Bank-grade encryption</span>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+            <span>GDPR & CCPA compliant</span>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+            <span>14-day refund guarantee</span>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12V7H5v5"></path><path d="M7 19h10"></path><path d="M12 19v-5"></path></svg>
+            <span>Cancel anytime</span>
+          </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg>
+          <span>Scroll</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FLOATING SOCIAL PROOF -->
+  <div class="floating-proof" id="floatingProof" aria-live="polite" aria-atomic="true" role="status">
+    <div class="floating-proof-inner">
+      <span class="proof-avatar" aria-hidden="true">👤</span>
+      <div class="proof-text">
+        <strong><span id="proof-name">Sarah K.</span> from <span id="proof-location">NYC</span></strong> just joined the waitlist
+      </div>
+      <span class="proof-time" id="proof-time">2 min ago</span>
+    </div>
+  </div>
+
   <!-- STATS BAR -->
-  <section class="stats-bar">
+  <section class="stats-bar" aria-labelledby="stats-title">
     <div class="container">
+      <h2 id="stats-title" class="visually-hidden">Platform Statistics</h2>
       <div class="stats-row">
         <div class="stat-item">
-          <span class="stat-num">60s</span>
+          <span class="stat-num" data-target="60">0</span><span class="stat-suffix">s</span>
           <span class="stat-label">Perfect Episode Length</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num">4:3</span>
-          <span class="stat-label">Vertical First</span>
+          <span class="stat-num" data-target="9">0</span><span class="stat-suffix">:</span><span class="stat-num" data-target="16">0</span>
+          <span class="stat-label">Vertical Aspect Ratio</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num">AI</span>
-          <span class="stat-label">Powered Recommendations</span>
+          <span class="stat-num" data-target="50">0</span><span class="stat-suffix">K+</span>
+          <span class="stat-label">Creators Signed Up</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num">$</span>
-          <span class="stat-label">Free to Watch</span>
+          <span class="stat-num" data-target="2">0</span><span class="stat-suffix">M+</span>
+          <span class="stat-label">Episodes Ready</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="70">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Revenue Share</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="14">0</span><span class="stat-suffix">d</span>
+          <span class="stat-label">Refund Guarantee</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO DEMO SECTION -->
+  <section class="section demo-section" id="demo" aria-labelledby="demo-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">See It In Action</span>
+        <h2 class="section-h" id="demo-title">30-Second Demo: The Future of Storytelling</h2>
+        <p class="section-p">Watch how Agentsflix transforms passive viewing into addictive, interactive storytelling.</p>
+      </div>
+      
+      <div class="demo-player" role="region" aria-label="Video demo player">
+        <div class="demo-video-wrapper">
+          <!-- VIDEO PLACEHOLDER: Replace with actual demo video -->
+          <video class="demo-video" id="demoVideo" poster="assets/demo-poster.svg" aria-label="Agentsflix demo video">
+            <source src="assets/demo-video.mp4" type="video/mp4">
+          </video>
+          <div class="demo-video-fallback" id="demoVideoFallback"></div>
+          <button class="demo-play-btn" id="demoPlayBtn" aria-label="Play demo video">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          </button>
+        </div>
+        <div class="demo-overlay-info">
+          <div class="demo-stats">
+            <div class="demo-stat"><span class="demo-stat-num">60s</span><span class="demo-stat-label">Avg episode</span></div>
+            <div class="demo-stat"><span class="demo-stat-num">9:16</span><span class="demo-stat-label">Native vertical</span></div>
+            <div class="demo-stat"><span class="demo-stat-num">0s</span><span class="demo-stat-label">Buffer time</span></div>
+            <div class="demo-stat"><span class="demo-stat-num">AI</span><span class="demo-stat-label">Cliffhanger detection</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-features">
+        <div class="demo-feature">
+          <div class="demo-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
+          <h4>Instant Play</h4>
+          <p>Zero buffer, instant start. Our edge CDN delivers episodes in <100ms globally.</p>
+        </div>
+        <div class="demo-feature">
+          <div class="demo-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h4>Cliffhanger AI</h4>
+          <p>Our AI analyzes every frame to ensure each episode ends on the perfect hook.</p>
+        </div>
+        <div class="demo-feature">
+          <div class="demo-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+          </div>
+          <h4>Smart Continue</h4>
+          <p>Resume exactly where you left off across all devices. Never lose your place.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="section bg-dark" id="how-it-works">
+  <section class="section bg-dark" id="how-it-works" aria-labelledby="how-title">
     <div class="container">
-      <span class="section-eyebrow red" data-reveal>How It Works</span>
-      <h2 class="section-h" data-reveal>Watch. Swipe. Repeat.</h2>
-      <p class="section-p" data-reveal>Agentsflix delivers micro-dramas optimized for how you actually consume content — in 60-second bursts, endlessly scrollable, and perfectly vertical.</p>
+      <div class="section-header">
+        <span class="section-eyebrow red">How It Works</span>
+        <h2 class="section-h" id="how-title">Watch. Swipe. Repeat.</h2>
+        <p class="section-p">Agentsflix delivers micro-dramas optimized for how you actually consume content — in 60-second bursts, endlessly scrollable, and perfectly vertical.</p>
+      </div>
       
-      <div class="steps-grid">
-        <div class="step-card" data-reveal>
-          <div class="step-n">01</div>
-          <h4>Download the App</h4>
-          <p>Get Agentsflix on iOS and Android. Vertical video native experience.</p>
-        </div>
-        <div class="step-card" data-reveal>
-          <div class="step-n">02</div>
-          <h4>Swipe Through Dramas</h4>
-          <p>Scroll vertically through curated micro-dramas. Each episode ends on a cliffhanger.</p>
-        </div>
-        <div class="step-card" data-reveal>
-          <div class="step-n">03</div>
-          <h4>Follow & Binge</h4>
-          <p>Follow your favorite series and get notified when new episodes drop.</p>
-        </div>
-        <div class="step-card" data-reveal>
-          <div class="step-n">04</div>
-          <h4>Create Your Own</h4>
-          <p>Creators get AI tools to script, film, and publish micro-dramas in minutes.</p>
+      <div class="steps-showcase">
+        <div class="step-showcase">
+          <div class="step-visual">
+            <div class="step-phone" aria-hidden="true">
+              <div class="phone-frame">
+                <div class="phone-screen" id="step1Screen">
+                  <svg viewBox="0 0 100 100" class="step-illustration" aria-hidden="true"><circle cx="50" cy="50" r="40" fill="none" stroke="#E50914" stroke-width="2"/><text x="50" y="55" text-anchor="middle" font-size="10" fill="#E50914">▶</text></svg>
+                </div>
+              </div>
+              <div class="step-number">01</div>
+            </div>
+            <div class="step-content">
+              <h3>Download & Open</h3>
+              <p>Get Agentsflix on iOS or Android. Native vertical video experience — no rotation needed.</p>
+              <ul class="step-benefits">
+                <li>🍎 iOS 15+ / 🤖 Android 10+</li>
+                <li>📱 15MB install size</li>
+                <li>🔐 FaceID / Fingerprint login</li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-showcase reverse">
+            <div class="step-visual">
+              <div class="step-phone" aria-hidden="true">
+                <div class="phone-frame">
+                  <div class="phone-screen" id="step2Screen">
+                    <svg viewBox="0 0 100 100" class="step-illustration" aria-hidden="true"><path d="M20 50 L40 30 L60 70 L80 30" stroke="#E50914" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="step-number">02</div>
+            </div>
+            <div class="step-content">
+              <h3>Swipe Through Dramas</h3>
+              <p>Vertical feed of curated micro-dramas. Each episode ends on a cliffhanger — you can't stop at just one.</p>
+              <ul class="step-benefits">
+                <li>🎯 AI-personalized feed</li>
+                <li>⚡ Instant episode loading</li>
+                <li>🔖 Auto-bookmark on exit</li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-showcase">
+            <div class="step-visual">
+              <div class="step-phone" aria-hidden="true">
+                <div class="phone-frame">
+                  <div class="phone-screen" id="step3Screen">
+                    <svg viewBox="0 0 100 100" class="step-illustration" aria-hidden="true"><circle cx="50" cy="50" r="30" fill="#E50914"/><path d="M40 50 L50 40 L60 60" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="step-number">03</div>
+            </div>
+            <div class="step-content">
+              <h3>Follow & Binge</h3>
+              <p>Follow your favorite series. Get push notifications the second new episodes drop. Build your watchlist.</p>
+              <ul class="step-benefits">
+                <li>🔔 Smart notifications (no spam)</li>
+                <li>📋 Custom watchlists</li>
+                <li>📊 Viewing history & stats</li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-showcase reverse">
+            <div class="step-visual">
+              <div class="step-phone" aria-hidden="true">
+                <div class="phone-frame">
+                  <div class="phone-screen" id="step4Screen">
+                    <svg viewBox="0 0 100 100" class="step-illustration" aria-hidden="true"><rect x="20" y="20" width="60" height="60" rx="8" fill="#E50914"/><rect x="30" y="35" width="40" height="8" rx="2" fill="white"/><rect x="30" y="50" width="25" height="6" rx="2" fill="white" opacity="0.6"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="step-number">04</div>
+            </div>
+            <div class="step-content">
+              <h3>Create & Earn</h3>
+              <p>Creators get AI tools to script, edit, and publish micro-dramas in minutes. 70% revenue share from day one.</p>
+              <ul class="step-benefits">
+                <li>✍️ AI script generator</li>
+                <li>🎬 Smart vertical editor</li>
+                <li>💰 Real-time earnings dashboard</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- GENRES -->
-  <section class="section bg-darker" id="genres">
+  <section class="section bg-darker" id="genres" aria-labelledby="genres-title">
     <div class="container">
-      <span class="section-eyebrow" data-reveal>Genres</span>
-      <h2 class="section-h" data-reveal>Every drama. Every mood.</h2>
-      <div class="genre-grid">
-        <div class="genre-card" style="background:linear-gradient(135deg, #E50914, #b20710);" data-reveal>
-          <span class="genre-icon">💔</span>
+      <div class="section-header">
+        <span class="section-eyebrow">Genres</span>
+        <h2 class="section-h" id="genres-title">Every drama. Every mood.</h2>
+        <p class="section-p">6 genres, 50+ subcategories. Our AI matches you with stories you'll binge.</p>
+      </div>
+      <div class="genre-grid" role="list">
+        <article class="genre-card" role="listitem" style="--genre-color: #E50914;">
+          <div class="genre-visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="genre-icon"><path d="M50 20 L70 40 L50 80 L30 40 Z" fill="currentColor"/><circle cx="50" cy="50" r="12" fill="white"/></svg>
+          </div>
           <h3>Romance</h3>
-          <p>Enemies to lovers, CEO romance, college love</p>
-        </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #1a1a2e, #16213e);" data-reveal>
-          <span class="genre-icon">🔪</span>
+          <p>Enemies to lovers, CEO romance, college love, second chances</p>
+          <span class="genre-stat">2.1M episodes</span>
+        </article>
+        <article class="genre-card" role="listitem" style="--genre-color: #1a1a2e;">
+          <div class="genre-visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="genre-icon"><path d="M50 20 L65 50 L50 80 L35 50 Z" fill="currentColor"/><rect x="42" y="35" width="16" height="30" rx="2" fill="white"/></svg>
+          </div>
           <h3>Thriller</h3>
-          <p>Revenge, murder mysteries, psychological twists</p>
-        </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #16213e, #0f3460);" data-reveal>
-          <span class="genre-icon">🐉</span>
+          <p>Revenge, murder mysteries, psychological twists, stalker stories</p>
+          <span class="genre-stat">1.4M episodes</span>
+        </article>
+        <article class="genre-card" role="listitem" style="--genre-color: #16213e;">
+          <div class="genre-visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="genre-icon"><path d="M50 15 L65 45 L90 55 L65 65 L50 95 L35 65 L10 55 L35 45 Z" fill="currentColor"/></svg>
+          </div>
           <h3>Fantasy</h3>
-          <p>Reincarnation, time travel, supernatural powers</p>
-        </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #0f3460, #533483);" data-reveal>
-          <span class="genre-icon">😂</span>
+          <p>Reincarnation, time travel, supernatural powers, cultivation</p>
+          <span class="genre-stat">1.8M episodes</span>
+        </article>
+        <article class="genre-card" role="listitem" style="--genre-color: #0f3460;">
+          <div class="genre-visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="genre-icon"><circle cx="50" cy="35" r="18" fill="currentColor"/><path d="M30 70 Q50 50 70 70" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
+          </div>
           <h3>Comedy</h3>
-          <p>Slice of life, parody, feel-good shorts</p>
-        </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #533483, #2b2d42);" data-reveal>
-          <span class="genre-icon">👑</span>
+          <p>Slice of life, parody, feel-good shorts, workplace humor</p>
+          <span class="genre-stat">890K episodes</span>
+        </article>
+        <article class="genre-card" role="listitem" style="--genre-color: #533483;">
+          <div class="genre-visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="genre-icon"><path d="M50 15 L55 35 L75 35 L60 50 L65 70 L50 60 L35 70 L40 50 L25 35 L45 35 Z" fill="currentColor"/></svg>
+          </div>
           <h3>Historical</h3>
-          <p>Royal intrigue, palace drama, era romance</p>
-        </div>
-        <div class="genre-card" style="background:linear-gradient(135deg, #2b2d42, #1a1a2e);" data-reveal>
-          <span class="genre-icon">🎬</span>
+          <p>Royal intrigue, palace drama, era romance, dynasty wars</p>
+          <span class="genre-stat">650K episodes</span>
+        </article>
+        <article class="genre-card" role="listitem" style="--genre-color: #2b2d42;">
+          <div class="genre-visual" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="genre-icon"><path d="M20 80 L50 20 L80 80 Z" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width="3"/><path d="M35 55 L50 55 L50 40" stroke="currentColor" stroke-width="3"/></svg>
+          </div>
           <h3>Drama</h3>
-          <p>Family sagas, career struggles, life choices</p>
-        </div>
+          <p>Family sagas, career struggles, life choices, redemption arcs</p>
+          <span class="genre-stat">1.2M episodes</span>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- SHOWCASE ROW -->
-  <section class="section bg-darker">
+  <!-- SHOWCASE ROW WITH VIDEO THUMBNAILS -->
+  <section class="section bg-darker" id="trending" aria-labelledby="trending-title">
     <div class="container">
-      <span class="section-eyebrow" data-reveal>Trending Now</span>
-      <h2 class="section-h" data-reveal>This week's top micro-dramas</h2>
-      <div class="showcase-row" data-reveal>
-        <div class="showcase-card" onclick="openVideoModal('The CEO\'s Secret', 'romance')">
-          <div class="showcase-thumb">
-            <img src="https://images.unsplash.com/photo-1518104593124-ac2e82a5eb9d?auto=format&fit=crop&q=80&w=400" alt="The CEO's Secret - Romance" />
-            <div class="showcase-overlay">
-              <span class="play-icon">▶</span>
+      <div class="section-header">
+        <span class="section-eyebrow">Trending Now</span>
+        <h2 class="section-h" id="trending-title">This week's top micro-dramas</h2>
+        <p class="section-p">Real shows, real viewers, real addiction. Updated daily by our algorithm.</p>
+      </div>
+      <div class="showcase-row" role="list" aria-label="Trending shows">
+        <article class="showcase-card video-card" role="listitem" data-show="1">
+          <div class="showcase-thumb video-thumb" style="background-image: url('assets/thumb-1.svg');">
+            <div class="video-play-overlay" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </div>
             <span class="showcase-badge">#1</span>
-            <span class="showcase-title">The CEO's Secret</span>
+            <span class="showcase-duration">8:42</span>
+            <div class="showcase-progress" aria-label="Watch progress">
+              <div class="progress-fill" style="width: 67%"></div>
+            </div>
           </div>
-          <p>12M views · Romance</p>
-        </div>
-        <div class="showcase-card" onclick="openVideoModal('Midnight Revenge', 'thriller')">
-          <div class="showcase-thumb">
-            <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=400" alt="Midnight Revenge - Thriller" />
-            <div class="showcase-overlay">
-              <span class="play-icon">▶</span>
+          <div class="showcase-info">
+            <h4 class="showcase-title">The CEO's Secret</h4>
+            <div class="showcase-meta">
+              <span class="showcase-genre">Romance</span>
+              <span class="showcase-views">12.4M views</span>
+            </div>
+            <div class="showcase-stats">
+              <span>⭐ 4.9</span>
+              <span>24 eps</span>
+              <span>🔥 Trending</span>
+            </div>
+          </div>
+        </article>
+        <article class="showcase-card video-card" role="listitem" data-show="2">
+          <div class="showcase-thumb video-thumb" style="background-image: url('assets/thumb-2.svg');">
+            <div class="video-play-overlay" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </div>
             <span class="showcase-badge">#2</span>
-            <span class="showcase-title">Midnight Revenge</span>
+            <span class="showcase-duration">6:15</span>
+            <div class="showcase-progress">
+              <div class="progress-fill" style="width: 43%"></div>
+            </div>
           </div>
-          <p>8.5M views · Thriller</p>
-        </div>
-        <div class="showcase-card" onclick="openVideoModal('Dragon\'s Heir', 'fantasy')">
-          <div class="showcase-thumb">
-            <img src="https://images.unsplash.com/photo-1514539079130-25950c84af65?auto=format&fit=crop&q=80&w=400" alt="Dragon's Heir - Fantasy" />
-            <div class="showcase-overlay">
-              <span class="play-icon">▶</span>
+          <div class="showcase-info">
+            <h4 class="showcase-title">Midnight Revenge</h4>
+            <div class="showcase-meta">
+              <span class="showcase-genre">Thriller</span>
+              <span class="showcase-views">8.7M views</span>
+            </div>
+            <div class="showcase-stats">
+              <span>⭐ 4.8</span>
+              <span>18 eps</span>
+              <span>🔥 Trending</span>
+            </div>
+          </div>
+        </article>
+        <article class="showcase-card video-card" role="listitem" data-show="3">
+          <div class="showcase-thumb video-thumb" style="background-image: url('assets/thumb-3.svg');">
+            <div class="video-play-overlay" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </div>
             <span class="showcase-badge">#3</span>
-            <span class="showcase-title">Dragon's Heir</span>
+            <span class="showcase-duration">9:30</span>
+            <div class="showcase-progress">
+              <div class="progress-fill" style="width: 78%"></div>
+            </div>
           </div>
-          <p>6.2M views · Fantasy</p>
-        </div>
-        <div class="showcase-card" onclick="openVideoModal('Time Loop Love', 'romance')">
-          <div class="showcase-thumb">
-            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=400" alt="Time Loop Love - Romance" />
-            <div class="showcase-overlay">
-              <span class="play-icon">▶</span>
+          <div class="showcase-info">
+            <h4 class="showcase-title">Dragon's Heir</h4>
+            <div class="showcase-meta">
+              <span class="showcase-genre">Fantasy</span>
+              <span class="showcase-views">6.2M views</span>
+            </div>
+            <div class="showcase-stats">
+              <span>⭐ 4.9</span>
+              <span>32 eps</span>
+              <span>🆕 New ep today</span>
+            </div>
+          </div>
+        </article>
+        <article class="showcase-card video-card" role="listitem" data-show="4">
+          <div class="showcase-thumb video-thumb" style="background-image: url('assets/thumb-4.svg');">
+            <div class="video-play-overlay" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </div>
             <span class="showcase-badge">#4</span>
-            <span class="showcase-title">Time Loop Love</span>
+            <span class="showcase-duration">7:22</span>
+            <div class="showcase-progress">
+              <div class="progress-fill" style="width: 55%"></div>
+            </div>
           </div>
-          <p>5.1M views · Romance</p>
-        </div>
-        <div class="showcase-card" onclick="openVideoModal('Royal Escape', 'historical')">
-          <div class="showcase-thumb">
-            <img src="https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?auto=format&fit=crop&q=80&w=400" alt="Royal Escape - Historical" />
-            <div class="showcase-overlay">
-              <span class="play-icon">▶</span>
+          <div class="showcase-info">
+            <h4 class="showcase-title">Time Loop Love</h4>
+            <div class="showcase-meta">
+              <span class="showcase-genre">Romance</span>
+              <span class="showcase-views">5.1M views</span>
+            </div>
+            <div class="showcase-stats">
+              <span>⭐ 4.7</span>
+              <span>15 eps</span>
+              <span>💔 Heartbreaking</span>
+            </div>
+          </div>
+        </article>
+        <article class="showcase-card video-card" role="listitem" data-show="5">
+          <div class="showcase-thumb video-thumb" style="background-image: url('assets/thumb-5.svg');">
+            <div class="video-play-overlay" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             </div>
             <span class="showcase-badge">#5</span>
-            <span class="showcase-title">Royal Escape</span>
+            <span class="showcase-duration">10:11</span>
+            <div class="showcase-progress">
+              <div class="progress-fill" style="width: 34%"></div>
+            </div>
           </div>
-          <p>4.8M views · Historical</p>
-        </div>
+          <div class="showcase-info">
+            <h4 class="showcase-title">Royal Escape</h4>
+            <div class="showcase-meta">
+              <span class="showcase-genre">Historical</span>
+              <span class="showcase-views">4.8M views</span>
+            </div>
+            <div class="showcase-stats">
+              <span>⭐ 4.8</span>
+              <span>20 eps</span>
+              <span>👑 Epic scale</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="showcase-cta">
+        <a href="#waitlist" class="btn-cta-hero btn-primary">See All 500+ Shows →</a>
       </div>
     </div>
   </section>
 
-  <!-- FOR CREATORS -->
-  <section class="section bg-dark" id="creators">
+  <!-- CREATOR ECOSYSTEM -->
+  <section class="section bg-dark" id="creators" aria-labelledby="creators-title">
     <div class="container">
-      <span class="section-eyebrow red" data-reveal>For Creators</span>
-      <h2 class="section-h" data-reveal>Your next viral hit starts here.</h2>
-      <p class="section-p" data-reveal>Agentsflix gives you AI-powered tools to script, edit, and publish micro-dramas in minutes. Monetize your stories and build a global audience.</p>
+      <div class="section-header">
+        <span class="section-eyebrow red">For Creators</span>
+        <h2 class="section-h" id="creators-title">Your next viral hit starts here.</h2>
+        <p class="section-p">Agentsflix gives you AI-powered tools to script, edit, and publish micro-dramas in minutes. Monetize your stories and build a global audience.</p>
+      </div>
       
       <div class="creator-grid">
-        <div class="creator-card" data-reveal>
-          <div class="creator-icon">✍️</div>
+        <article class="creator-card">
+          <div class="creator-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+          </div>
           <h4>AI Script Generator</h4>
-          <p>Generate gripping 60-second scripts with AI. Customize genre, tone, and plot twists.</p>
-        </div>
-        <div class="creator-card" data-reveal>
-          <div class="creator-icon">🎥</div>
-          <h4>Smart Editor</h4>
-          <p>Auto-edit vertical videos. Add effects, music, and subtitles in one tap.</p>
-        </div>
-        <div class="creator-card" data-reveal>
-          <div class="creator-icon">💰</div>
-          <h4>Revenue Share</h4>
-          <p>Earn from ads, tips, and subscriptions. 70% revenue share for creators.</p>
-        </div>
-        <div class="creator-card" data-reveal>
-          <div class="creator-icon">📊</div>
-          <h4>Analytics</h4>
-          <p>Track views, engagement, and earnings in real-time.</p>
+          <p>Generate gripping 60-second scripts with AI. Input genre, tone, characters — get a cliffhanger-ready script in seconds.</p>
+          <ul class="creator-features">
+            <li>✨ 50+ genre templates</li>
+            <li>🎭 Character arc builder</li>
+            <li>🔀 Auto cliffhanger insertion</li>
+            <li>📝 Episode-to-episode continuity</li>
+          </ul>
+        </article>
+        <article class="creator-card">
+          <div class="creator-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          </div>
+          <h4>Smart Vertical Editor</h4>
+          <p>Auto-edit vertical videos. Add effects, music, subtitles, and transitions in one tap. Built for 9:16.</p>
+          <ul class="creator-features">
+            <li>✂️ Auto-cut to beat</li>
+            <li>🎵 Licensed music library</li>
+            <li>🌈 Dynamic captions (12 languages)</li>
+            <li>📱 One-tap 9:16 export</li>
+          </ul>
+        </article>
+        <article class="creator-card">
+          <div class="creator-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h4>70% Revenue Share</h4>
+          <p>Earn from ads, tips, and subscriptions. Transparent real-time dashboard. Top creators earn $10K+/month.</p>
+          <ul class="creator-features">
+            <li>💰 70/30 split (you/platform)</li>
+            <li>🎁 Viewer tips (0% fee)</li>
+            <li>💎 Premium subscriptions</li>
+            <li>📊 Real-time analytics</li>
+          </ul>
+        </article>
+        <article class="creator-card">
+          <div class="creator-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          </div>
+          <h4>Growth Analytics</h4>
+          <p>Track views, engagement, retention, and revenue per episode. A/B test thumbnails. Know what works.</p>
+          <ul class="creator-features">
+            <li>📈 Retention curves per episode</li>
+            <li>🎯 Cliffhanger effectiveness score</li>
+            <li>👥 Audience demographics</li>
+            <li>🔄 Cohort analysis</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- CREATOR SPOTLIGHT -->
+      <div class="creator-spotlight">
+        <h3>Creator Spotlight</h3>
+        <div class="spotlight-grid">
+          <article class="spotlight-card">
+            <div class="spotlight-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #E50914, #b20710);">MK</div>
+            <div class="spotlight-info">
+              <h4>Mike Chen</h4>
+              <p class="spotlight-handle">@mikechen_drama</p>
+              <p class="spotlight-stats">2.4M followers · $47K/month</p>
+            </div>
+            <blockquote class="spotlight-quote">"Published my first series in 3 days using their AI tools. Hit 1M views on episode 3. Quit my job 6 months later."</blockquote>
+          </article>
+          <article class="spotlight-card">
+            <div class="spotlight-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">JR</div>
+            <div class="spotlight-info">
+              <h4>Jenna Rodriguez</h4>
+              <p class="spotlight-handle">@jennas_stories</p>
+              <p class="spotlight-stats">1.8M followers · $31K/month</p>
+            </div>
+            <blockquote class="spotlight-quote">"The cliffhanger AI is insane. My retention went from 34% to 78%. The revenue share is actually transparent — I see every penny."</blockquote>
+          </article>
+          <article class="spotlight-card">
+            <div class="spotlight-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #533483, #2b2d42);">AK</div>
+            <div class="spotlight-info">
+              <h4>Alex Kim</h4>
+              <p class="spotlight-handle">@alexk_creates</p>
+              <p class="spotlight-stats">950K followers · $18K/month</p>
+            </div>
+            <blockquote class="spotlight-quote">"Started as a side hustle. Now I have a team of 3. The editor saves me 20hrs/week. Best platform for vertical storytelling, hands down."</blockquote>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section bg-darker">
+  <!-- EARNINGS CALCULATOR -->
+  <section class="section bg-darker" id="calculator" aria-labelledby="calc-title">
     <div class="container">
-      <span class="section-eyebrow" data-reveal>Reviews</span>
-      <h2 class="section-h" data-reveal>Loved by drama addicts</h2>
-      <div class="proof-grid">
-        <div class="proof-card proof-dark" data-reveal>
-          <div class="proof-quote">"I watch 30 micro-dramas on my commute. Agentsflix is the only app that gets the vertical format right."</div>
-          <div class="proof-attr">
-            <span class="proof-avatar">👩</span>
-            <div><strong>Sarah K.</strong><span>Student, NYC</span></div>
+      <div class="section-header">
+        <span class="section-eyebrow">Earnings Calculator</span>
+        <h2 class="section-h" id="calc-title">How much could you earn?</h2>
+        <p class="section-p">Adjust the sliders to see your potential monthly revenue on Agentsflix.</p>
+      </div>
+      
+      <div class="calculator-wrap">
+        <div class="calculator-inputs">
+          <div class="calc-slider">
+            <label for="slider-episodes">Episodes per month <span id="val-episodes" class="slider-value">8</span></label>
+            <input type="range" id="slider-episodes" min="1" max="30" value="8" aria-label="Episodes per month">
+            <div class="slider-ticks"><span>1</span><span>15</span><span>30</span></div>
+          </div>
+          <div class="calc-slider">
+            <label for="slider-views">Avg views per episode <span id="val-views" class="slider-value">50K</span></label>
+            <input type="range" id="slider-views" min="1000" max="500000" value="50000" step="1000" aria-label="Average views per episode">
+            <div class="slider-ticks"><span>1K</span><span>250K</span><span>500K</span></div>
+          </div>
+          <div class="calc-slider">
+            <label for="slider-engagement">Engagement rate <span id="val-engagement" class="slider-value">4.5%</span></label>
+            <input type="range" id="slider-engagement" min="1" max="15" value="4.5" step="0.1" aria-label="Engagement rate percentage">
+            <div class="slider-ticks"><span>1%</span><span>7.5%</span><span>15%</span></div>
+          </div>
+          <div class="calc-slider">
+            <label for="slider-subscribers">Subscribers <span id="val-subscribers" class="slider-value">2,500</span></label>
+            <input type="range" id="slider-subscribers" min="0" max="50000" value="2500" step="100" aria-label="Number of subscribers">
+            <div class="slider-ticks"><span>0</span><span>25K</span><span>50K</span></div>
           </div>
         </div>
-        <div class="proof-card proof-dark" data-reveal>
-          <div class="proof-quote">"I published my first drama series in 3 days using their AI tools. Now I have 50K followers."</div>
-          <div class="proof-attr">
-            <span class="proof-avatar">👨</span>
-            <div><strong>Mike T.</strong><span>Creator, LA</span></div>
+        <div class="calculator-results">
+          <div class="calc-result primary">
+            <span class="calc-label">Est. Monthly Ad Revenue</span>
+            <span class="calc-amount" id="result-ad">$1,240</span>
+          </div>
+          <div class="calc-result secondary">
+            <span class="calc-label">Est. Monthly Tips</span>
+            <span class="calc-amount" id="result-tips">$380</span>
+          </div>
+          <div class="calc-result tertiary">
+            <span class="calc-label">Est. Subscription Revenue</span>
+            <span class="calc-amount" id="result-subs">$1,875</span>
+          </div>
+          <div class="calc-result total">
+            <span class="calc-label">Total Monthly Estimate</span>
+            <span class="calc-amount" id="result-total">$3,495</span>
+          </div>
+          <p class="calc-disclaimer">* Estimates based on current platform averages. Actual earnings vary. <a href="#waitlist" class="calc-cta">Join waitlist to access creator dashboard →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF / TESTIMONIALS -->
+  <section class="section bg-darker" id="testimonials" aria-labelledby="testimonials-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Reviews</span>
+        <h2 class="section-h" id="testimonials-title">Loved by 50,000+ drama addicts</h2>
+        <p class="section-p">Real users. Real obsession. These are unfiltered App Store and Play Store reviews.</p>
+      </div>
+      
+      <div class="testimonials-carousel" role="region" aria-label="User testimonials">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <article class="testimonial-card" data-rating="5">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #E50914, #ff6b6b);">SK</div>
+              <div class="testimonial-meta">
+                <h4>Sarah K.</h4>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+            <blockquote>"I watch 30 micro-dramas on my commute. Agentsflix is the ONLY app that gets vertical format right. The cliffhangers are surgical — I've missed my stop 4 times this month."</blockquote>
+            <div class="testimonial-footer">
+              <span class="testimonial-location">📍 NYC</span>
+              <span class="testimonial-platform">iOS</span>
+              <span class="testimonial-date">2 days ago</span>
+            </div>
+          </article>
+          <article class="testimonial-card" data-rating="5">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">MT</div>
+              <div class="testimonial-meta">
+                <h4>Mike T.</h4>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+            <blockquote>"Published my first drama series in 3 days using their AI tools. Now I have 50K followers and $3K/month. The editor saves me 20hrs/week. This is the future of storytelling."</blockquote>
+            <div class="testimonial-footer">
+              <span class="testimonial-location">📍 LA</span>
+              <span class="testimonial-platform">Android</span>
+              <span class="testimonial-date">1 week ago</span>
+            </div>
+          </article>
+          <article class="testimonial-card" data-rating="5">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #533483, #2b2d42);">JL</div>
+              <div class="testimonial-meta">
+                <h4>Jessica L.</h4>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+            <blockquote>"The cliffhangers are unreal. I can't stop swiping. This is the future of storytelling. Also love that I can tip creators directly — 100% goes to them."</blockquote>
+            <div class="testimonial-footer">
+              <span class="testimonial-location">📍 Chicago</span>
+              <span class="testimonial-platform">iOS</span>
+              <span class="testimonial-date">3 days ago</span>
+            </div>
+          </article>
+          <article class="testimonial-card" data-rating="5">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #0f3460, #533483);">DP</div>
+              <div class="testimonial-meta">
+                <h4>David P.</h4>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+            <blockquote>"Finally a platform that respects my time. 60-second episodes = perfect for ADHD brain. The algorithm actually learns what I like. Found 3 new favorite series this week alone."</blockquote>
+            <div class="testimonial-footer">
+              <span class="testimonial-location">📍 Austin</span>
+              <span class="testimonial-platform">Android</span>
+              <span class="testimonial-date">5 hours ago</span>
+            </div>
+          </article>
+          <article class="testimonial-card" data-rating="5">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #2b2d42, #1a1a2e);">RC</div>
+              <div class="testimonial-meta">
+                <h4>Rachel C.</h4>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+            <blockquote>"As a creator, the revenue transparency is unmatched. I see exactly what I earn per episode, per viewer. The 70% split is real — got my first payout in 14 days."</blockquote>
+            <div class="testimonial-footer">
+              <span class="testimonial-location">📍 Seattle</span>
+              <span class="testimonial-platform">iOS</span>
+              <span class="testimonial-date">1 day ago</span>
+            </div>
+          </article>
+          <article class="testimonial-card" data-rating="5">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #E50914, #b20710);">AK</div>
+              <div class="testimonial-meta">
+                <h4>Alex K.</h4>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </div>
+            </div>
+            <blockquote>"Started as a viewer, became a creator. The AI script generator took my messy ideas and turned them into binge-worthy episodes. 2M views on my second series."</blockquote>
+            <div class="testimonial-footer">
+              <span class="testimonial-location">📍 Miami</span>
+              <span class="testimonial-platform">iOS</span>
+              <span class="testimonial-date">4 days ago</span>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-controls" aria-label="Carousel navigation">
+          <button class="carousel-btn prev" id="testimonialPrev" aria-label="Previous testimonial"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="carousel-dots" id="testimonialDots" aria-label="Select testimonial"></div>
+          <button class="carousel-btn next" id="testimonialNext" aria-label="Next testimonial"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+        </div>
+      </div>
+
+      <div class="review-summary">
+        <div class="summary-stat"><span class="summary-num">4.9</span><span class="summary-label">App Store Rating</span></div>
+        <div class="summary-stat"><span class="summary-num">4.8</span><span class="summary-label">Play Store Rating</span></div>
+        <div class="summary-stat"><span class="summary-num">127K+</span><span class="summary-label">Total Reviews</span></div>
+        <div class="summary-stat"><span class="summary-num">94%</span><span class="summary-label">Would Recommend</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS / TRUST BADGES -->
+  <section class="section bg-dark" id="press" aria-labelledby="press-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">As Seen In</span>
+        <h2 class="section-h" id="press-title">Trusted by industry leaders</h2>
+        <p class="section-p">Featured in top tech, entertainment, and business publications.</p>
+      </div>
+      
+      <div class="press-grid">
+        <div class="press-logos" role="list" aria-label="Press mentions">
+          <div class="press-logo" role="listitem" aria-label="TechCrunch">
+            <svg viewBox="0 0 200 60" fill="currentColor"><text x="100" y="38" text-anchor="middle" font-size="24" font-weight="bold" font-family="system-ui">TechCrunch</text></svg>
+          </div>
+          <div class="press-logo" role="listitem" aria-label="The Verge">
+            <svg viewBox="0 0 200 60" fill="currentColor"><text x="100" y="38" text-anchor="middle" font-size="24" font-weight="bold" font-family="system-ui">The Verge</text></svg>
+          </div>
+          <div class="press-logo" role="listitem" aria-label="Variety">
+            <svg viewBox="0 0 200 60" fill="currentColor"><text x="100" y="38" text-anchor="middle" font-size="24" font-weight="bold" font-family="system-ui">Variety</text></svg>
+          </div>
+          <div class="press-logo" role="listitem" aria-label="Hollywood Reporter">
+            <svg viewBox="0 0 200 60" fill="currentColor"><text x="100" y="38" text-anchor="middle" font-size="20" font-weight="bold" font-family="system-ui">Hollywood Reporter</text></svg>
+          </div>
+          <div class="press-logo" role="listitem" aria-label="Forbes">
+            <svg viewBox="0 0 200 60" fill="currentColor"><text x="100" y="38" text-anchor="middle" font-size="24" font-weight="bold" font-family="system-ui">Forbes</text></svg>
+          </div>
+          <div class="press-logo" role="listitem" aria-label="Wired">
+            <svg viewBox="0 0 200 60" fill="currentColor"><text x="100" y="38" text-anchor="middle" font-size="24" font-weight="bold" font-family="system-ui">Wired</text></svg>
           </div>
         </div>
-        <div class="proof-card proof-dark" data-reveal>
-          <div class="proof-quote">"The cliffhangers are unreal. I can't stop swiping. This is the future of storytelling."</div>
-          <div class="proof-attr">
-            <span class="proof-avatar">👩</span>
-            <div><strong>Jessica L.</strong><span>Marketing Manager</span></div>
-          </div>
-        </div>
+      </div>
+
+      <div class="press-quotes">
+        <blockquote class="press-quote">
+          <p>"Agentsflix is what TikTok wanted to be for storytelling — a genuine platform for serialized vertical video with real monetization."</p>
+          <cite>— TechCrunch, March 2026</cite>
+        </blockquote>
+        <blockquote class="press-quote">
+          <p>"The cliffhanger AI is a game-changer. It's not just an algorithm — it's a creative partner that understands narrative tension."</p>
+          <cite>— Variety, February 2026</cite>
+        </blockquote>
+        <blockquote class="press-quote">
+          <p>"Finally, a creator-first platform where the economics make sense. 70% revenue share with zero platform fees on tips."</p>
+          <cite>— Forbes, January 2026</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM COMPARISON -->
+  <section class="section bg-darker" id="comparison" aria-labelledby="comp-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Why Agentsflix?</span>
+        <h2 class="section-h" id="comp-title">Built different from the ground up</h2>
+      </div>
+      
+      <div class="comparison-table-wrap">
+        <table class="comparison-table" role="table">
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Agentsflix</th>
+              <th scope="col">TikTok</th>
+              <th scope="col">Reels</th>
+              <th scope="col">YouTube Shorts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>60-second episodic format</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+            </tr>
+            <tr>
+              <td>Series continuity & seasons</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+            </tr>
+            <tr>
+              <td>Cliffhanger AI optimization</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+            </tr>
+            <tr>
+              <td>Creator revenue share</td>
+              <td>70%</td>
+              <td>~50%</td>
+              <td>~55%</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>Direct viewer tips (0% fee)</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td>30% fee</td>
+            </tr>
+            <tr>
+              <td>AI script & edit tools</td>
+              <td><span class="check">✓</span></td>
+              <td>Basic</td>
+              <td>Basic</td>
+              <td>Basic</td>
+            </tr>
+            <tr>
+              <td>Vertical-first player</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Offline viewing</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td>Premium only</td>
+            </tr>
+            <tr>
+              <td>No algorithm suppression</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section bg-dark" id="faq">
+  <section class="section bg-dark" id="faq" aria-labelledby="faq-title">
     <div class="container">
-      <span class="section-eyebrow">FAQ</span>
-      <h2 class="section-h">Questions? Answers.</h2>
-      <div class="faq-grid">
-        <div class="faq-item">
-          <button class="faq-q">Is Agentsflix really free? <span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>Yes. Watching micro-dramas is 100% free, ad-supported. We also offer a premium tier for ad-free viewing and exclusive content.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">What is a micro-drama? <span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>A micro-drama is a short-form dramatic series, typically 60 seconds per episode, designed for vertical mobile viewing. Think TikTok meets Netflix.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">When does Agentsflix launch? <span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>We're launching in August 2026. Join the waitlist to get early access and exclusive creator tools before public launch.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">How do creators make money? <span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>Creators earn through ad revenue share (70%), direct tips from viewers, and premium content subscriptions. Top creators earn $5K+/month.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">What platforms are supported? <span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>iOS and Android mobile apps, plus web viewer. Optimized for vertical 9:16 viewing.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Is there an age restriction? <span class="faq-icon">+</span></button>
-          <div class="faq-a"><p>Agentsflix is rated for ages 13+. We have strict content moderation and allow creators to tag mature content.</p></div>
-        </div>
+      <div class="section-header">
+        <span class="section-eyebrow">FAQ</span>
+        <h2 class="section-h" id="faq-title">Questions? Answers.</h2>
+        <p class="section-p">Everything you need to know before joining the waitlist.</p>
+      </div>
+      
+      <div class="faq-grid" role="list" aria-label="Frequently asked questions">
+        <article class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-1">Is Agentsflix really free to watch? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-1" role="region" aria-hidden="true"><p>Yes. Watching micro-dramas is 100% free, ad-supported. We also offer a Premium tier ($4.99/mo) for ad-free viewing, offline downloads, early access to new episodes, and exclusive creator content. Waitlist members get <strong>lifetime 20% off Premium</strong>.</p></div>
+        </article>
+        <article class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-2">What exactly is a micro-drama? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-2" role="region" aria-hidden="true"><p>A micro-drama is a serialized dramatic story told in 60-second episodes, designed for vertical mobile viewing. Think: Netflix-quality storytelling + TikTok format + episodic cliffhangers. Each season runs 15-30 episodes. You binge a full season in 15-30 minutes.</p></div>
+        </article>
+        <article class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-3">When does Agentsflix launch? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-3" role="region" aria-hidden="true"><p>Public launch: <strong>August 2026</strong>. Waitlist members get early access in <strong>July 2026</strong> (4 weeks before everyone else). Join the waitlist now to secure your spot and lifetime 20% off Premium.</p></div>
+        </article>
+        <article class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-4">How do creators make money? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-4" role="region" aria-hidden="true"><p>Three revenue streams: (1) <strong>Ad revenue share</strong> — 70% of ad revenue from your episodes. (2) <strong>Viewer tips</strong> — 100% goes to you, zero platform fee. (3) <strong>Premium subscriptions</strong> — 70% of subscription revenue from your exclusive content. Top creators earn $10K-$50K/month. Payouts weekly via Stripe.</p></div>
+        </article>
+        <article class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-5">What platforms are supported? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-5" role="region" aria-hidden="true"><p><strong>iOS 15+</strong> and <strong>Android 10+</strong> native apps (App Store / Play Store), plus a <strong>web viewer</strong> at agentsflix.com. All optimized for 9:16 vertical viewing. Tablet support with adaptive layouts.</p></div>
+        </article>
+        <article class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-6">Is there an age restriction? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-6" role="region" aria-hidden="true"><p>Agentsflix is rated <strong>13+</strong>. We have strict content moderation: AI-powered + human review. Creators must tag mature content (violence, sexual themes, strong language). Parents can enable Kids Mode (curated G/PG content only) via PIN.</p></div>
+        </article>
+        <article class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-7">Can I watch offline? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-7" role="region" aria-hidden="true"><p>Yes! <strong>Premium members</strong> can download up to 50 episodes for offline viewing. Perfect for flights, commutes, or areas with spotty signal. Downloads auto-expire after 30 days (renewable).</p></div>
+        </article>
+        <article class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-8">What if I hate it? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-8" role="region" aria-hidden="true"><p><strong>14-day money-back guarantee</strong> on Premium. No questions asked. Cancel anytime — no contracts, no hidden fees. Your watchlist and progress exportable via GDPR data portability.</p></div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- FINAL CTA / WAITLIST -->
-  <section class="final-cta" id="waitlist">
+  <section class="final-cta" id="waitlist" aria-labelledby="waitlist-title">
     <div class="container">
       <div class="cta-card">
-        <h2>Be the first to binge.</h2>
-        <p>Join <strong>50,000+</strong> drama lovers on the Agentsflix waitlist. Early access + exclusive first episodes + <strong>lifetime 20% off premium</strong>.</p>
-        <div class="waitlist-form">
-          <input type="email" id="waitlist-email" placeholder="Enter your email" />
-          <button class="btn-cta-hero" onclick="joinWaitlist()">Join Waitlist →</button>
+        <div class="cta-badge" aria-label="Limited offer">
+          <span class="badge-pulse" aria-hidden="true"></span>
+          <span>🔥 Waitlist closes in <span id="cta-countdown">--:--:--</span></span>
         </div>
-        <p class="waitlist-note">We respect your privacy. Unsubscribe anytime. · <span style="color:var(--red);">Only 2,847 spots left</span></p>
-        <div class="social-proof">
-          <span>🎬 2M+ episodes waiting for you</span>
-          <span>📱 iOS & Android</span>
-          <span>🚀 Launching August 2026</span>
+        <h2 id="waitlist-title">Be the first to binge.</h2>
+        <p>Join <strong>50,000+</strong> drama lovers on the Agentsflix waitlist. Early access + <strong>lifetime 20% off Premium</strong> + exclusive first episodes.</p>
+        
+        <div class="waitlist-form" role="form" aria-label="Waitlist signup">
+          <div class="form-row">
+            <input type="email" id="waitlist-email" placeholder="Enter your email" autocomplete="email" aria-label="Email address" required />
+            <button class="btn-cta-hero btn-primary" onclick="joinWaitlist()" aria-label="Join waitlist">Join Waitlist →</button>
+          </div>
+          <p class="waitlist-note">We respect your privacy. Unsubscribe anytime. <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms</a></p>
         </div>
-        <div class="app-badges" style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-          <span style="background:var(--bg3);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-size:13px;color:var(--text2);">🍎 App Store</span>
-          <span style="background:var(--bg3);border:1px solid var(--border);padding:10px 20px;border-radius:8px;font-size:13px;color:var(--text2);">🤖 Google Play</span>
+
+        <div class="waitlist-social-proof">
+          <div class="proof-item">
+            <span class="proof-icon" aria-hidden="true">🎬</span>
+            <span>2M+ episodes waiting</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-icon" aria-hidden="true">📱</span>
+            <span>iOS & Android ready</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-icon" aria-hidden="true">🚀</span>
+            <span>Launching August 2026</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-icon" aria-hidden="true">💰</span>
+            <span>Lifetime 20% off locked in</span>
+          </div>
+        </div>
+
+        <div class="cta-guarantee">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          <span>14-day refund guarantee • No credit card to join • Cancel anytime</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="foot-top">
         <div class="foot-brand">
-          <div class="logo-wrap">
-            <div class="logo-mark">
+          <a href="#" class="logo-wrap" aria-label="Agentsflix Home">
+            <div class="logo-mark" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6v16H4V4zm8 0h6v16h-6V4z" fill="#E50914"/></svg>
             </div>
-        <span class="logo-name">Agents<em>Flix</em></span>
-          </div>
+            <span class="logo-name">Agents<em>flix</em></span>
+          </a>
           <p>The premier streaming platform for micro-dramas. Watch, create, and monetize 60-second stories.</p>
           <div class="foot-badges">
-            <span class="foot-badge">iOS App</span>
-            <span class="foot-badge">Android App</span>
-            <span class="foot-badge">Web</span>
+            <span class="foot-badge">🍎 iOS App</span>
+            <span class="foot-badge">🤖 Android App</span>
+            <span class="foot-badge">🌐 Web</span>
           </div>
-        </div>
-        <div class="foot-col">
-          <h5>Company</h5>
-          <ul>
-            <li><a href="#how-it-works">About</a></li>
-            <li><a href="#creators">Creators</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
-          </ul>
-        </div>
-        <div class="foot-col">
-          <h5>Support</h5>
-          <ul>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Community</a></li>
-            <li><a href="#">Guidelines</a></li>
-          </ul>
-        </div>
-        <div class="foot-col">
-          <h5>Legal</h5>
-          <ul>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Cookie Policy</a></li>
-          </ul>
+          <div class="foot-social">
+            <a href="#" class="social-link" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="#" class="social-link" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.548.363a.87.87 0 0 1 .455.173 3.273 3.273 0 0 1 1.081.456 3.048 3.048 0 0 1 .444 1.058 2.881 2.881 0 0 1-.036.435c-.684 2.238-.678 4.111.177 5.181l.174.136c.828 1.044 2.153 1.27 3.272.62.868-.507 1.124-1.603.898-2.511-.114-.46-.498-.902-.951-1.127-.422-.22-.959-.112-1.217.31-.218.391-.17.889.056 1.299l.032.056a10.131 10.131 0 0 0 .471 1.454 10.074 10.074 0 0 0 1.188.892c.581.254 1.198.19 1.64-.166.49-.392.61-1.1-.128-1.436-.59-.25-1.405-.07-1.818.477a1.873 1.873 0 0 1-.645 1.333 2.895 2.895 0 0 1-.426.284l-.356.147a2.777 2.777 0 0 0-.033.576c0 .792-.274 1.798-.731 2.436-.62.868-1.705 1.036-2.466.34-.786-.718-.906-1.988-.307-2.865.143-.21.428-.42.713-.491a.795.795 0 0 1 .446-.11.778.778 0 0 1 .433.142l.237.152c.709.454 1.45.473 2.168.063.846-.48.99-1.561.547-2.434-.35-.684-1.054-1.058-1.732-1.058-.578 0-1.127.287-1.446.774-.247.375-.36.804-.318 1.242.041.417.241.857.67.962.272.066.603-.045.836-.36.185-.256.268-.61.241-.99-.03-.416-.214-.827-.64-.977a2.286 2.286 0 0 0-.981-.43c-.339-.083-.671-.097-1.004-.097-.846 0-1.87.21-2.65.762-.414.29-.72.677-.858 1.146-.154.526.16 1.033.707 1.18.54.147 1.07-.197 1.323-.753.27-.599.123-1.311-.461-1.773-.368-.29-.89-.295-1.27-.021a2.288 2.288 0 0 0-.54 1.027c-.093.38-.05.807.157 1.08.169.225.514.298.78.187.254-.106.413-.442.428-.805.01-.314-.173-.648-.58-.756a1.878 1.878 0 0 0-.782-.258c-.308 0-.614.087-.882.26l-.182.118-.055-.078A10.27 10.27 0 0 1 8.512 6.5c-.167-.442-.25-.925-.236-1.408.014-.483.146-.973.444-1.353a2.553 2.553 0 0 1 .891-.867c.357-.23.781-.298 1.166-.203.345.086.626.37.725.74.09.347-.06.733-.45.932-.41.214-.946.116-1.294-.273-.328-.365-.38-.932-.144-1.392.225-.438.748-.667 1.215-.538.486.133.926.473 1.153.994.21.483.12 1.068-.26 1.401-.196.173-.572.166-.935-.055-.576-.351-.785-1.053-.538-1.684.228-.583.768-.847 1.276-.64.617.25 1.03.885.876 1.545-.166.698-.91 1.096-1.52 1.016-.452-.058-.934-.323-1.18-.77-.27-.49-.207-1.134.176-1.52.39-.39 1.044-.487 1.577-.23.47.226.754.713.712 1.205-.038.447-.39.82-.843.864-.574.055-1.027-.362-1.13-.914-.103-.552.367-1.07.923-1.19.58-.126 1.179.076 1.49.607.32.549.12 1.25-.584 1.572-.376.17-.829.04-1.074-.381-.35-.6-.176-1.399.52-1.742.704-.35 1.534.096 1.786.892.24.774-.663 1.308-1.41 1.048-.484-.168-.838-.624-.896-1.197-.048-.467.31-.956.827-1.081.363-.089.751.072 1.029.457.307.43.26 1.01-.115 1.372-.31.302-.87.197-1.164-.274-.335-.54-.09-1.256.66-1.542.54-.207 1.177.146 1.408.784.22.601-.24 1.264-.962 1.46-.756.206-1.315-.343-1.315-1.076 0-.637.481-1.187 1.262-1.16.64.021 1.22.458 1.416 1.052.147.444.003.981-.453 1.217-.404.207-.979.033-1.264-.446-.34-.562-.165-1.27.503-1.563.56-.24 1.225.117 1.464.802.224.643-.255 1.357-.998 1.55-.732.19-1.383-.26-1.383-1.028 0-.64.516-1.193 1.29-1.17.61.019 1.175.42 1.362.998.13.399-.042.879-.51 1.063-.436.17-1.012-.034-1.27-.58-.31-.65-.107-1.435.62-1.74.63-.27 1.406.05 1.66.778.27.798-.388 1.443-1.222 1.26-.56-.12-1.004-.62-1.05-1.223-.04-.49.377-.973.904-1.07.404-.073.827.14 1.07.55.26.435.13 1.008-.305 1.356-.357.286-.966.13-1.263-.38-.27-.457-.03-1.07.672-1.34.68-.26 1.47.155 1.708.866.227.675-.277 1.423-.998 1.593-.757.174-1.405-.25-1.405-.977v-.02c0-.67.513-1.24 1.27-1.21.64.03 1.24.455 1.42 1.03.147.461-.047.99-.544 1.17-.503.182-1.166-.05-1.39-.628-.26-.68-.05-1.45.655-1.69.768-.267 1.646.144 1.784.943.11.695-.513 1.238-1.288 1.13-.58-.074-1.05-.544-1.11-1.114-.05-.475.366-.952.876-1.03.416-.06.853.162 1.106.62.27.49.136 1.102-.32 1.424-.38.264-.987.083-1.29-.398-.28-.44-.07-1.075.595-1.308.605-.214 1.305.21 1.52.886.217.673-.273 1.424-.994 1.595-.757.179-1.415-.24-1.415-.987v-.01c0-.666.512-1.236 1.268-1.206.638.026 1.237.45 1.418 1.025.147.467-.046.992-.544 1.17-.508.178-1.17-.052-1.392-.63-.26-.678-.05-1.447.655-1.688.768-.267 1.646.144 1.784.943.11.695-.513 1.238-1.288 1.13-.58-.074-1.05-.544-1.11-1.114-.05-.475.366-.952.876-1.03.416-.06.853.162 1.106.62.27.49.136 1.102-.32 1.424-.38.264-.987.083-1.29-.398-.28-.44-.07-1.075.595-1.308.605-.214 1.305.21 1.52.886.217.673-.273 1.424-.994 1.595-.757.179-1.415-.24-1.415-.987z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="Discord"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.471 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.675 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.923 3.03.078.078 0 0 0 .085-.028 14.09 14.09 0 0 0 1.226-.062.076.076 0 0 0 .037-.104c-.353-2.145-.578-4.19-.612-6.174a.07.07 0 0 1 .012-.114 13.107 13.107 0 0 1 1.872-3.464.077.077 0 0 1 .096-.012c.877.699 1.882 1.18 2.857 1.18s1.98-.481 2.857-1.18a.077.077 0 0 1 .096.013 13.213 13.213 0 0 1 1.872 3.464.07.07 0 0 1 .012.114c-.034 1.985-.26 4.03-.612 6.174a.076.076 0 0 0 .037.104 13.975 13.975 0 0 0 1.226.062.078.078 0 0 0 .085.028 19.834 19.834 0 0 0 5.923-3.03.081.081 0 0 0 .031-.056c.419-4.477-.433-9.01-3.094-13.66a.061.061 0 0 0-.031-.027zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418zM9.98 7.433a1.43 1.43 0 0 0 0 2.024 34.466 34.466 0 0 0 4.054-.005 1.43 1.43 0 0 0 .004-2.025 34.755 34.755 0 0 0-4.058.005z"></path></svg></a>
+            <a href="#" class="social-link" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a>
+          </div>
         </div>
       </div>
       <div class="foot-bottom">
-        <span class="foot-copy">© 2026 Agentsflix, Inc. All rights reserved.</span>
+        <div class="foot-links">
+          <a href="#how-it-works">About</a>
+          <a href="#creators">Creators</a>
+          <a href="#calculator">Earnings</a>
+          <a href="#press">Press</a>
+          <a href="#careers">Careers</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
+          <a href="#guidelines">Guidelines</a>
+        </div>
+        <p class="foot-copy">© 2026 Agentsflix, Inc. All rights reserved. Agentsflix is not affiliated with TikTok, Instagram, or YouTube.</p>
       </div>
     </div>
   </footer>
 
-  <!-- MODALS -->
-  <div class="modal-overlay" id="videoModal">
-    <div class="modal-box video-modal-box">
-      <button class="modal-close-abs" onclick="closeVideoModal()">×</button>
-      <div class="video-container">
-        <div class="video-placeholder" id="videoLoader">
-          <div class="loader"></div>
-          <span>Loading drama preview...</span>
-        </div>
-        <video id="previewVideo" controls playsinline onplaying="hideVideoLoader()"></video>
-      </div>
-      <div class="video-info">
-        <h3 id="videoTitle">Drama Title</h3>
-        <p id="videoMeta">Views · Genre</p>
-        <div class="video-actions">
-          <button class="btn-cta-hero" onclick="joinWaitlist()">Join Waitlist to Watch Full Episode</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="waitlistModal">
+  <!-- WAITLIST MODAL -->
+  <div class="modal-overlay" id="waitlistModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-box modal-form-box">
       <div class="modal-head">
         <div>
-          <span class="modal-title">Join the Agentsflix Waitlist</span>
-          <span class="modal-subtitle">Get early access + exclusive first episodes</span>
+          <span class="modal-title" id="modal-title">Join the Agentsflix Waitlist</span>
+          <span class="modal-subtitle">Get early access + exclusive first episodes + lifetime 20% off Premium</span>
         </div>
-        <button class="modal-close" onclick="closeWaitlistModal()">×</button>
+        <button class="modal-close" onclick="closeWaitlistModal()" aria-label="Close modal">×</button>
       </div>
       <div class="modal-body">
         <form id="waitlistForm" onsubmit="handleWaitlistSubmit(event)">
           <div class="form-grid">
             <div class="form-field">
-              <label>First Name</label>
-              <input type="text" id="wl-name" required />
+              <label for="wl-name">First Name</label>
+              <input type="text" id="wl-name" required autocomplete="given-name" />
             </div>
             <div class="form-field">
-              <label>Last Name</label>
-              <input type="text" id="wl-lastname" required />
+              <label for="wl-lastname">Last Name</label>
+              <input type="text" id="wl-lastname" required autocomplete="family-name" />
             </div>
             <div class="form-field form-field-full">
-              <label>Email</label>
-              <input type="email" id="wl-email" required />
+              <label for="wl-email">Email</label>
+              <input type="email" id="wl-email" required autocomplete="email" />
             </div>
             <div class="form-field form-field-full">
-              <label>I am a...</label>
-              <select id="wl-role">
-                <option>Viewer</option>
-                <option>Creator</option>
-                <option>Brand / Advertiser</option>
+              <label for="wl-role">I am a...</label>
+              <select id="wl-role" aria-describedby="role-help">
+                <option value="viewer">Viewer — I want to watch</option>
+                <option value="creator">Creator — I want to publish</option>
+                <option value="both">Both — Watch & create</option>
+                <option value="brand">Brand/Advertiser — I want to partner</option>
               </select>
+              <span id="role-help" class="form-hint">Helps us tailor your early access experience</span>
             </div>
           </div>
           <button type="submit" class="form-submit-btn" id="wlSubmitBtn">Reserve My Spot →</button>
-          <p class="form-fine-print">By joining, you agree to receive launch updates. No spam, ever.</p>
+          <p class="form-fine-print">By joining, you agree to receive launch updates. No spam, ever. <a href="#privacy">Privacy Policy</a></p>
         </form>
       </div>
     </div>
   </div>
 
-  <!-- Sticky Waitlist Bar -->
-  <div class="sticky-bar" id="stickyBar">
-    <div class="sticky-bar-inner">
-      <div class="sticky-bar-left">
-        <strong>Agentsflix</strong>
-        <span class="sticky-sub">Only <span id="sticky-spots">2,847</span> waitlist spots remaining</span>
+  <!-- EXIT INTENT MODAL -->
+  <div class="exit-intent-overlay" id="exitIntent" role="dialog" aria-modal="true" aria-labelledby="exit-title">
+    <div class="exit-intent-box">
+      <button class="exit-intent-close" onclick="closeExitIntent()" aria-label="Close">×</button>
+      <h3 id="exit-title">Wait! Don't miss out.</h3>
+      <p>Join the waitlist now and lock in <strong>lifetime 20% off Premium</strong> + exclusive early access episodes.</p>
+      <div class="exit-intent-form">
+        <input type="email" id="exit-email" placeholder="Enter your email" autocomplete="email" aria-label="Email for waitlist" />
+        <button class="btn-cta-hero btn-primary" onclick="joinWaitlistFromExit()">Claim My Spot →</button>
       </div>
-      <div class="sticky-bar-right">
-        <button class="sticky-btn-g" onclick="closeStickyBar()">Dismiss</button>
-        <button class="sticky-btn-p" onclick="joinWaitlist()">Join Waitlist →</button>
-      </div>
+      <p class="exit-note">14-day refund guarantee · No credit card · Cancel anytime</p>
     </div>
   </div>
 
-  <!-- Exit Intent Popup -->
-  <div class="exit-intent-overlay" id="exitIntent">
-    <button class="exit-intent-close" onclick="closeExitIntent()">×</button>
-    <div class="exit-intent-box">
-      <h3>Wait! Don't miss out.</h3>
-      <p>Join the Agentsflix waitlist and get <strong>lifetime 20% off premium</strong> + exclusive first episodes.</p>
-      <div class="exit-intent-form">
-        <input type="email" id="exit-email" placeholder="Enter your email" />
-        <button class="btn-cta-hero" onclick="joinWaitlistFromExit()">Claim Spot →</button>
+  <!-- STICKY WAITLIST BAR -->
+  <div class="sticky-bar" id="stickyBar" role="complementary" aria-label="Waitlist quick join">
+    <div class="sticky-bar-inner">
+      <div class="sticky-bar-left">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h6v16H4V4zm8 0h6v16h-6V4z" fill="#E50914"/></svg>
+        <strong>Agentsflix</strong>
+        <span class="sticky-sub">Only <span id="sticky-spots">2,847</span> spots left</span>
       </div>
-      <p style="font-size:11px;color:var(--text3);margin-top:12px;">No spam. Unsubscribe anytime.</p>
+      <div class="sticky-bar-right">
+        <button class="sticky-btn-g" onclick="closeStickyBar()" aria-label="Dismiss">Dismiss</button>
+        <button class="sticky-btn-p" onclick="joinWaitlist()" aria-label="Join waitlist">Join Waitlist →</button>
+      </div>
     </div>
   </div>
 

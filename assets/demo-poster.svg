@@ -1,0 +1,43 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="demoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000"/>
+      <stop offset="50%" style="stop-color:#1a0505"/>
+      <stop offset="100%" style="stop-color:#000000"/>
+    </linearGradient>
+    <radialGradient id="demoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#E50914;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#E50914;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#demoBg)"/>
+  <ellipse cx="960" cy="540" rx="600" ry="400" fill="url(#demoGlow)"/>
+
+  <!-- Play button -->
+  <circle cx="960" cy="540" r="80" fill="#E50914" opacity="0.9"/>
+  <path d="M930 490 L1010 540 L930 590 Z" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="960" y="700" text-anchor="middle" font-size="32" font-weight="800" fill="#fff" font-family="system-ui">Watch 30-Second Demo</text>
+  <text x="960" y="740" text-anchor="middle" font-size="16" fill="#b3b3b3" font-family="system-ui">See Agentsflix in action</text>
+
+  <!-- Feature badges -->
+  <g transform="translate(960, 820)">
+    <g transform="translate(-280, 0)">
+      <circle cx="0" cy="0" r="24" fill="#E50914" opacity="0.2"/>
+      <text x="0" y="6" text-anchor="middle" font-size="16" fill="#E50914">▶</text>
+      <text x="0" y="40" text-anchor="middle" font-size="12" fill="#fff" font-weight="600" font-family="system-ui">Instant Play</text>
+    </g>
+    <g transform="translate(0, 0)">
+      <circle cx="0" cy="0" r="24" fill="#E50914" opacity="0.2"/>
+      <text x="0" y="6" text-anchor="middle" font-size="16" fill="#E50914">🤖</text>
+      <text x="0" y="40" text-anchor="middle" font-size="12" fill="#fff" font-weight="600" font-family="system-ui">Cliffhanger AI</text>
+    </g>
+    <g transform="translate(280, 0)">
+      <circle cx="0" cy="0" r="24" fill="#E50914" opacity="0.2"/>
+      <text x="0" y="6" text-anchor="middle" font-size="16" fill="#E50914">📱</text>
+      <text x="0" y="40" text-anchor="middle" font-size="12" fill="#fff" font-weight="600" font-family="system-ui">Vertical Native</text>
+    </g>
+  </g>
+</svg>

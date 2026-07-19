@@ -1,14 +1,48 @@
-<svg viewBox="0 0 400 711" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 400 711" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#533483;stop-opacity:1" />
+    <linearGradient id="t4Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460"/>
+      <stop offset="100%" style="stop-color:#533483"/>
+    </linearGradient>
+    <linearGradient id="t4Overlay" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#000;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#000;stop-opacity:0"/>
     </linearGradient>
   </defs>
-  <rect width="400" height="711" fill="url(#bg4)"/>
-  <circle cx="200" cy="280" r="80" fill="rgba(255,255,255,0.05)"/>
-  <rect x="140" y="380" width="120" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
-  <rect x="160" y="400" width="80" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
-  <text x="200" y="500" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#fff" text-anchor="middle">TIME LOOP</text>
-  <text x="200" y="540" font-family="Inter, sans-serif" font-size="28" font-weight="800" fill="#fff" text-anchor="middle">LOVE</text>
+  <rect width="400" height="711" fill="url(#t4Bg)"/>
+  <rect width="400" height="711" fill="url(#t4Overlay)"/>
+
+  <!-- Comedy smiley -->
+  <circle cx="200" cy="280" r="70" fill="rgba(255,255,255,0.1)"/>
+  <ellipse cx="180" cy="260" rx="10" ry="12" fill="#fff" opacity="0.8"/>
+  <ellipse cx="220" cy="260" rx="10" ry="12" fill="#fff" opacity="0.8"/>
+  <path d="M170 310 Q200 330 230 310" stroke="#fff" stroke-width="3" fill="none" opacity="0.7"/>
+
+  <!-- Title -->
+  <text x="200" y="480" text-anchor="middle" font-size="26" font-weight="800" fill="#fff" font-family="system-ui">TIME LOOP</text>
+  <text x="200" y="520" text-anchor="middle" font-size="26" font-weight="800" fill="#fff" font-family="system-ui">LOVE</text>
+
+  <!-- Genre tag -->
+  <rect x="200" y="560" width="90" height="26" rx="13" fill="rgba(229,9,20,0.3)"/>
+  <text x="245" y="579" text-anchor="middle" font-size="11" font-weight="700" fill="#E50914" font-family="system-ui">ROMANCE</text>
+
+  <!-- Stats -->
+  <text x="200" y="620" text-anchor="middle" font-size="16" font-weight="700" fill="#fff" font-family="system-ui">5.1M views</text>
+  <text x="200" y="650" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.7)" font-family="system-ui">⭐ 4.7 • 15 episodes</text>
+
+  <!-- Play button -->
+  <circle cx="200" cy="355" r="40" fill="#E50914" opacity="0.9"/>
+  <path d="M185 340 L215 355 L185 370 Z" fill="#fff"/>
+
+  <!-- Duration -->
+  <rect x="300" y="650" width="80" height="28" rx="4" fill="rgba(0,0,0,0.8)"/>
+  <text x="340" y="670" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="system-ui">7:22</text>
+
+  <!-- Badge -->
+  <rect x="16" y="16" width="80" height="26" rx="13" fill="#E50914"/>
+  <text x="56" y="34" text-anchor="middle" font-size="11" font-weight="800" fill="#fff" font-family="system-ui">#4</text>
+
+  <!-- Progress -->
+  <rect x="0" y="707" width="400" height="4" fill="rgba(255,255,255,0.1)"/>
+  <rect x="0" y="707" width="220" height="4" fill="#E50914"/>
 </svg>
