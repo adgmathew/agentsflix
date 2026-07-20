@@ -1,11 +1,8 @@
 <svg viewBox="0 0 270 480" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#333" />
-      <stop offset="100%" stop-color="#E50914" />
-    </linearGradient>
-  </defs>
-  <rect width="270" height="480" fill="url(#g2)" />
-  <text x="135" y="240" font-family="Inter, sans-serif" font-weight="900" font-size="32" fill="#fff" text-anchor="middle">MIDNIGHT</text>
-  <text x="135" y="280" font-family="Inter, sans-serif" font-weight="900" font-size="32" fill="#fff" text-anchor="middle">REVENGE</text>
+  <rect width="270" height="480" fill="#000"/>
+  <circle cx="135" cy="150" r="80" fill="#440000"/>
+  <path d="M135 480L100 250h70L135 480" fill="#E50914"/>
+  <path d="M125 150v100h20V150" fill="#fff"/>
+  <text x="135" y="350" font-family="sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">MIDNIGHT</text>
+  <text x="135" y="385" font-family="sans-serif" font-weight="900" font-size="28" fill="#E50914" text-anchor="middle">REVENGE</text>
 </svg>

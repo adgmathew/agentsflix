@@ -1,11 +1,7 @@
 <svg viewBox="0 0 270 480" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#800000" />
-      <stop offset="100%" stop-color="#E50914" />
-    </linearGradient>
-  </defs>
-  <rect width="270" height="480" fill="url(#g3)" />
-  <text x="135" y="240" font-family="Inter, sans-serif" font-weight="900" font-size="32" fill="#fff" text-anchor="middle">DRAGON'S</text>
-  <text x="135" y="280" font-family="Inter, sans-serif" font-weight="900" font-size="32" fill="#fff" text-anchor="middle">HEIR</text>
+  <rect width="270" height="480" fill="#000"/>
+  <path d="M30 200c50-50 150-50 200 0s50 150 0 200-150 50-200 0" fill="#800000"/>
+  <path d="M135 150l40 100-40 20-40-20z" fill="#E50914"/>
+  <text x="135" y="350" font-family="sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">DRAGON'S</text>
+  <text x="135" y="385" font-family="sans-serif" font-weight="900" font-size="28" fill="#E50914" text-anchor="middle">HEIR</text>
 </svg>

@@ -1,11 +1,8 @@
 <svg viewBox="0 0 270 480" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="g5" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#600" />
-      <stop offset="100%" stop-color="#E50914" />
-    </linearGradient>
-  </defs>
-  <rect width="270" height="480" fill="url(#g5)" />
-  <text x="135" y="240" font-family="Inter, sans-serif" font-weight="900" font-size="32" fill="#fff" text-anchor="middle">ROYAL</text>
-  <text x="135" y="280" font-family="Inter, sans-serif" font-weight="900" font-size="32" fill="#fff" text-anchor="middle">ESCAPE</text>
+  <rect width="270" height="480" fill="#000"/>
+  <path d="M50 480V150l85-80 85 80v330" fill="#222"/>
+  <path d="M135 150L80 250h110z" fill="#E50914"/>
+  <circle cx="135" cy="200" r="20" fill="#fff"/>
+  <text x="135" y="350" font-family="sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">ROYAL</text>
+  <text x="135" y="385" font-family="sans-serif" font-weight="900" font-size="28" fill="#E50914" text-anchor="middle">ESCAPE</text>
 </svg>
