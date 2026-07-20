@@ -1,8 +1,19 @@
 <svg viewBox="0 0 270 480" xmlns="http://www.w3.org/2000/svg">
-  <rect width="270" height="480" fill="#000"/>
-  <path d="M135 50a100 100 0 1 0 1 0" stroke="#E50914" stroke-width="10" fill="none"/>
-  <path d="M135 50v80" stroke="#fff" stroke-width="4"/>
-  <path d="M135 130l30-30" stroke="#fff" stroke-width="4"/>
-  <text x="135" y="350" font-family="sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">TIME LOOP</text>
-  <text x="135" y="385" font-family="sans-serif" font-weight="900" font-size="28" fill="#E50914" text-anchor="middle">LOVE</text>
+  <rect width="270" height="480" fill="#030508"/>
+  <circle cx="135" cy="180" r="100" fill="none" stroke="#E50914" stroke-width="0.5" stroke-dasharray="10,5"/>
+  <circle cx="135" cy="180" r="120" fill="none" stroke="#222" stroke-width="20"/>
+
+  <!-- Clock Hands reaching -->
+  <path d="M135 180L100 100" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M135 180L180 240" stroke="#E50914" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Reaching Hands Silhouettes -->
+  <path d="M90 80c5 0 10 10 10 15s-5 15-10 15-10-10-10-15 5-15 10-15z" fill="#000" transform="rotate(-45 100 100)"/>
+  <path d="M185 250c5 0 10 10 10 15s-5 15-10 15-10-10-10-15 5-15 10-15z" fill="#000" transform="rotate(45 180 240)"/>
+
+  <!-- Fractures -->
+  <path d="M0 240L270 240M135 0L135 480" stroke="#E50914" stroke-width="0.2" opacity="0.4"/>
+
+  <text x="135" y="400" font-family="Inter, sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">TIME LOOP</text>
+  <text x="135" y="435" font-family="Inter, sans-serif" font-weight="900" font-size="36" fill="#E50914" text-anchor="middle" letter-spacing="2">LOVE</text>
 </svg>

@@ -1,8 +1,24 @@
 <svg viewBox="0 0 270 480" xmlns="http://www.w3.org/2000/svg">
-  <rect width="270" height="480" fill="#000"/>
-  <circle cx="135" cy="150" r="80" fill="#440000"/>
-  <path d="M135 480L100 250h70L135 480" fill="#E50914"/>
-  <path d="M125 150v100h20V150" fill="#fff"/>
-  <text x="135" y="350" font-family="sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">MIDNIGHT</text>
-  <text x="135" y="385" font-family="sans-serif" font-weight="900" font-size="28" fill="#E50914" text-anchor="middle">REVENGE</text>
+  <defs>
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E50914" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#E50914" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="270" height="480" fill="#030508"/>
+
+  <!-- Rain effects -->
+  <path d="M50 0l-5 480M100 0l-5 480M150 0l-5 480M200 0l-5 480M250 0l-5 480" stroke="#fff" stroke-width="0.2" opacity="0.1"/>
+
+  <!-- Streetlamp -->
+  <path d="M135 150V50h-40v10h30v90" fill="none" stroke="#222" stroke-width="4"/>
+  <circle cx="95" cy="65" r="25" fill="url(#lampGlow)"/>
+  <circle cx="95" cy="65" r="5" fill="#E50914"/>
+
+  <!-- Figure with Umbrella -->
+  <path d="M120 480c0-10 10-20 15-20s15 10 15 20v-80c0-5-5-10-15-10s-15 5-15 10v80z" fill="#000"/>
+  <path d="M100 370c0-20 35-40 70-40s70 20 70 40h-140z" fill="#000" transform="translate(-35,0)"/>
+
+  <text x="135" y="420" font-family="Inter, sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">MIDNIGHT</text>
+  <text x="135" y="455" font-family="Inter, sans-serif" font-weight="900" font-size="34" fill="#E50914" text-anchor="middle">REVENGE</text>
 </svg>

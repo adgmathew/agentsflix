@@ -1,8 +1,23 @@
 <svg viewBox="0 0 270 480" xmlns="http://www.w3.org/2000/svg">
-  <defs><radialGradient id="sky" cx="50%" cy="20%" r="50%"><stop offset="0%" stop-color="#330000"/><stop offset="100%" stop-color="#000"/></radialGradient></defs>
-  <rect width="270" height="480" fill="url(#sky)"/>
-  <path d="M70 480V200h40V480M160 480V250h40V480" fill="#111"/>
-  <rect x="90" y="220" width="10" height="20" fill="#E50914"/>
-  <text x="135" y="100" font-family="sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">THE CEO'S</text>
-  <text x="135" y="135" font-family="sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">SECRET</text>
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a0505" />
+      <stop offset="100%" stop-color="#030508" />
+    </linearGradient>
+    <filter id="lightGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="270" height="480" fill="url(#skyGrad)" />
+
+  <path d="M0 480L135 380L270 480" fill="#000" opacity="0.5"/>
+  <path d="M50 480V120h80v360M150 480V180h70v300" fill="#000" stroke="#E50914" stroke-width="0.5"/>
+  <rect x="70" y="150" width="40" height="30" fill="#E50914" opacity="0.8" filter="url(#lightGlow)"/>
+  <path d="M85 175c0-5 3-10 5-10s5 5 5 10v5h-10v-5z" fill="#000"/>
+  <rect x="88" y="160" width="4" height="4" rx="2" fill="#000"/>
+
+  <text x="135" y="380" font-family="Inter, sans-serif" font-weight="900" font-size="28" fill="#fff" text-anchor="middle">THE CEO'S</text>
+  <text x="135" y="415" font-family="Inter, sans-serif" font-weight="900" font-size="36" fill="#E50914" text-anchor="middle" letter-spacing="2">SECRET</text>
+  <path d="M40 395h190" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
 </svg>
