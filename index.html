@@ -61,27 +61,26 @@
   <section class="hero" id="hero" aria-labelledby="hero-title">
     <div class="hero-bg" aria-hidden="true">
       <div class="hero-video-wrapper">
-        <!-- VIDEO PLACEHOLDER: Replace with actual hero video -->
         <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-video-poster.svg" aria-hidden="true">
           <source src="assets/hero-video.mp4" type="video/mp4">
         </video>
         <div class="hero-video-fallback" id="heroVideoFallback"></div>
       </div>
       <div class="hero-gradient"></div>
-      <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+      <canvas class="hero-particles" id="heroCanvas" aria-hidden="true"></canvas>
     </div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge" aria-label="Social proof">
           <span class="live-dot" aria-hidden="true"></span>
-          <span>50K+ creators</span>
+          <span>100K+ AI Models</span>
           <span class="badge-sep" aria-hidden="true">·</span>
-          <span>2M+ episodes</span>
+          <span>Infinite Scenarios</span>
           <span class="badge-sep" aria-hidden="true">·</span>
           <span id="hero-spots" class="spots-live">2,847 spots left</span>
         </div>
-        <h1 id="hero-title">Drama in <span class="highlight">60 Seconds</span>.</h1>
-        <p class="hero-lead">The first streaming platform built for micro-dramas. Swipe through infinite romance, thriller, and fantasy episodes — optimized for mobile, monetized for creators.</p>
+        <h1 id="hero-title">Your AI-Directed <span class="highlight">60-Second</span> Cinema.</h1>
+        <p class="hero-lead">The first streaming platform where AI agents direct, star, and dynamically adapt micro-dramas in real-time based on your reactions. Swipe into infinite realities.</p>
         
         <div class="hero-ctas" role="group" aria-label="Primary actions">
           <a href="#waitlist" class="btn-cta-hero btn-primary" data-cta="hero-primary">
@@ -90,7 +89,7 @@
           </a>
           <a href="#demo" class="btn-cta-hero btn-secondary" data-cta="hero-secondary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <span>Watch 30s Demo</span>
+            <span>Watch AI Demo</span>
           </a>
         </div>
 
@@ -104,15 +103,15 @@
         <div class="hero-trust" aria-label="Trust indicators">
           <div class="trust-item">
             <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span>Bank-grade encryption</span>
+            <span>Neural-grade encryption</span>
           </div>
           <div class="trust-item">
             <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
-            <span>GDPR & CCPA compliant</span>
+            <span>Private & secure</span>
           </div>
           <div class="trust-item">
             <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
-            <span>14-day refund guarantee</span>
+            <span>Dynamic storytelling</span>
           </div>
           <div class="trust-item">
             <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12V7H5v5"></path><path d="M7 19h10"></path><path d="M12 19v-5"></path></svg>
@@ -154,20 +153,20 @@
           <span class="stat-label">Vertical Aspect Ratio</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num" data-target="50">0</span><span class="stat-suffix">K+</span>
-          <span class="stat-label">Creators Signed Up</span>
+          <span class="stat-num" data-target="100">0</span><span class="stat-suffix">K+</span>
+          <span class="stat-label">AI Agents Online</span>
         </div>
         <div class="stat-item">
           <span class="stat-num" data-target="2">0</span><span class="stat-suffix">M+</span>
-          <span class="stat-label">Episodes Ready</span>
+          <span class="stat-label">Dynamic Scenarios</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num" data-target="70">0</span><span class="stat-suffix">%</span>
-          <span class="stat-label">Revenue Share</span>
+          <span class="stat-num" data-target="99">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Unique Storylines</span>
         </div>
         <div class="stat-item">
           <span class="stat-num" data-target="14">0</span><span class="stat-suffix">d</span>
-          <span class="stat-label">Refund Guarantee</span>
+          <span class="stat-label">Free Trial</span>
         </div>
       </div>
     </div>
@@ -178,8 +177,8 @@
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">See It In Action</span>
-        <h2 class="section-h" id="demo-title">30-Second Demo: The Future of Storytelling</h2>
-        <p class="section-p">Watch how Agentsflix transforms passive viewing into addictive, interactive storytelling.</p>
+        <h2 class="section-h" id="demo-title">30-Second Demo: The AI Story Engine</h2>
+        <p class="section-p">Watch how Agentsflix uses real-time AI to transform passive viewing into dynamic, adaptive storytelling.</p>
       </div>
       
       <div class="demo-player" role="region" aria-label="Video demo player">
@@ -215,15 +214,15 @@
           <div class="demo-feature-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           </div>
-          <h4>Cliffhanger AI</h4>
-          <p>Our AI analyzes every frame to ensure each episode ends on the perfect hook.</p>
+          <h4>Real-time Adaptation</h4>
+          <p>The AI analyzes your reactions and adjusts the storyline on the fly. No two viewings are the same.</p>
         </div>
         <div class="demo-feature">
           <div class="demo-feature-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
           </div>
-          <h4>Smart Continue</h4>
-          <p>Resume exactly where you left off across all devices. Never lose your place.</p>
+          <h4>Infinite Paths</h4>
+          <p>Every swipe generates a new branch in the narrative matrix. Explore endless possibilities.</p>
         </div>
       </div>
     </div>
@@ -233,9 +232,9 @@
   <section class="section bg-dark" id="how-it-works" aria-labelledby="how-title">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow red">How It Works</span>
-        <h2 class="section-h" id="how-title">Watch. Swipe. Repeat.</h2>
-        <p class="section-p">Agentsflix delivers micro-dramas optimized for how you actually consume content — in 60-second bursts, endlessly scrollable, and perfectly vertical.</p>
+        <span class="section-eyebrow red">The Engine</span>
+        <h2 class="section-h" id="how-title">Interact. Evolve. Binge.</h2>
+        <p class="section-p">Agentsflix delivers AI-generated micro-dramas optimized for how you actually consume content — in 60-second bursts, endlessly adapting to your choices.</p>
       </div>
       
       <div class="steps-showcase">
@@ -271,12 +270,12 @@
               <div class="step-number">02</div>
             </div>
             <div class="step-content">
-              <h3>Swipe Through Dramas</h3>
-              <p>Vertical feed of curated micro-dramas. Each episode ends on a cliffhanger — you can't stop at just one.</p>
+              <h3>Direct with a Swipe</h3>
+              <p>Swipe right for romance, left for conflict. The AI instantly rewrites and renders the next 60 seconds based on your choice.</p>
               <ul class="step-benefits">
-                <li>🎯 AI-personalized feed</li>
-                <li>⚡ Instant episode loading</li>
-                <li>🔖 Auto-bookmark on exit</li>
+                <li>🎯 Dynamic neural rendering</li>
+                <li>⚡ Instant scene generation</li>
+                <li>🔖 Branching storylines</li>
               </ul>
             </div>
           </div>
@@ -292,12 +291,12 @@
               <div class="step-number">03</div>
             </div>
             <div class="step-content">
-              <h3>Follow & Binge</h3>
-              <p>Follow your favorite series. Get push notifications the second new episodes drop. Build your watchlist.</p>
+              <h3>Train Your Cast</h3>
+              <p>Follow your favorite AI actors. They learn your preferences and adapt their personalities to fit the narratives you love.</p>
               <ul class="step-benefits">
-                <li>🔔 Smart notifications (no spam)</li>
-                <li>📋 Custom watchlists</li>
-                <li>📊 Viewing history & stats</li>
+                <li>🔔 Persistent AI memories</li>
+                <li>📋 Custom character arcs</li>
+                <li>📊 Persona evolution stats</li>
               </ul>
             </div>
           </div>
@@ -313,12 +312,12 @@
               <div class="step-number">04</div>
             </div>
             <div class="step-content">
-              <h3>Create & Earn</h3>
-              <p>Creators get AI tools to script, edit, and publish micro-dramas in minutes. 70% revenue share from day one.</p>
+              <h3>Become the Showrunner</h3>
+              <p>Prompt your own series. Type a concept and let our AI engine generate full seasons. Monetize your prompt engineering.</p>
               <ul class="step-benefits">
-                <li>✍️ AI script generator</li>
-                <li>🎬 Smart vertical editor</li>
-                <li>💰 Real-time earnings dashboard</li>
+                <li>✍️ Text-to-Series generation</li>
+                <li>🎬 Director mode controls</li>
+                <li>💰 Creator revenue dashboard</li>
               </ul>
             </div>
           </div>
@@ -519,7 +518,7 @@
         </article>
       </div>
       <div class="showcase-cta">
-        <a href="#waitlist" class="btn-cta-hero btn-primary">See All 500+ Shows →</a>
+        <a href="#waitlist" class="btn-cta-hero btn-primary">Generate Your First Show →</a>
       </div>
     </div>
   </section>
@@ -528,9 +527,9 @@
   <section class="section bg-dark" id="creators" aria-labelledby="creators-title">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow red">For Creators</span>
-        <h2 class="section-h" id="creators-title">Your next viral hit starts here.</h2>
-        <p class="section-p">Agentsflix gives you AI-powered tools to script, edit, and publish micro-dramas in minutes. Monetize your stories and build a global audience.</p>
+        <span class="section-eyebrow red">The Agent Studio</span>
+        <h2 class="section-h" id="creators-title">Your next viral hit is a prompt away.</h2>
+        <p class="section-p">Agentsflix gives you AI-powered tools to generate, direct, and publish micro-dramas in minutes. Monetize your prompts and build a global audience.</p>
       </div>
       
       <div class="creator-grid">
@@ -538,26 +537,26 @@
           <div class="creator-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
           </div>
-          <h4>AI Script Generator</h4>
-          <p>Generate gripping 60-second scripts with AI. Input genre, tone, characters — get a cliffhanger-ready script in seconds.</p>
+          <h4>Prompt-to-Series</h4>
+          <p>Generate gripping 60-second scripts with AI. Input genre, tone, characters — our multi-agent system creates a full season instantly.</p>
           <ul class="creator-features">
-            <li>✨ 50+ genre templates</li>
-            <li>🎭 Character arc builder</li>
+            <li>✨ 100+ style models</li>
+            <li>🎭 Persistent AI Actors</li>
             <li>🔀 Auto cliffhanger insertion</li>
-            <li>📝 Episode-to-episode continuity</li>
+            <li>📝 Perfect continuity</li>
           </ul>
         </article>
         <article class="creator-card">
           <div class="creator-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
           </div>
-          <h4>Smart Vertical Editor</h4>
-          <p>Auto-edit vertical videos. Add effects, music, subtitles, and transitions in one tap. Built for 9:16.</p>
+          <h4>Neural Rendering Engine</h4>
+          <p>Instantly render high-fidelity vertical video. Our engine handles lighting, camera angles, and lip-sync automatically.</p>
           <ul class="creator-features">
-            <li>✂️ Auto-cut to beat</li>
-            <li>🎵 Licensed music library</li>
-            <li>🌈 Dynamic captions (12 languages)</li>
-            <li>📱 One-tap 9:16 export</li>
+            <li>✂️ Real-time generation</li>
+            <li>🎵 AI-scored soundtracks</li>
+            <li>🌈 Dynamic FX & lighting</li>
+            <li>📱 4K 9:16 export</li>
           </ul>
         </article>
         <article class="creator-card">
@@ -599,7 +598,7 @@
               <p class="spotlight-handle">@mikechen_drama</p>
               <p class="spotlight-stats">2.4M followers · $47K/month</p>
             </div>
-            <blockquote class="spotlight-quote">"Published my first series in 3 days using their AI tools. Hit 1M views on episode 3. Quit my job 6 months later."</blockquote>
+            <blockquote class="spotlight-quote">"Prompted my first series in 3 days using the Agent Studio. Hit 1M views on episode 3. Quit my job 6 months later."</blockquote>
           </article>
           <article class="spotlight-card">
             <div class="spotlight-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">JR</div>
@@ -608,7 +607,7 @@
               <p class="spotlight-handle">@jennas_stories</p>
               <p class="spotlight-stats">1.8M followers · $31K/month</p>
             </div>
-            <blockquote class="spotlight-quote">"The cliffhanger AI is insane. My retention went from 34% to 78%. The revenue share is actually transparent — I see every penny."</blockquote>
+            <blockquote class="spotlight-quote">"The dynamic branching AI is insane. My retention went from 34% to 78% because viewers keep swiping to see alternate endings."</blockquote>
           </article>
           <article class="spotlight-card">
             <div class="spotlight-avatar" aria-hidden="true" style="background: linear-gradient(135deg, #533483, #2b2d42);">AK</div>
@@ -617,7 +616,7 @@
               <p class="spotlight-handle">@alexk_creates</p>
               <p class="spotlight-stats">950K followers · $18K/month</p>
             </div>
-            <blockquote class="spotlight-quote">"Started as a side hustle. Now I have a team of 3. The editor saves me 20hrs/week. Best platform for vertical storytelling, hands down."</blockquote>
+            <blockquote class="spotlight-quote">"Started as a side hustle. Now I just write prompts on my commute. The neural rendering saves me 20hrs/week. Best platform for AI storytelling."</blockquote>
           </article>
         </div>
       </div>
@@ -628,8 +627,8 @@
   <section class="section bg-darker" id="calculator" aria-labelledby="calc-title">
     <div class="container">
       <div class="section-header">
-        <span class="section-eyebrow">Earnings Calculator</span>
-        <h2 class="section-h" id="calc-title">How much could you earn?</h2>
+        <span class="section-eyebrow">Prompt Monetization</span>
+        <h2 class="section-h" id="calc-title">How much could your prompts earn?</h2>
         <p class="section-p">Adjust the sliders to see your potential monthly revenue on Agentsflix.</p>
       </div>
       
@@ -698,7 +697,7 @@
                 <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
               </div>
             </div>
-            <blockquote>"I watch 30 micro-dramas on my commute. Agentsflix is the ONLY app that gets vertical format right. The cliffhangers are surgical — I've missed my stop 4 times this month."</blockquote>
+            <blockquote>"I swipe through 30 dynamic scenarios on my commute. Agentsflix is the ONLY app that gets AI generation right. The alternate endings are insane."</blockquote>
             <div class="testimonial-footer">
               <span class="testimonial-location">📍 NYC</span>
               <span class="testimonial-platform">iOS</span>
@@ -713,7 +712,7 @@
                 <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
               </div>
             </div>
-            <blockquote>"Published my first drama series in 3 days using their AI tools. Now I have 50K followers and $3K/month. The editor saves me 20hrs/week. This is the future of storytelling."</blockquote>
+            <blockquote>"Prompted my first drama series in 3 days. Now I have 50K followers and $3K/month. The neural rendering saves me 20hrs/week. This is the future."</blockquote>
             <div class="testimonial-footer">
               <span class="testimonial-location">📍 LA</span>
               <span class="testimonial-platform">Android</span>
@@ -867,21 +866,21 @@
           </thead>
           <tbody>
             <tr>
-              <td>60-second episodic format</td>
+              <td>Fully AI-Generated Micro-Dramas</td>
               <td><span class="check">✓</span></td>
               <td><span class="cross">✗</span></td>
               <td><span class="cross">✗</span></td>
               <td><span class="cross">✗</span></td>
             </tr>
             <tr>
-              <td>Series continuity & seasons</td>
+              <td>Real-time storyline branching</td>
               <td><span class="check">✓</span></td>
               <td><span class="cross">✗</span></td>
               <td><span class="cross">✗</span></td>
               <td><span class="cross">✗</span></td>
             </tr>
             <tr>
-              <td>Cliffhanger AI optimization</td>
+              <td>Prompt-to-series studio</td>
               <td><span class="check">✓</span></td>
               <td><span class="cross">✗</span></td>
               <td><span class="cross">✗</span></td>
@@ -895,39 +894,25 @@
               <td>45%</td>
             </tr>
             <tr>
-              <td>Direct viewer tips (0% fee)</td>
+              <td>Persistent AI Actors</td>
               <td><span class="check">✓</span></td>
               <td><span class="cross">✗</span></td>
               <td><span class="cross">✗</span></td>
-              <td>30% fee</td>
+              <td><span class="cross">✗</span></td>
             </tr>
             <tr>
-              <td>AI script & edit tools</td>
+              <td>Neural Rendering Engine</td>
               <td><span class="check">✓</span></td>
-              <td>Basic</td>
-              <td>Basic</td>
-              <td>Basic</td>
+              <td>Basic Filters</td>
+              <td>Basic Filters</td>
+              <td>Basic Filters</td>
             </tr>
             <tr>
-              <td>Vertical-first player</td>
-              <td><span class="check">✓</span></td>
-              <td><span class="check">✓</span></td>
-              <td><span class="check">✓</span></td>
-              <td><span class="check">✓</span></td>
-            </tr>
-            <tr>
-              <td>Offline viewing</td>
+              <td>Offline dynamic viewing</td>
               <td><span class="check">✓</span></td>
               <td><span class="cross">✗</span></td>
               <td><span class="cross">✗</span></td>
               <td>Premium only</td>
-            </tr>
-            <tr>
-              <td>No algorithm suppression</td>
-              <td><span class="check">✓</span></td>
-              <td><span class="cross">✗</span></td>
-              <td><span class="cross">✗</span></td>
-              <td><span class="cross">✗</span></td>
             </tr>
           </tbody>
         </table>
@@ -940,42 +925,42 @@
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">FAQ</span>
-        <h2 class="section-h" id="faq-title">Questions? Answers.</h2>
-        <p class="section-p">Everything you need to know before joining the waitlist.</p>
+        <h2 class="section-h" id="faq-title">Questions? We have data.</h2>
+        <p class="section-p">Everything you need to know about the AI revolution in entertainment.</p>
       </div>
       
       <div class="faq-grid" role="list" aria-label="Frequently asked questions">
         <article class="faq-item" role="listitem">
           <button class="faq-q" aria-expanded="false" aria-controls="faq-1">Is Agentsflix really free to watch? <span class="faq-icon" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-1" role="region" aria-hidden="true"><p>Yes. Watching micro-dramas is 100% free, ad-supported. We also offer a Premium tier ($4.99/mo) for ad-free viewing, offline downloads, early access to new episodes, and exclusive creator content. Waitlist members get <strong>lifetime 20% off Premium</strong>.</p></div>
+          <div class="faq-a" id="faq-1" role="region" aria-hidden="true"><p>Yes. Watching AI micro-dramas is 100% free, ad-supported. We also offer a Premium tier ($4.99/mo) for ad-free viewing, infinite storyline branching, offline downloads, and exclusive creator content. Waitlist members get <strong>lifetime 20% off Premium</strong>.</p></div>
         </article>
         <article class="faq-item" role="listitem">
-          <button class="faq-q" aria-expanded="false" aria-controls="faq-2">What exactly is a micro-drama? <span class="faq-icon" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-2" role="region" aria-hidden="true"><p>A micro-drama is a serialized dramatic story told in 60-second episodes, designed for vertical mobile viewing. Think: Netflix-quality storytelling + TikTok format + episodic cliffhangers. Each season runs 15-30 episodes. You binge a full season in 15-30 minutes.</p></div>
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-2">How does the AI storytelling work? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-2" role="region" aria-hidden="true"><p>Our neural engine generates 60-second video segments on the fly. As you interact (swipe left/right, like, or pause), the multi-agent system adapts the plot, dialog, and pacing for the next episode in real-time. It’s like a personalized, infinite choose-your-own-adventure.</p></div>
         </article>
         <article class="faq-item" role="listitem">
-          <button class="faq-q" aria-expanded="false" aria-controls="faq-3">When does Agentsflix launch? <span class="faq-icon" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-3" role="region" aria-hidden="true"><p>Public launch: <strong>August 2026</strong>. Waitlist members get early access in <strong>July 2026</strong> (4 weeks before everyone else). Join the waitlist now to secure your spot and lifetime 20% off Premium.</p></div>
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-3">Can I create my own shows? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-3" role="region" aria-hidden="true"><p>Absolutely. Using our Agent Studio, you just provide a text prompt describing the genre, characters, and plot setup. The AI handles the script, rendering, and lip-syncing. You can then publish it and earn a 70% share of the ad and subscription revenue it generates.</p></div>
         </article>
         <article class="faq-item" role="listitem">
-          <button class="faq-q" aria-expanded="false" aria-controls="faq-4">How do creators make money? <span class="faq-icon" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-4" role="region" aria-hidden="true"><p>Three revenue streams: (1) <strong>Ad revenue share</strong> — 70% of ad revenue from your episodes. (2) <strong>Viewer tips</strong> — 100% goes to you, zero platform fee. (3) <strong>Premium subscriptions</strong> — 70% of subscription revenue from your exclusive content. Top creators earn $10K-$50K/month. Payouts weekly via Stripe.</p></div>
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-4">How do prompt engineers make money? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-4" role="region" aria-hidden="true"><p>Three revenue streams: (1) <strong>Ad revenue share</strong> — 70% of ad revenue from your generated series. (2) <strong>Viewer tips</strong> — 100% goes to you, zero platform fee. (3) <strong>Premium subscriptions</strong> — 70% of subscription revenue. Top prompters earn $10K-$50K/month. Payouts weekly via Stripe.</p></div>
         </article>
         <article class="faq-item" role="listitem">
           <button class="faq-q" aria-expanded="false" aria-controls="faq-5">What platforms are supported? <span class="faq-icon" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-5" role="region" aria-hidden="true"><p><strong>iOS 15+</strong> and <strong>Android 10+</strong> native apps (App Store / Play Store), plus a <strong>web viewer</strong> at agentsflix.com. All optimized for 9:16 vertical viewing. Tablet support with adaptive layouts.</p></div>
+          <div class="faq-a" id="faq-5" role="region" aria-hidden="true"><p><strong>iOS 15+</strong> and <strong>Android 10+</strong> native apps, leveraging on-device NPUs for fast playback, plus a <strong>web viewer</strong> at agentsflix.com. All optimized for 9:16 vertical viewing.</p></div>
         </article>
         <article class="faq-item" role="listitem">
-          <button class="faq-q" aria-expanded="false" aria-controls="faq-6">Is there an age restriction? <span class="faq-icon" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-6" role="region" aria-hidden="true"><p>Agentsflix is rated <strong>13+</strong>. We have strict content moderation: AI-powered + human review. Creators must tag mature content (violence, sexual themes, strong language). Parents can enable Kids Mode (curated G/PG content only) via PIN.</p></div>
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-6">Are the AI actors real people? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-6" role="region" aria-hidden="true"><p>Our AI actors are 100% synthetically generated models with persistent memories. They are completely fictional, ensuring no deepfake or likeness rights issues. You can even train your own custom actors in the Agent Studio.</p></div>
         </article>
         <article class="faq-item" role="listitem">
-          <button class="faq-q" aria-expanded="false" aria-controls="faq-7">Can I watch offline? <span class="faq-icon" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-7" role="region" aria-hidden="true"><p>Yes! <strong>Premium members</strong> can download up to 50 episodes for offline viewing. Perfect for flights, commutes, or areas with spotty signal. Downloads auto-expire after 30 days (renewable).</p></div>
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-7">Can I save a specific storyline? <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-7" role="region" aria-hidden="true"><p>Yes! <strong>Premium members</strong> can save the exact seed of their unique storyline path and share it with friends to see how their choices diverge from yours.</p></div>
         </article>
         <article class="faq-item" role="listitem">
           <button class="faq-q" aria-expanded="false" aria-controls="faq-8">What if I hate it? <span class="faq-icon" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-8" role="region" aria-hidden="true"><p><strong>14-day money-back guarantee</strong> on Premium. No questions asked. Cancel anytime — no contracts, no hidden fees. Your watchlist and progress exportable via GDPR data portability.</p></div>
+          <div class="faq-a" id="faq-8" role="region" aria-hidden="true"><p><strong>14-day money-back guarantee</strong> on Premium. No questions asked. Cancel anytime — no contracts, no hidden fees.</p></div>
         </article>
       </div>
     </div>
@@ -989,25 +974,25 @@
           <span class="badge-pulse" aria-hidden="true"></span>
           <span>🔥 Waitlist closes in <span id="cta-countdown">--:--:--</span></span>
         </div>
-        <h2 id="waitlist-title">Be the first to binge.</h2>
-        <p>Join <strong>50,000+</strong> drama lovers on the Agentsflix waitlist. Early access + <strong>lifetime 20% off Premium</strong> + exclusive first episodes.</p>
+        <h2 id="waitlist-title">Initialize Your Story.</h2>
+        <p>Join <strong>50,000+</strong> early adopters on the Agentsflix waitlist. Early access + <strong>lifetime 20% off Premium</strong> + exclusive beta features.</p>
         
         <div class="waitlist-form" role="form" aria-label="Waitlist signup">
           <div class="form-row">
             <input type="email" id="waitlist-email" placeholder="Enter your email" autocomplete="email" aria-label="Email address" required />
-            <button class="btn-cta-hero btn-primary" onclick="joinWaitlist()" aria-label="Join waitlist">Join Waitlist →</button>
+            <button class="btn-cta-hero btn-primary" onclick="joinWaitlist()" aria-label="Join waitlist">Gain Access →</button>
           </div>
-          <p class="waitlist-note">We respect your privacy. Unsubscribe anytime. <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms</a></p>
+          <p class="waitlist-note">We respect your data. Unsubscribe anytime. <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms</a></p>
         </div>
 
         <div class="waitlist-social-proof">
           <div class="proof-item">
-            <span class="proof-icon" aria-hidden="true">🎬</span>
-            <span>2M+ episodes waiting</span>
+            <span class="proof-icon" aria-hidden="true">🧠</span>
+            <span>100K+ AI Models Ready</span>
           </div>
           <div class="proof-item">
             <span class="proof-icon" aria-hidden="true">📱</span>
-            <span>iOS & Android ready</span>
+            <span>Neural Engine Optimized</span>
           </div>
           <div class="proof-item">
             <span class="proof-icon" aria-hidden="true">🚀</span>
@@ -1038,10 +1023,10 @@
             </div>
             <span class="logo-name">Agents<em>flix</em></span>
           </a>
-          <p>The premier streaming platform for micro-dramas. Watch, create, and monetize 60-second stories.</p>
+          <p>The premier streaming platform for AI-generated micro-dramas. Direct, generate, and monetize infinite storylines.</p>
           <div class="foot-badges">
-            <span class="foot-badge">🍎 iOS App</span>
-            <span class="foot-badge">🤖 Android App</span>
+            <span class="foot-badge">🍎 iOS App (NPU enabled)</span>
+            <span class="foot-badge">🤖 Android App (NPU enabled)</span>
             <span class="foot-badge">🌐 Web</span>
           </div>
           <div class="foot-social">
@@ -1077,7 +1062,7 @@
       <div class="modal-head">
         <div>
           <span class="modal-title" id="modal-title">Join the Agentsflix Waitlist</span>
-          <span class="modal-subtitle">Get early access + exclusive first episodes + lifetime 20% off Premium</span>
+          <span class="modal-subtitle">Get early access to the Agent Studio + lifetime 20% off Premium</span>
         </div>
         <button class="modal-close" onclick="closeWaitlistModal()" aria-label="Close modal">×</button>
       </div>
@@ -1099,9 +1084,9 @@
             <div class="form-field form-field-full">
               <label for="wl-role">I am a...</label>
               <select id="wl-role" aria-describedby="role-help">
-                <option value="viewer">Viewer — I want to watch</option>
-                <option value="creator">Creator — I want to publish</option>
-                <option value="both">Both — Watch & create</option>
+                <option value="viewer">Viewer — I want to watch & interact</option>
+                <option value="creator">Prompter — I want to generate series</option>
+                <option value="both">Both — Watch & Prompt</option>
                 <option value="brand">Brand/Advertiser — I want to partner</option>
               </select>
               <span id="role-help" class="form-hint">Helps us tailor your early access experience</span>
