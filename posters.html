@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentsflix — Generated Posters</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      padding: 40px 20px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { font-size: 2rem; margin-bottom: 8px; }
+    p.sub { color: #888; margin-bottom: 32px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: #141414;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: #E50914; }
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: #000;
+    }
+    .card .meta { padding: 14px 16px; }
+    .card .meta h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .card .meta span { font-size: 0.8rem; color: #888; }
+    .back { display: inline-block; margin-top: 32px; color: #E50914; text-decoration: none; font-weight: 500; }
+    .back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Generated Posters</h1>
+    <p class="sub">Click any image to open it full-size in a new tab.</p>
+    <div class="grid">
+      <a class="card" href="assets/hero-poster.jpg" target="_blank" rel="noopener">
+        <img src="assets/hero-poster.jpg" alt="Hero Poster" loading="lazy">
+        <div class="meta">
+          <h3>Hero Poster</h3>
+          <span>1920×1080 · cinematic hero background</span>
+        </div>
+      </a>
+      <a class="card" href="assets/demo-poster.jpg" target="_blank" rel="noopener">
+        <img src="assets/demo-poster.jpg" alt="Demo Poster" loading="lazy">
+        <div class="meta">
+          <h3>Demo Poster</h3>
+          <span>1920×1080 · demo video poster</span>
+        </div>
+      </a>
+      <a class="card" href="assets/thumb-1.jpg" target="_blank" rel="noopener">
+        <img src="assets/thumb-1.jpg" alt="The CEO's Secret" loading="lazy">
+        <div class="meta">
+          <h3>The CEO's Secret</h3>
+          <span>400×711 · romance thumbnail</span>
+        </div>
+      </a>
+      <a class="card" href="assets/thumb-2.jpg" target="_blank" rel="noopener">
+        <img src="assets/thumb-2.jpg" alt="Midnight Revenge" loading="lazy">
+        <div class="meta">
+          <h3>Midnight Revenge</h3>
+          <span>400×711 · thriller thumbnail</span>
+        </div>
+      </a>
+      <a class="card" href="assets/thumb-3.jpg" target="_blank" rel="noopener">
+        <img src="assets/thumb-3.jpg" alt="Dragon's Heir" loading="lazy">
+        <div class="meta">
+          <h3>Dragon's Heir</h3>
+          <span>400×711 · fantasy thumbnail</span>
+        </div>
+      </a>
+      <a class="card" href="assets/thumb-4.jpg" target="_blank" rel="noopener">
+        <img src="assets/thumb-4.jpg" alt="Time Loop Love" loading="lazy">
+        <div class="meta">
+          <h3>Time Loop Love</h3>
+          <span>400×711 · romance/sci-fi thumbnail</span>
+        </div>
+      </a>
+      <a class="card" href="assets/thumb-5.jpg" target="_blank" rel="noopener">
+        <img src="assets/thumb-5.jpg" alt="Royal Escape" loading="lazy">
+        <div class="meta">
+          <h3>Royal Escape</h3>
+          <span>400×711 · historical thumbnail</span>
+        </div>
+      </a>
+      <a class="card" href="assets/og-image.jpg" target="_blank" rel="noopener">
+        <img src="assets/og-image.jpg" alt="OG Image" loading="lazy">
+        <div class="meta">
+          <h3>OG Image</h3>
+          <span>1200×630 · social sharing card</span>
+        </div>
+      </a>
+    </div>
+    <a class="back" href="index.html">← Back to Agentsflix</a>
+  </div>
+</body>
+</html>
