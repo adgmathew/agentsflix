@@ -259,7 +259,7 @@
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
+        ctx.fillStyle = 'rgba(229, 9, 20, 0.5)';
         ctx.fill();
       }
     }
@@ -283,7 +283,7 @@
 
           if (dist < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.2 - dist/500})`;
+            ctx.strokeStyle = `rgba(229, 9, 20, ${0.2 - dist/500})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
