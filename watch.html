@@ -95,24 +95,32 @@
       bottom: 120px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
       z-index: 3;
     }
     .control-icon-btn {
-      background: none;
-      border: none;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       cursor: pointer;
       font-size: 11px;
       font-weight: 600;
+      padding: 10px;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    .control-icon-btn:hover {
+      background: var(--red);
+      transform: scale(1.1);
     }
     .control-icon-btn svg {
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
       fill: currentColor;
     }
 
@@ -125,41 +133,56 @@
       justify-content: center;
       background: #060913;
     }
+    .storyboard-graphic svg {
+      width: 80%;
+      height: 80%;
+      opacity: 0.8;
+      filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+    }
 
     /* Right Panel - Choice Engine */
     .watch-panel-right {
       background: var(--bg3);
       border: 1px solid var(--border);
-      border-radius: var(--r-lg);
-      padding: 24px;
+      border-radius: var(--r-xl);
+      padding: 32px;
       position: sticky;
       top: 100px;
+      box-shadow: var(--shadow);
     }
     .branch-box {
-      background: var(--bg2);
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      border-radius: var(--r);
-      padding: 16px;
+      background: rgba(99, 102, 241, 0.05);
+      border: 1px solid var(--border2);
+      border-radius: var(--r-lg);
+      padding: 20px;
       margin-top: 16px;
     }
     .branch-btn {
       width: 100%;
-      background: var(--bg3);
+      background: var(--bg2);
       border: 1px solid var(--border);
       color: #fff;
-      padding: 14px;
-      border-radius: var(--r);
+      padding: 16px;
+      border-radius: var(--r-lg);
       text-align: left;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       margin-top: 12px;
       transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .branch-btn::before {
+      content: '▶';
+      font-size: 10px;
+      color: var(--red-lt);
     }
     .branch-btn:hover {
       border-color: var(--red);
-      background: rgba(99, 102, 241, 0.05);
-      transform: translateX(4px);
+      background: rgba(99, 102, 241, 0.1);
+      transform: translateX(8px);
     }
 
     /* Swipe navigation buttons */
