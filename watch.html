@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentsflix — Dynamic Watch Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2.0">
+  <style>
+    /* Watch portal specific layouts */
+    .watch-page {
+      padding: 100px 0 60px;
+      min-height: 100vh;
+      background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%), var(--bg);
+    }
+    .watch-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr 340px;
+      gap: 32px;
+      align-items: start;
+    }
+
+    /* Left Panel - Scenario & Cast */
+    .watch-panel-left {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      position: sticky;
+      top: 100px;
+    }
+    .actor-card-mini {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: var(--r);
+      margin-top: 16px;
+    }
+    .actor-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), var(--purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Center Panel - Phone Emulator */
+    .watch-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .player-emulator {
+      width: 360px;
+      aspect-ratio: 9/16;
+      background: #000;
+      border-radius: 40px;
+      border: 4px solid var(--border);
+      box-shadow: var(--shadow-lg), 0 0 40px rgba(99, 102, 241, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .player-screen {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .player-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(3, 5, 8, 0.9) 0%, rgba(3, 5, 8, 0.3) 50%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .player-info {
+      position: absolute;
+      bottom: 24px;
+      left: 16px;
+      right: 16px;
+      z-index: 3;
+    }
+    .player-controls-side {
+      position: absolute;
+      right: 16px;
+      bottom: 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 3;
+    }
+    .control-icon-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .control-icon-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: currentColor;
+    }
+
+    /* Storyboard Graphic Canvas */
+    .storyboard-graphic {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #060913;
+    }
+
+    /* Right Panel - Choice Engine */
+    .watch-panel-right {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 24px;
+      position: sticky;
+      top: 100px;
+    }
+    .branch-box {
+      background: var(--bg2);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: var(--r);
+      padding: 16px;
+      margin-top: 16px;
+    }
+    .branch-btn {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 14px;
+      border-radius: var(--r);
+      text-align: left;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: var(--transition);
+    }
+    .branch-btn:hover {
+      border-color: var(--red);
+      background: rgba(99, 102, 241, 0.05);
+      transform: translateX(4px);
+    }
+
+    /* Swipe navigation buttons */
+    .swipe-nav {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .swipe-btn {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .swipe-btn:hover {
+      border-color: var(--red);
+      color: var(--red-lt);
+    }
+
+    @media (max-width: 1024px) {
+      .watch-grid {
+        grid-template-columns: 1fr;
+      }
+      .watch-panel-left, .watch-panel-right {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo-wrap" aria-label="Agentsflix Home">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h6v16H4V4zm8 0h6v16h-6V4z" fill="#6366f1"/></svg>
+        </div>
+        <span class="logo-name">Agents<em>flix</em></span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a href="index.html#how-it-works" role="menuitem">How It Works</a></li>
+        <li role="none"><a href="index.html#genres" role="menuitem">Genres</a></li>
+        <li role="none"><a href="watch.html" role="menuitem" style="color: #fff; font-weight: 700;">Watch Portal</a></li>
+        <li role="none"><a href="studio.html" role="menuitem">Agent Studio</a></li>
+        <li role="none"><a href="index.html#calculator" role="menuitem">Earnings</a></li>
+        <li role="none"><a href="index.html#faq" role="menuitem">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index.html#waitlist" class="btn-cta-sm">Join Waitlist →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- WATCH MAIN AREA -->
+  <section class="watch-page">
+    <div class="container">
+      <div class="watch-grid">
+
+        <!-- Left Sidebar: Cast & Metadata -->
+        <aside class="watch-panel-left">
+          <h2 style="font-size: 18px; margin-bottom: 8px; font-weight: 800;">Scene Metadata</h2>
+          <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 20px;">Every micro-drama on Agentsflix is directed and generated in real-time by autonomous virtual directors.</p>
+
+          <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text3); margin-top: 24px;">AI Lead Cast</h3>
+          <div class="actor-card-mini" id="actorLead">
+            <div class="actor-avatar" id="actorAvatar">MC</div>
+            <div>
+              <h4 style="font-size: 14px; font-weight: 700; color: #fff;" id="actorName">Marcus Vance</h4>
+              <p style="font-size: 12px; color: var(--green);" id="actorStatus">State: Calculating Reaction...</p>
+            </div>
+          </div>
+
+          <h3 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text3); margin-top: 24px;">Scene Prompts</h3>
+          <div style="background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 12px; margin-top: 8px; font-size: 12px; font-family: monospace; color: var(--text2);" id="activePrompt">
+            Loading prompt parameters...
+          </div>
+        </aside>
+
+        <!-- Center Column: Video Player -->
+        <main class="watch-center">
+          <div class="player-emulator">
+            <div class="player-screen">
+
+              <!-- Storyboard Illustrator -->
+              <div class="storyboard-graphic" id="playerCanvas">
+                <!-- SVG dynamically rendered by watch script -->
+              </div>
+
+              <!-- Player Overlays -->
+              <div class="player-overlay"></div>
+
+              <!-- Sidebar Buttons inside player -->
+              <div class="player-controls-side">
+                <button class="control-icon-btn" onclick="likeVideo()">
+                  <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  <span id="likeCount">12.4K</span>
+                </button>
+                <button class="control-icon-btn" onclick="commentVideo()">
+                  <svg viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/></svg>
+                  <span>1.2K</span>
+                </button>
+                <button class="control-icon-btn" onclick="shareVideo()">
+                  <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 2.72-1.34 2.72-3s-1.06-3-2.72-3-2.72 1.34-2.72 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+                  <span>Share</span>
+                </button>
+              </div>
+
+              <!-- Episode title and status -->
+              <div class="player-info">
+                <span class="showcase-genre" style="margin-bottom: 8px; display: inline-block;" id="showcaseGenre">Romance</span>
+                <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 4px;" id="showcaseTitle">The CEO's Secret</h3>
+                <p style="font-size: 13px; color: var(--text2);" id="showcaseDesc">Marcus faces a sudden audit of his proprietary algorithmic codes.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Navigation arrows below phone -->
+          <div class="swipe-nav">
+            <button class="swipe-btn" onclick="prevEpisode()" aria-label="Previous Episode">▲</button>
+            <span style="display: flex; align-items: center; font-size: 13px; font-weight: 700; color: var(--text2);" id="episodeCounter">Episode 1 / 4</span>
+            <button class="swipe-btn" onclick="nextEpisode()" aria-label="Next Episode">▼</button>
+          </div>
+        </main>
+
+        <!-- Right Sidebar: Adaptive Choice Engine -->
+        <aside class="watch-panel-right">
+          <h2 style="font-size: 18px; margin-bottom: 8px; font-weight: 800;">Choice Matrix</h2>
+          <p style="font-size: 13px; color: var(--text2); line-height: 1.6;">At key cliffhangers, you make the call. The AI instantly branches the narrative timeline and renders a new sequence.</p>
+
+          <div class="branch-box" id="branchBox">
+            <h3 style="font-size: 13px; font-weight: 700; color: var(--red-lt); text-transform: uppercase; letter-spacing: 0.05em;" id="branchTitle">Cliffhanger Reached!</h3>
+            <p style="font-size: 14px; margin-top: 8px; font-weight: 600;" id="branchPrompt">How should Marcus handle the surprise investigators at his door?</p>
+
+            <div id="choiceContainer">
+              <!-- Choices populated dynamically by script -->
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPT -->
+  <script src="script.js?v=2.0"></script>
+  <script>
+    // Initialize watch specific interactive mockups
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initWatchPortal === 'function') {
+        initWatchPortal();
+      }
+    });
+  </script>
+</body>
+</html>
